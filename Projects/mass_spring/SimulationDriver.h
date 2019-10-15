@@ -22,7 +22,9 @@ public:
 
     SimulationDriver()
       // : dt((T)0.00001) 
-      : dt((T)0.0015)  // 150 times bigger dt than explicit. We can't go arbitrarily large because we are still doing approximations to the non-linear problem using taylor expansion.
+      : dt((T)0.0015)  // 150 times bigger dt than explicit. 
+      //We can't go arbitrarily large because we are still doing approximations 
+      //to the non-linear problem using taylor expansion.
     {
         gravity.setZero();
         gravity(1) = -9.8;
@@ -54,19 +56,19 @@ public:
     {
         int N_points = ms.x.size();
         int N_dof = dim*N_points;
-	std::vector<TV> f_spring;
+	    std::vector<TV> f_spring;
         ms.evaluateSpringForces(f_spring);
-	std::vector<TV> f_damping;
-	ms.evaluateDampingForces(f_damping);
+	    std::vector<TV> f_damping;
+	    ms.evaluateDampingForces(f_damping);
 	
-	for(int p=0; p<N_points; p++){
+        for(int p=0; p<N_points; p++){
             if(ms.node_is_fixed[p]){
-	      ms.v[p] = TV::Zero();
+                ms.v[p] = TV::Zero();
             }
-	    else{
-	      ms.v[p] += ((f_spring[p]+f_damping[p])/ms.m[p]+gravity)*dt;
-	      ms.x[p] += ms.v[p]*dt;
-	    }
+            else{
+                ms.v[p] += ((f_spring[p]+f_damping[p])/ms.m[p]+gravity)*dt;
+                ms.x[p] += ms.v[p]*dt;
+            }
         }
     }
     
@@ -81,12 +83,24 @@ public:
         std::vector<TV> fn;
         ms.evaluateSpringForces(fn);
 
-	Vec rhs(N_dof);
+	    Vec rhs(N_dof);
         rhs.setZero();
 	///////////////////////////////////////////////
 	//  ASSIGNMENT ////////////////////////////////
 	//  Add you code to build f /////////////////// 
 	///////////////////////////////////////////////
+        for(int p=0; p<N_points; p++) {
+            T mass = ms.m[p];
+            TV velocity = ms.v[p];
+            TV spring_force = fn[p];
+            for (int d = 0; d < dim; d++) {
+                int i = p * dim + d; // global dof index
+                T Mv = mass * velocity[d] / dt;
+                T Mg = mass * gravity[d];
+                T total = Mv + spring_force[d] + Mg;
+                rhs[i] += total;
+            }
+        }
   
         // build the matrix
         // Mass matrix contribution (assembly to global)
@@ -122,6 +136,15 @@ public:
 	    //  ASSIGNMENT /////////////////////////////////////////////////// 
 	    //  Add you code to construct local elasticity matrix K_local
 	    /////////////////////////////////////////////// //////////////////
+            Eigen::Matrix<T, dim, dim> I = Eigen::Matrix<T, dim, dim>::Identity();
+            Eigen::Matrix<T,dim,dim> nnt = n * n.transpose();
+            Eigen::Matrix<T, dim, dim> K = E * (1.0/l0 - 1.0/l) * (I - nnt) + E / l0 * nnt;
+
+            Eigen::Matrix<T,dim*2,dim*2> K_local;
+            K_local.template block<dim,dim>(0,0) = -K;
+            K_local.template block<dim,dim>(dim,0) = K;
+            K_local.template block<dim,dim>(0,dim) = K;
+            K_local.template block<dim,dim>(dim,dim) = -K;
 
 	    ////////////////////////////////////////////////////////////////// 
 	    //  ASSIGNMENT /////////////////////////////////////////////////// 
@@ -129,6 +152,22 @@ public:
 	    //  Note that you need to take care of dirichlet-0 nodes in the
 	    //     corresponding row and columns (by keeping those entries 0)
 	    /////////////////////////////////////////////// //////////////////
+
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    for (int x = 0; x < dim; x++) {
+                        for (int y = 0; y < dim; y++) {
+                            if (!ms.node_is_fixed[particle[i]] && !ms.node_is_fixed[particle[j]]) {
+                                int xIndex = particle[i] * dim + x;
+                                int yIndex = particle[j] * dim + y;
+                                int n = dim*i+x;
+                                int m = dim*j+y;
+                                A.coeffRef(xIndex, yIndex) -= G_local(n, m)/dt + K_local(n, m);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // process dirichlet-0 nodes at the diagonal of A
