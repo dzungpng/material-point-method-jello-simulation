@@ -42,21 +42,26 @@ int main(int argc, char* argv[])
     // END TESTING TETMESH STUFF
 
 
-    SegmentMesh<T, dim> mesh = SegmentMesh<T, dim>("../../cube.vtk");
+    SegmentMesh<T, dim> mesh = SegmentMesh<T, dim>("../../torus.vtk");
 
     // for (int i=0; i < mesh.m.size(); i++) {
     //     cout << "Mass "  << i << " is:" << mesh.m[i] << "\n";
     // }
 
     
-    for (int i=0; i < mesh.segments.size(); i++) {
-        cout << "Segment "  << i << " is:" << mesh.segments[i](0) << ", " << mesh.segments[i](1) << "\n";
-    }  
+    // for (int i=0; i < mesh.segments.size(); i++) {
+    //     cout << "Segment "  << i << " is: " << mesh.segments[i](0) << ", " << mesh.segments[i](1) << "\n";
+    // }  
     
+
+    // for (int i=0; i < mesh.x.size(); i++) {
+    //     cout << "Pos " << i << " is: " << mesh.x[i](0) << " " << mesh.x[i](1) << " " << mesh.x[i](2) << "\n";
+    // }
+    // Cloth<T, dim> cloth;
 
     // simulate
     driver.ms.segments = mesh.segments;
-    driver.ms.m =mesh.m;
+    driver.ms.m = mesh.m;
     driver.ms.v = mesh.v;
     driver.ms.x = mesh.x;
     driver.ms.youngs_modulus = youngs_modulus;
@@ -64,7 +69,7 @@ int main(int argc, char* argv[])
     driver.ms.node_is_fixed = mesh.node_is_fixed;
     driver.ms.rest_length = mesh.rest_length;
 
-    driver.run(120);
+    driver.run(50);
 
     return 0;
 }

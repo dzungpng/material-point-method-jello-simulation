@@ -31,7 +31,7 @@ public:
 
         sphere_center = TV::Ones()*0.5;
         sphere_radius = 0.2;
-        ground = 0.1;
+        ground = -3;
     }
 
     void run(const int max_frame)
@@ -198,28 +198,28 @@ public:
             if(xt(1) < ground){
                 T v0n = (ground - x0(1))/dt;
 
-		// This is some hack friction. Real friction force should depend on normal force magnitude.
-		T friction_coefficient = 0.1;
-		v0(0)*=friction_coefficient;
-		v0(2)*=friction_coefficient;
-		
-                v0(1) = v0n;
-                xt = x0 + v0*dt;
-                tentative_dx = xt-x0;
-            }
+            // This is some hack friction. Real friction force should depend on normal force magnitude.
+            T friction_coefficient = 0.1;
+            v0(0)*=friction_coefficient;
+            v0(2)*=friction_coefficient;
+            
+            v0(1) = v0n;
+            xt = x0 + v0*dt;
+            tentative_dx = xt-x0;
 
-            // sphere impulse
-            T distance_to_sphere_center = (xt-sphere_center).norm();
-            if (distance_to_sphere_center < sphere_radius)
-            {
-                TV inward_normal = (sphere_center-xt).normalized();
-                TV v0normal = v0.dot(inward_normal) * inward_normal;
-                TV v0tangent = v0 - v0normal;
-                v0normal -= (sphere_radius-distance_to_sphere_center)/dt*inward_normal;
-                v0 = v0normal + v0tangent;
-                xt = x0 + v0*dt;
-                tentative_dx = xt-x0;
-            }
+        }
+            //sphere impulse
+            // T distance_to_sphere_center = (xt-sphere_center).norm();
+            // if (distance_to_sphere_center < sphere_radius)
+            // {
+            //     TV inward_normal = (sphere_center-xt).normalized();
+            //     TV v0normal = v0.dot(inward_normal) * inward_normal;
+            //     TV v0tangent = v0 - v0normal;
+            //     v0normal -= (sphere_radius-distance_to_sphere_center)/dt*inward_normal;
+            //     v0 = v0normal + v0tangent;
+            //     xt = x0 + v0*dt;
+            //     tentative_dx = xt-x0;
+            // }
 
             ms.x[p] += tentative_dx;
             ms.v[p] = tentative_dx/dt;

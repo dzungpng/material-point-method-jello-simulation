@@ -78,30 +78,23 @@ public:
         pair<int, int> seg5;
         pair<int, int> seg6;
 
-        // seg1 << a,b;
-        // seg2 << a,c;
-        // seg3 << a,d;
-        // seg4 << b,c;
-        // seg5 << b,d;
-        // seg6 << c,d;
+        seg1.first = min(a,b);
+        seg1.second = max(a,b);
 
-        seg1.first = a;
-        seg1.second = b;
-
-        seg2.first = a;
-        seg2.second = c;
+        seg2.first = min(a,c);
+        seg2.second = max(a,c);
         
-        seg3.first = a;
-        seg3.second = d;
+        seg3.first = min(a,d);
+        seg3.second = max(a,d);
 
-        seg4.first = b;
-        seg4.second = c;
+        seg4.first = min(b,c);
+        seg4.second = max(b,c);
 
-        seg5.first = b;
-        seg5.second = d;
+        seg5.first = min(b,d);
+        seg5.second = max(b,d);
 
-        seg6.first = c;
-        seg6.second = d;
+        seg6.first = min(c,d);
+        seg6.second = max(c,d);
 
         segment_set.insert(seg1);
         segment_set.insert(seg2);
@@ -109,43 +102,6 @@ public:
         segment_set.insert(seg4);
         segment_set.insert(seg5);
         segment_set.insert(seg6);
-
-        // T rest_length_ab = (x[b] - x[a]).norm();
-        // T rest_length_ac = (x[c] - x[a]).norm();
-        // T rest_length_ad = (x[d] - x[a]).norm();
-        // T rest_length_bc = (x[b] - x[c]).norm();
-        // T rest_length_bd = (x[b] - x[d]).norm();
-        // T rest_length_cd = (x[d] - x[c]).norm();
-
-        // rest_length.push_back(rest_length_ab);
-        // rest_length.push_back(rest_length_ac);
-        // rest_length.push_back(rest_length_ad);
-        // rest_length.push_back(rest_length_bc);
-        // rest_length.push_back(rest_length_bd);
-        // rest_length.push_back(rest_length_cd);
-
-        // m[a] += rest_length_ab*density/2;
-        // m[a] += rest_length_ac*density/2;
-        // m[a] += rest_length_ad*density/2;
-
-        // m[b] += rest_length_ab*density/2;
-        // m[b] += rest_length_bc*density/2;
-        // m[b] += rest_length_bd*density/2;
-
-        // m[c] += rest_length_ac*density/2;
-        // m[c] += rest_length_bc*density/2;
-        // m[c] += rest_length_cd*density/2;
-
-        // m[d] += rest_length_ad*density/2;
-        // m[d] += rest_length_bd*density/2;
-        // m[d] += rest_length_cd*density/2;
-
-        // segments.push_back(seg1);
-        // segments.push_back(seg2);
-        // segments.push_back(seg3);
-        // segments.push_back(seg4);
-        // segments.push_back(seg5);
-        // segments.push_back(seg6);
     } 
 
     void buildSegments(const string vtkFilePath,
@@ -216,10 +172,10 @@ public:
     unordered_set<pair<int, int>, hash_pair> segment_set; 
 
     int N; // Number of vertices.
-    T density = 2.f; // 1.4
+    T density = 0.1f; // 1.4
     VTKParser<T, dim> parser;
     
-    // CONSTRUCTORS
+    // CONSTRUCTOR
     SegmentMesh(string vtkFilePath) {
         parser.buildSegments(
             vtkFilePath,
@@ -229,8 +185,8 @@ public:
             density,
             v
         );
+        
         node_is_fixed.resize(N, false);
-
         m.resize(N);
 
         unordered_set<pair<int, int>, hash_pair>::iterator itr; 
@@ -244,8 +200,8 @@ public:
             segment << idx1, idx2;
             segments.push_back(segment);
 
-            m[idx1] = len*density/2;
-            m[idx2] = len*density/2;
+            m[idx1] += len*density/2;
+            m[idx2] += len*density/2;
         }
     }
 };
