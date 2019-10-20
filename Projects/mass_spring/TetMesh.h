@@ -6,7 +6,19 @@
 #include <string>
 #include <stdlib.h>     /* strtof */
 #include <cstring>
+#include <unordered_set>
 using namespace std;
+
+
+struct hash_pair { 
+    template <class T1, class T2> 
+    size_t operator()(const pair<T1, T2>& p) const
+    { 
+        auto hash1 = hash<T1>{}(p.first); 
+        auto hash2 = hash<T2>{}(p.second); 
+        return hash1 ^ hash2; 
+    } 
+}; 
 
 /*
  * Class that parses a vtk file and construct a mapping representing segments
@@ -43,9 +55,7 @@ public:
     } 
 
     void parseSegments(const string str,
-                       vector<Eigen::Matrix<int,2,1>>& segments,
-                       vector<T>& m,
-                       vector<T>& rest_length,
+                       unordered_set<pair<int, int>, hash_pair>& segment_set,
                        vector<TV>& x,
                        const T density) 
     { 
@@ -61,64 +71,87 @@ public:
         float c = strtof (bEnd, &cEnd);
         float d = strtof (cEnd, NULL);
 
-        Eigen::Matrix<int,2,1> seg1;
-        Eigen::Matrix<int,2,1> seg2;
-        Eigen::Matrix<int,2,1> seg3;
-        Eigen::Matrix<int,2,1> seg4;
-        Eigen::Matrix<int,2,1> seg5;
-        Eigen::Matrix<int,2,1> seg6;
+        pair<int, int> seg1;
+        pair<int, int> seg2;
+        pair<int, int> seg3;
+        pair<int, int> seg4;
+        pair<int, int> seg5;
+        pair<int, int> seg6;
 
-        seg1 << a,b;
-        seg2 << a,c;
-        seg3 << a,d;
-        seg4 << b,c;
-        seg5 << b,d;
-        seg6 << c,d;
+        // seg1 << a,b;
+        // seg2 << a,c;
+        // seg3 << a,d;
+        // seg4 << b,c;
+        // seg5 << b,d;
+        // seg6 << c,d;
 
-        T rest_length_ab = (x[b] - x[a]).norm();
-        T rest_length_ac = (x[c] - x[a]).norm();
-        T rest_length_ad = (x[d] - x[a]).norm();
-        T rest_length_bc = (x[b] - x[c]).norm();
-        T rest_length_bd = (x[b] - x[d]).norm();
-        T rest_length_cd = (x[d] - x[c]).norm();
+        seg1.first = a;
+        seg1.second = b;
 
-        rest_length.push_back(rest_length_ab);
-        rest_length.push_back(rest_length_ac);
-        rest_length.push_back(rest_length_ad);
-        rest_length.push_back(rest_length_bc);
-        rest_length.push_back(rest_length_bd);
-        rest_length.push_back(rest_length_cd);
+        seg2.first = a;
+        seg2.second = c;
+        
+        seg3.first = a;
+        seg3.second = d;
 
-        m[a] += rest_length_ab*density/2;
-        m[a] += rest_length_ac*density/2;
-        m[a] += rest_length_ad*density/2;
+        seg4.first = b;
+        seg4.second = c;
 
-        m[b] += rest_length_ab*density/2;
-        m[b] += rest_length_bc*density/2;
-        m[b] += rest_length_bd*density/2;
+        seg5.first = b;
+        seg5.second = d;
 
-        m[c] += rest_length_ac*density/2;
-        m[c] += rest_length_bc*density/2;
-        m[c] += rest_length_cd*density/2;
+        seg6.first = c;
+        seg6.second = d;
 
-        m[d] += rest_length_ad*density/2;
-        m[d] += rest_length_bd*density/2;
-        m[d] += rest_length_cd*density/2;
+        segment_set.insert(seg1);
+        segment_set.insert(seg2);
+        segment_set.insert(seg3);
+        segment_set.insert(seg4);
+        segment_set.insert(seg5);
+        segment_set.insert(seg6);
 
-        segments.push_back(seg1);
-        segments.push_back(seg2);
-        segments.push_back(seg3);
-        segments.push_back(seg4);
-        segments.push_back(seg5);
-        segments.push_back(seg6);
+        // T rest_length_ab = (x[b] - x[a]).norm();
+        // T rest_length_ac = (x[c] - x[a]).norm();
+        // T rest_length_ad = (x[d] - x[a]).norm();
+        // T rest_length_bc = (x[b] - x[c]).norm();
+        // T rest_length_bd = (x[b] - x[d]).norm();
+        // T rest_length_cd = (x[d] - x[c]).norm();
+
+        // rest_length.push_back(rest_length_ab);
+        // rest_length.push_back(rest_length_ac);
+        // rest_length.push_back(rest_length_ad);
+        // rest_length.push_back(rest_length_bc);
+        // rest_length.push_back(rest_length_bd);
+        // rest_length.push_back(rest_length_cd);
+
+        // m[a] += rest_length_ab*density/2;
+        // m[a] += rest_length_ac*density/2;
+        // m[a] += rest_length_ad*density/2;
+
+        // m[b] += rest_length_ab*density/2;
+        // m[b] += rest_length_bc*density/2;
+        // m[b] += rest_length_bd*density/2;
+
+        // m[c] += rest_length_ac*density/2;
+        // m[c] += rest_length_bc*density/2;
+        // m[c] += rest_length_cd*density/2;
+
+        // m[d] += rest_length_ad*density/2;
+        // m[d] += rest_length_bd*density/2;
+        // m[d] += rest_length_cd*density/2;
+
+        // segments.push_back(seg1);
+        // segments.push_back(seg2);
+        // segments.push_back(seg3);
+        // segments.push_back(seg4);
+        // segments.push_back(seg5);
+        // segments.push_back(seg6);
     } 
 
     void buildSegments(const string vtkFilePath,
                        int& N,
                        vector<TV>& x,
-                       vector<Eigen::Matrix<int,2,1>>& segments,
-                       vector<T>& rest_length,
-                       vector<T>& m,
+                       unordered_set<pair<int, int>, hash_pair>& segment_set,
                        const T density,
                        vector<TV>& v){
         ifstream file(vtkFilePath);
@@ -134,14 +167,11 @@ public:
                     string::size_type s; 
                     N = stoi(first_numberstring(line),&s);
                     x.resize(N);
-                    m.resize(N);
                     v.resize(N);
-
                     int id = 0;
                     while(getline(file, position) && !position.empty()) {
                         parseXYZPosition(position, x[id]);
                         v[id] = TV::Zero();
-                        m[id] = 0.f;
                         id++;
                     }
                 } 
@@ -152,9 +182,7 @@ public:
                     while(getline(file, tet) && !tet.empty()) {
                         parseSegments(
                             tet,
-                            segments,
-                            m,
-                            rest_length,
+                            segment_set,
                             x,
                             density
                         );
@@ -177,13 +205,15 @@ public:
     using TV = Eigen::Matrix<T,dim,1>;
 
     // MEMBERS 
-    vector<T> m; // built in parser
+    vector<T> m; // built in constructor
     vector<TV> x; // built in parser
     vector<TV> v; // built in sim
 
-    vector<Eigen::Matrix<int,2,1>> segments; // built in parser
+    vector<Eigen::Matrix<int,2,1>> segments; // built in constructor
     vector<T> rest_length; // built in parser
     vector<bool> node_is_fixed;
+
+    unordered_set<pair<int, int>, hash_pair> segment_set; 
 
     int N; // Number of vertices.
     T density = 2.f; // 1.4
@@ -195,12 +225,27 @@ public:
             vtkFilePath,
             N,
             x,
-            segments,
-            rest_length,
-            m,
+            segment_set,
             density,
             v
         );
         node_is_fixed.resize(N, false);
+
+        m.resize(N);
+
+        unordered_set<pair<int, int>, hash_pair>::iterator itr; 
+        for (itr = segment_set.begin(); itr != segment_set.end(); itr++) {
+            int idx1 = (*itr).first;
+            int idx2 = (*itr).second;
+            T len = (x[idx2]-x[idx1]).norm();
+            rest_length.push_back(len);
+
+            Eigen::Matrix<int,2,1> segment;
+            segment << idx1, idx2;
+            segments.push_back(segment);
+
+            m[idx1] = len*density/2;
+            m[idx2] = len*density/2;
+        }
     }
 };
