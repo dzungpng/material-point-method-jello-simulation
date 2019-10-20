@@ -9,6 +9,7 @@
 #include <chrono>
 
 #include "SimulationDriver.h"
+#include "TetMesh.h"
 
 int main(int argc, char* argv[])
 {
@@ -47,6 +48,16 @@ int main(int argc, char* argv[])
         }
     }
     node_is_fixed.resize(N_points,false);
+
+
+    // TESTING TETMESH STUFF
+    VTKParser<T, dim> parser;
+    // parser.buildSegments("../../torus.vtk");
+    TV position_v;
+    parser.parseXYZPosition("1.4245435 3.456465645 0.234958452435203456456", position_v);
+    std::cout << position_v << '\n';
+    
+    
     // for(int i=0; i<N; i++)
     //     node_is_fixed[i] = true;
 
@@ -130,7 +141,7 @@ int main(int argc, char* argv[])
     driver.ms.node_is_fixed = node_is_fixed;
     driver.ms.rest_length = rest_length;
 
-    driver.run(240);
+    //driver.run(240);
 
     return 0;
 }

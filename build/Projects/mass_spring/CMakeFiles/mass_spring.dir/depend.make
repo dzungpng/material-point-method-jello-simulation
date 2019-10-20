@@ -3,6 +3,7 @@
 
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o: ../Projects/mass_spring/MassSpringSystem.h
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o: ../Projects/mass_spring/SimulationDriver.h
+Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o: ../Projects/mass_spring/TetMesh.h
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o: ../Projects/mass_spring/main.cpp
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o: /usr/include/eigen3/Eigen/Core

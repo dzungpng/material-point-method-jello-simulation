@@ -85,10 +85,8 @@ public:
 
 	    Vec rhs(N_dof);
         rhs.setZero();
-	///////////////////////////////////////////////
-	//  ASSIGNMENT ////////////////////////////////
-	//  Add you code to build f /////////////////// 
-	///////////////////////////////////////////////
+
+        // DONE: Building the rhs vector
         for(int p=0; p<N_points; p++) {
             T mass = ms.m[p];
             TV velocity = ms.v[p];
@@ -132,10 +130,7 @@ public:
             G_local.template block<dim,dim>(0,dim) = bnn;
             G_local.template block<dim,dim>(dim,dim) = -bnn;
 
-	    ////////////////////////////////////////////////////////////////// 
-	    //  ASSIGNMENT /////////////////////////////////////////////////// 
-	    //  Add you code to construct local elasticity matrix K_local
-	    /////////////////////////////////////////////// //////////////////
+            // DONE: Building local elasticity matrix K_local
             Eigen::Matrix<T, dim, dim> I = Eigen::Matrix<T, dim, dim>::Identity();
             Eigen::Matrix<T,dim,dim> nnt = n * n.transpose();
             Eigen::Matrix<T, dim, dim> K = E * (1.0/l0 - 1.0/l) * (I - nnt) + E / l0 * nnt;
@@ -147,7 +142,7 @@ public:
             K_local.template block<dim,dim>(dim,dim) = -K;
 
 	    ////////////////////////////////////////////////////////////////// 
-	    //  ASSIGNMENT /////////////////////////////////////////////////// 
+	    //  DONE /////////////////////////////////////////////////// 
 	    //  Add you code to add contributions of elasticity and damping to A
 	    //  Note that you need to take care of dirichlet-0 nodes in the
 	    //     corresponding row and columns (by keeping those entries 0)

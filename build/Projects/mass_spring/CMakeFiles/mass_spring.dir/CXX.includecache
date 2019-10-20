@@ -30,6 +30,24 @@ iostream
 MassSpringSystem.h
 /home/dzung/Mass-spring-2/Projects/mass_spring/MassSpringSystem.h
 
+/home/dzung/Mass-spring-2/Projects/mass_spring/TetMesh.h
+Eigen/Sparse
+-
+unsupported/Eigen/IterativeSolvers
+-
+sys/stat.h
+-
+iostream
+-
+fstream
+-
+string
+-
+stdlib.h
+-
+cstring
+-
+
 /home/dzung/Mass-spring-2/Projects/mass_spring/main.cpp
 Eigen/Core
 -
@@ -51,6 +69,8 @@ chrono
 -
 SimulationDriver.h
 /home/dzung/Mass-spring-2/Projects/mass_spring/SimulationDriver.h
+TetMesh.h
+/home/dzung/Mass-spring-2/Projects/mass_spring/TetMesh.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

@@ -4,6 +4,7 @@
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o
  /home/dzung/Mass-spring-2/Projects/mass_spring/MassSpringSystem.h
  /home/dzung/Mass-spring-2/Projects/mass_spring/SimulationDriver.h
+ /home/dzung/Mass-spring-2/Projects/mass_spring/TetMesh.h
  /home/dzung/Mass-spring-2/Projects/mass_spring/main.cpp
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
