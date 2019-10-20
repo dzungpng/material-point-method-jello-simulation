@@ -26,3 +26,6 @@ cd ../Projects/mass_spring
 ./mass_spring
 ```
 Output will be saved in Projects/mass_spring/output/, which can then be viewed by Houdini.
+
+## Tetgen command
+tetgen -pYkCVq1.1/15a1e-4BNEFI *.ply

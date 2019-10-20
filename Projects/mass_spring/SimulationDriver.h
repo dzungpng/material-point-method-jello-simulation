@@ -43,7 +43,7 @@ public:
             for (int step = 1; step <= N_substeps; step++) {
                 std::cout << "Step " << step << std::endl;
                 // advanceOneStepExplicitIntegration();
-		advanceOneStepImplicitIntegration();
+		        advanceOneStepImplicitIntegration();
             }
             mkdir("output/", 0777);
             std::string filename = "output/" + std::to_string(frame) + ".poly";

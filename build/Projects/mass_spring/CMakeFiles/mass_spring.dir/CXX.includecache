@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/dzung/Mass-spring-2/Projects/mass_spring/Cloth.h
+Eigen/Sparse
+-
+unsupported/Eigen/IterativeSolvers
+-
+sys/stat.h
+-
+iostream
+-
+
 /home/dzung/Mass-spring-2/Projects/mass_spring/MassSpringSystem.h
 Eigen/Core
 -
@@ -67,6 +77,8 @@ random
 -
 chrono
 -
+Cloth.h
+/home/dzung/Mass-spring-2/Projects/mass_spring/Cloth.h
 SimulationDriver.h
 /home/dzung/Mass-spring-2/Projects/mass_spring/SimulationDriver.h
 TetMesh.h
