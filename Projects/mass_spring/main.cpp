@@ -51,23 +51,33 @@ int main(int argc, char* argv[])
 
 
     // TESTING TETMESH STUFF
-    VTKParser<T, dim> parser;
-    // parser.buildSegments("../../torus.vtk");
-    TV position_v;
-    parser.parseXYZPosition("1.4245435 3.456465645 0.234958452435203456456", position_v);
-    std::cout << position_v << '\n';
+    // VTKParser<T, dim> parser;
+    // vector<TV> test_x;
+    // int test_N;
+    // vector<Eigen::Matrix<int,2,1>> test_segments;
+    // parser.buildSegments("../../torus.vtk", test_N, test_x, test_segments);
     
     
+    // for (int i=0; i < test_x.size(); i++) {
+    //     cout << "Vertex "  << i << " is:" << test_x[i](0) << ", " << test_x[i](1) << ", " << test_x[i](2) << "\n";
+    // }    
+
+    // for (int i=0; i < test_segments.size(); i++) {
+    //     cout << "Segment "  << i << " is:" << test_segments[i](0) << ", " << test_segments[i](1) << "\n";
+    // } 
+
+    // END TESTING TETMESH STUFF
+    
+
+
     // for(int i=0; i<N; i++)
     //     node_is_fixed[i] = true;
-
-    
-//    node_is_fixed[0] = true;
-//    node_is_fixed[(N-1)*N] = true;
-//    node_is_fixed[N_points-1] = true;
-//    node_is_fixed[(N-1)] = true;
-//    for(int i=(N-1)*N; i<N_points; i++)
-//        node_is_fixed[i] = true;
+    //    node_is_fixed[0] = true;
+    //    node_is_fixed[(N-1)*N] = true;
+    //    node_is_fixed[N_points-1] = true;
+    //    node_is_fixed[(N-1)] = true;
+    //    for(int i=(N-1)*N; i<N_points; i++)
+    //        node_is_fixed[i] = true;
 
 
     // structure

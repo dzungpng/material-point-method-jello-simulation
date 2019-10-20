@@ -28,24 +28,50 @@ public:
         return string();
     }
 
-    void parseXYZPosition(string str, TV& position) 
+    void parseXYZPosition(const string str, TV& position) 
     { 
         char cstr[str.size() + 1];
         strcpy(cstr, str.c_str());
         char* xEnd;
         char* yEnd;
-        float x, y, z;
-        x = strtof (cstr, &xEnd);
-        y = strtof (xEnd, &yEnd);
-        z = strtof (yEnd, NULL);
+        float x = strtof (cstr, &xEnd);
+        float y = strtof (xEnd, &yEnd);
+        float z = strtof (yEnd, NULL);
         position(0) = x;
         position(1) = y;
         position(2) = z;
     } 
 
-    std::vector<Eigen::Matrix<int,2,1>> buildSegments(string vtkFilePath,
-                                                      int& N,
-                                                      vector<TV>& x){
+    void parseSegments(const string str, vector<Eigen::Matrix<int,2,1>>& segments) 
+    { 
+        char cstr[str.size() + 1];
+        strcpy(cstr, str.c_str());
+        char* End;
+        char* aEnd;
+        char* bEnd;
+        char* cEnd;
+        strtof (cstr, &End);
+        float a = strtof (End, &aEnd);
+        float b = strtof (aEnd, &bEnd);
+        float c = strtof (bEnd, &cEnd);
+        float d = strtof (cEnd, NULL);
+
+        Eigen::Matrix<int,2,1> seg1;
+        Eigen::Matrix<int,2,1> seg2;
+        Eigen::Matrix<int,2,1> seg3;
+
+        seg1 << b,a;
+        seg2 << c,a;
+        seg3 << d,a;
+
+        segments.push_back(seg1);
+        segments.push_back(seg2);
+        segments.push_back(seg3);
+    } 
+
+    void buildSegments(const string vtkFilePath,
+                       int& N, vector<TV>& x,
+                       vector<Eigen::Matrix<int,2,1>>& segments){
         ifstream file(vtkFilePath);
         string line;
         if (file.is_open()) 
@@ -53,22 +79,29 @@ public:
             while(getline(file, line))
             {
                 if (line.rfind("POINTS", 0) == 0) {
-                    // Adding the positions of each point into x vector
+                    // Adding the pox[i](1) << ", " << test_x[i](2) <<sitions of each point into x vector
                     string position;
-                    N = int(first_numberstring(line));
-                    x.resize(N*N);
+                    // Getting number of vertices
+                    string::size_type s; 
+                    N = stoi(first_numberstring(line),&s);
+                    x.resize(N);
                     int id = 0;
                     while(getline(file, position) && !position.empty()) {
                         parseXYZPosition(position, x[id]);
-                        id+=1;
+                        id++;
+                    }
+                } 
+                if (line.rfind("CELLS", 0) == 0) {
+                    string tet;
+                    string::size_type s;
+                    while(getline(file, tet) && !tet.empty()) {
+                        parseSegments(tet, segments);
                     }
                 }
             }
             file.close();
         }
         else cout << "Unable to open file.";
-        cout << "Total vertices read: " << N << '\n';
-        return std::vector<Eigen::Matrix<int,2,1>>(); 
     }
 }; 
 
@@ -81,6 +114,7 @@ class SegmentMesh {
 public:
     using TV = Eigen::Matrix<T,dim,1>;
 
+    // MEMBERS 
     std::vector<T> m;
     std::vector<TV> x;
     std::vector<TV> v;
@@ -89,4 +123,10 @@ public:
     std::vector<T> rest_length;
 
     int N; // Number of vertices.
+
+    // CONSTRUCTORS
+    SegmentMesh(string vtkFilePath) {
+        VTKParser<T, dim> parser;
+        parser.buildSegments("../../torus.vtk", N, x, segments);
+    }
 };
