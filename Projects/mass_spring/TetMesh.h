@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stdlib.h>     /* strtof */
+#include <stdlib.h> /* strtof */
 #include <cstring>
 #include <unordered_set>
 using namespace std;
