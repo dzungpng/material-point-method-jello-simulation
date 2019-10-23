@@ -31,7 +31,7 @@ public:
 
         sphere_center = TV::Ones()*0.5;
         sphere_radius = 0.2;
-        ground = -3;
+        ground = -5;
     }
 
     void run(const int max_frame)
@@ -41,7 +41,7 @@ public:
 
             int N_substeps = (int)(((T)1/24)/dt);
             for (int step = 1; step <= N_substeps; step++) {
-                std::cout << "Step " << step << std::endl;
+                //std::cout << "Step " << step << std::endl;
                 // advanceOneStepExplicitIntegration();
 		        advanceOneStepImplicitIntegration();
             }

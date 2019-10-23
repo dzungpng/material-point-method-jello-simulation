@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     T youngs_modulus = 2000;
     T damping_coeff = 2; // 0
 
-    SegmentMesh<T, dim> mesh = SegmentMesh<T, dim>("../../torus.vtk");
+    SegmentMesh<T, dim> mesh = SegmentMesh<T, dim>("../../use-this-torus.vtk");
 
     // simulate
     driver.ms.segments = mesh.segments;
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
     driver.ms.node_is_fixed = mesh.node_is_fixed;
     driver.ms.rest_length = mesh.rest_length;
 
-    driver.run(120);
+    driver.run(150);
 
     return 0;
 }
