@@ -5,7 +5,6 @@
 #include <string>
 #include <fstream>
 
-#include "Grid.h"
 
 template<class T, int dim>
 class ParticleSimulationSystem{
@@ -15,14 +14,31 @@ public:
     std::vector<T> m;
     std::vector<TV> x;
     std::vector<TV> v;
-
-    CartesianGrid<3> grid;
-
     
     ParticleSimulationSystem() {}
 
-    void evaluateParticlePositions() {
-        grid.clear();
+    void computeParticleMomentum() {
+        // TODO
+        return;
+    }
 
+    void dumpPoly(std::string filename)
+    {
+        std::ofstream fs;
+        fs.open(filename);
+        fs << "POINTS\n";
+        int count = 0;
+        for (auto X : x) {
+            fs << ++count << ":";
+            for (int i = 0; i < dim; i++)
+                fs << " " << X(i);
+            if (dim == 2)
+                fs << " 0";
+            fs << "\n";
+        }
+        fs << "POLYS\n";
+        count = 0;
+        fs << "END\n";
+        fs.close();
     }
 };

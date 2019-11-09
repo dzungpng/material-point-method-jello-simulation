@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/dzung/Continuum-kinematics/Projects/mass_spring/Cloth.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/Geometry/Grid.h
 Eigen/Sparse
 -
 unsupported/Eigen/IterativeSolvers
@@ -28,6 +28,20 @@ string
 fstream
 -
 
+/home/dzung/Continuum-kinematics/Projects/mass_spring/ParticleSimulationSystem.h
+Eigen/Core
+-
+Eigen/Dense
+-
+vector
+-
+string
+-
+fstream
+-
+
+/home/dzung/Continuum-kinematics/Projects/mass_spring/Sampling.h
+
 /home/dzung/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
 Eigen/Sparse
 -
@@ -39,26 +53,8 @@ iostream
 -
 MassSpringSystem.h
 /home/dzung/Continuum-kinematics/Projects/mass_spring/MassSpringSystem.h
-
-/home/dzung/Continuum-kinematics/Projects/mass_spring/TetMesh.h
-Eigen/Sparse
--
-unsupported/Eigen/IterativeSolvers
--
-sys/stat.h
--
-iostream
--
-fstream
--
-string
--
-stdlib.h
--
-cstring
--
-unordered_set
--
+ParticleSimulationSystem.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/ParticleSimulationSystem.h
 
 /home/dzung/Continuum-kinematics/Projects/mass_spring/main.cpp
 Eigen/Core
@@ -79,12 +75,12 @@ random
 -
 chrono
 -
-Cloth.h
-/home/dzung/Continuum-kinematics/Projects/mass_spring/Cloth.h
 SimulationDriver.h
 /home/dzung/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
-TetMesh.h
-/home/dzung/Continuum-kinematics/Projects/mass_spring/TetMesh.h
+Geometry/Grid.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/Geometry/Grid.h
+Sampling.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/Sampling.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core
