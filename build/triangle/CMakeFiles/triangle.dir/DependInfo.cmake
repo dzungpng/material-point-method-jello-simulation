@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/dzung/Mass-spring-2/Deps/libigl/external/triangle/triangle.c" "/home/dzung/Mass-spring-2/build/triangle/CMakeFiles/triangle.dir/triangle.c.o"
+  "/home/dzung/Continuum-kinematics/Deps/libigl/external/triangle/triangle.c" "/home/dzung/Continuum-kinematics/build/triangle/CMakeFiles/triangle.dir/triangle.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
   "ANSI_DECLARATORS"
-  "CISPBA_PLUGIN_DIR=\"/home/dzung/Mass-spring-2/build/Plugins\""
+  "CISPBA_PLUGIN_DIR=\"/home/dzung/Continuum-kinematics/build/Plugins\""
   "TRILIBRARY"
   )
 

@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3f695/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3f695.dir/build.make CMakeFiles/cmTC_3f695.dir/build
-make[1]: Entering directory '/home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3f695.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno    -o CMakeFiles/cmTC_3f695.dir/CheckSymbolExists.cxx.o -c /home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
-Linking CXX executable cmTC_3f695
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3f695.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno     -rdynamic CMakeFiles/cmTC_3f695.dir/CheckSymbolExists.cxx.o  -o cmTC_3f695 
-CMakeFiles/cmTC_3f695.dir/CheckSymbolExists.cxx.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_1651e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1651e.dir/build.make CMakeFiles/cmTC_1651e.dir/build
+make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1651e.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno    -o CMakeFiles/cmTC_1651e.dir/CheckSymbolExists.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_1651e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1651e.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno     -rdynamic CMakeFiles/cmTC_1651e.dir/CheckSymbolExists.cxx.o  -o cmTC_1651e 
+CMakeFiles/cmTC_1651e.dir/CheckSymbolExists.cxx.o: In function `main':
 CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_3f695.dir/build.make:97: recipe for target 'cmTC_3f695' failed
-make[1]: *** [cmTC_3f695] Error 1
-make[1]: Leaving directory '/home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_3f695/fast' failed
-make: *** [cmTC_3f695/fast] Error 2
+CMakeFiles/cmTC_1651e.dir/build.make:97: recipe for target 'cmTC_1651e' failed
+make[1]: *** [cmTC_1651e] Error 1
+make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1651e/fast' failed
+make: *** [cmTC_1651e/fast] Error 2
 
-File /home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+File /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b97f4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b97f4.dir/build.make CMakeFiles/cmTC_b97f4.dir/build
-make[1]: Entering directory '/home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b97f4.dir/CheckFunctionExists.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b97f4.dir/CheckFunctionExists.cxx.o -c /home/dzung/Mass-spring-2/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_b97f4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b97f4.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_b97f4.dir/CheckFunctionExists.cxx.o  -o cmTC_b97f4 -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_43448/fast"
+/usr/bin/make -f CMakeFiles/cmTC_43448.dir/build.make CMakeFiles/cmTC_43448.dir/build
+make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_43448.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_43448.dir/CheckFunctionExists.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_43448
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43448.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_43448.dir/CheckFunctionExists.cxx.o  -o cmTC_43448 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_b97f4.dir/build.make:97: recipe for target 'cmTC_b97f4' failed
-make[1]: *** [cmTC_b97f4] Error 1
-make[1]: Leaving directory '/home/dzung/Mass-spring-2/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_b97f4/fast' failed
-make: *** [cmTC_b97f4/fast] Error 2
+CMakeFiles/cmTC_43448.dir/build.make:97: recipe for target 'cmTC_43448' failed
+make[1]: *** [cmTC_43448] Error 1
+make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_43448/fast' failed
+make: *** [cmTC_43448/fast] Error 2
 
 

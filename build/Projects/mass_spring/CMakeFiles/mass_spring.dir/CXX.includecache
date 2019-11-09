@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/dzung/Mass-spring-2/Projects/mass_spring/Cloth.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/Cloth.h
 Eigen/Sparse
 -
 unsupported/Eigen/IterativeSolvers
@@ -16,7 +16,7 @@ sys/stat.h
 iostream
 -
 
-/home/dzung/Mass-spring-2/Projects/mass_spring/MassSpringSystem.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/MassSpringSystem.h
 Eigen/Core
 -
 Eigen/Dense
@@ -28,7 +28,7 @@ string
 fstream
 -
 
-/home/dzung/Mass-spring-2/Projects/mass_spring/SimulationDriver.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
 Eigen/Sparse
 -
 unsupported/Eigen/IterativeSolvers
@@ -38,9 +38,9 @@ sys/stat.h
 iostream
 -
 MassSpringSystem.h
-/home/dzung/Mass-spring-2/Projects/mass_spring/MassSpringSystem.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/MassSpringSystem.h
 
-/home/dzung/Mass-spring-2/Projects/mass_spring/TetMesh.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/TetMesh.h
 Eigen/Sparse
 -
 unsupported/Eigen/IterativeSolvers
@@ -60,7 +60,7 @@ cstring
 unordered_set
 -
 
-/home/dzung/Mass-spring-2/Projects/mass_spring/main.cpp
+/home/dzung/Continuum-kinematics/Projects/mass_spring/main.cpp
 Eigen/Core
 -
 Eigen/Dense
@@ -80,11 +80,11 @@ random
 chrono
 -
 Cloth.h
-/home/dzung/Mass-spring-2/Projects/mass_spring/Cloth.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/Cloth.h
 SimulationDriver.h
-/home/dzung/Mass-spring-2/Projects/mass_spring/SimulationDriver.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
 TetMesh.h
-/home/dzung/Mass-spring-2/Projects/mass_spring/TetMesh.h
+/home/dzung/Continuum-kinematics/Projects/mass_spring/TetMesh.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

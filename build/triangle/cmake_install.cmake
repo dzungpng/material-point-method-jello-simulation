@@ -1,4 +1,4 @@
-# Install script for directory: /home/dzung/Mass-spring-2/Deps/libigl/external/triangle
+# Install script for directory: /home/dzung/Continuum-kinematics/Deps/libigl/external/triangle
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

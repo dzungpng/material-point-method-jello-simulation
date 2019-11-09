@@ -1,8 +1,8 @@
-# Install script for directory: /home/dzung/Mass-spring-2/build/partio-src
+# Install script for directory: /home/dzung/Continuum-kinematics/build/partio-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dzung/Mass-spring-2/Linux-5.0.0-x86_64")
+  set(CMAKE_INSTALL_PREFIX "/home/dzung/Continuum-kinematics/Linux-5.0.0-x86_64")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/dzung/Mass-spring-2/build/partio-build/src/lib/cmake_install.cmake")
+  include("/home/dzung/Continuum-kinematics/build/partio-build/src/lib/cmake_install.cmake")
 
 endif()
 

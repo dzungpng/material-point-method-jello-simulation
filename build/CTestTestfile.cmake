@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/dzung/Mass-spring-2
-# Build directory: /home/dzung/Mass-spring-2/build
+# Source directory: /home/dzung/Continuum-kinematics
+# Build directory: /home/dzung/Continuum-kinematics/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

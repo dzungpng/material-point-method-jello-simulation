@@ -1,4 +1,4 @@
-# Install script for directory: /home/dzung/Mass-spring-2/Projects
+# Install script for directory: /home/dzung/Continuum-kinematics/Projects
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/dzung/Mass-spring-2/build/Projects/mass_spring/cmake_install.cmake")
+  include("/home/dzung/Continuum-kinematics/build/Projects/mass_spring/cmake_install.cmake")
 
 endif()
 

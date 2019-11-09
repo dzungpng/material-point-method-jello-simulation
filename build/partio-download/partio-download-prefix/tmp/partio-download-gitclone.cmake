@@ -4,21 +4,21 @@ endif()
 
 set(run 0)
 
-if("/home/dzung/Mass-spring-2/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt" IS_NEWER_THAN "/home/dzung/Mass-spring-2/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt")
+if("/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt" IS_NEWER_THAN "/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt")
   set(run 1)
 endif()
 
 if(NOT run)
-  message(STATUS "Avoiding repeated git clone, stamp file is up to date: '/home/dzung/Mass-spring-2/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
+  message(STATUS "Avoiding repeated git clone, stamp file is up to date: '/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
   return()
 endif()
 
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E remove_directory "/home/dzung/Mass-spring-2/build/partio-src"
+  COMMAND ${CMAKE_COMMAND} -E remove_directory "/home/dzung/Continuum-kinematics/build/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to remove directory: '/home/dzung/Mass-spring-2/build/partio-src'")
+  message(FATAL_ERROR "Failed to remove directory: '/home/dzung/Continuum-kinematics/build/partio-src'")
 endif()
 
 set(git_options)
@@ -53,7 +53,7 @@ set(number_of_tries 0)
 while(error_code AND number_of_tries LESS 3)
   execute_process(
     COMMAND "/usr/bin/git" ${git_options} clone ${git_clone_options} --origin "origin" "https://github.com/wdas/partio.git" "partio-src"
-    WORKING_DIRECTORY "/home/dzung/Mass-spring-2/build"
+    WORKING_DIRECTORY "/home/dzung/Continuum-kinematics/build"
     RESULT_VARIABLE error_code
     )
   math(EXPR number_of_tries "${number_of_tries} + 1")
@@ -68,7 +68,7 @@ endif()
 
 execute_process(
   COMMAND "/usr/bin/git" ${git_options} checkout v1.1.0 --
-  WORKING_DIRECTORY "/home/dzung/Mass-spring-2/build/partio-src"
+  WORKING_DIRECTORY "/home/dzung/Continuum-kinematics/build/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
@@ -77,32 +77,32 @@ endif()
 
 execute_process(
   COMMAND "/usr/bin/git" ${git_options} submodule init 
-  WORKING_DIRECTORY "/home/dzung/Mass-spring-2/build/partio-src"
+  WORKING_DIRECTORY "/home/dzung/Continuum-kinematics/build/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to init submodules in: '/home/dzung/Mass-spring-2/build/partio-src'")
+  message(FATAL_ERROR "Failed to init submodules in: '/home/dzung/Continuum-kinematics/build/partio-src'")
 endif()
 
 execute_process(
   COMMAND "/usr/bin/git" ${git_options} submodule update --recursive --init 
-  WORKING_DIRECTORY "/home/dzung/Mass-spring-2/build/partio-src"
+  WORKING_DIRECTORY "/home/dzung/Continuum-kinematics/build/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to update submodules in: '/home/dzung/Mass-spring-2/build/partio-src'")
+  message(FATAL_ERROR "Failed to update submodules in: '/home/dzung/Continuum-kinematics/build/partio-src'")
 endif()
 
 # Complete success, update the script-last-run stamp file:
 #
 execute_process(
   COMMAND ${CMAKE_COMMAND} -E copy
-    "/home/dzung/Mass-spring-2/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt"
-    "/home/dzung/Mass-spring-2/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt"
-  WORKING_DIRECTORY "/home/dzung/Mass-spring-2/build/partio-src"
+    "/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitinfo.txt"
+    "/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt"
+  WORKING_DIRECTORY "/home/dzung/Continuum-kinematics/build/partio-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to copy script-last-run stamp file: '/home/dzung/Mass-spring-2/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
+  message(FATAL_ERROR "Failed to copy script-last-run stamp file: '/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-gitclone-lastrun.txt'")
 endif()
 

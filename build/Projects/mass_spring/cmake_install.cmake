@@ -1,4 +1,4 @@
-# Install script for directory: /home/dzung/Mass-spring-2/Projects/mass_spring
+# Install script for directory: /home/dzung/Continuum-kinematics/Projects/mass_spring
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/mass_spring"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/dzung/Mass-spring-2/Projects/mass_spring/mass_spring")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/dzung/Continuum-kinematics/Projects/mass_spring/mass_spring")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/mass_spring" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/mass_spring")
     if(CMAKE_INSTALL_DO_STRIP)

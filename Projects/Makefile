@@ -7,11 +7,11 @@
 SHELL := /bin/bash
 RM    := rm -rf
 MKDIR := mkdir -p
-BUILDROOT := /home/dzung/Mass-spring-2/Build
+BUILDROOT := /home/dzung/Continuum-kinematics/Build
 BUILDDEFAULT := Release
 RELATIVEPATH := Projects
 BUILDDIR = $(BUILDROOT)/$(BUILDDEFAULT)/$(RELATIVEPATH)
-ROOTDIR := /home/dzung/Mass-spring-2
+ROOTDIR := /home/dzung/Continuum-kinematics
 BUILDTYPES := Release MinSizeRel Debug Coverage RelWithDebInfo Quick
 OTHERGOALS := $(filter-out distclean $(BUILDTYPES),$(MAKECMDGOALS))
 

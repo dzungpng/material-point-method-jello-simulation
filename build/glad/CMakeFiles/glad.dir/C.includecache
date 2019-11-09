@@ -34,7 +34,7 @@ stdint.h
 inttypes.h
 -
 
-/home/dzung/Mass-spring-2/Deps/libigl/external/glad/src/glad.c
+/home/dzung/Continuum-kinematics/Deps/libigl/external/glad/src/glad.c
 stdio.h
 -
 stdlib.h

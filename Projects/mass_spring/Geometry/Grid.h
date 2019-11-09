@@ -21,7 +21,9 @@ class CartesianGrid {
 public:
     // MEMBERS
     Eigen::Matrix<GridNode, dim, dim> grid;
+    CartesianGrid() {}
 
-    
-
+    void clear() {
+        this = CartesianGrid<dim>();
+    }
 };
