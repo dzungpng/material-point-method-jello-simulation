@@ -1,18 +1,18 @@
 #pragma once
+#include "pcg32.h"
 
 template<class T, int dim>
 class Sampling {
 public:
     using TV = Eigen::Matrix<T,dim,1>;
     /**
-     * Stratefied sampling in a 3-dimensional grid.
+     * TODO: Stratefied sampling in a 3-dimensional grid.
      **/
     static std::vector<TV> stratefiedSampling(int &numSamples) {
-        // TODO
         // The square root of the number of samples input
-        int sqrtVal = (int) (std::sqrt((float) numSamples) + 0.5);
+        int sqrtVal = (int) (std::sqrt((T) numSamples) + 0.5);
         // A number useful for scaling a square of size sqrtVal x sqrtVal to 1 x 1
-        float invSqrtVal = 1.f / sqrtVal;
+        T invSqrtVal = 1.f / sqrtVal;
 
         std::vector<TV> samples;
 
@@ -20,7 +20,34 @@ public:
         samples.resize(numSamples);
 
         // random number generator
+        pcg32 rng;
+        // rng.seed(42u, 54u);
 
-        return std::vector<TV>();
+        for (int i = 0; i < numSamples; i++) {
+            TV sample; 
+
+            int z = i % sqrtVal;
+            int y = i % sqrtVal;    
+            int x = i % sqrtVal;
+
+            T randOffset_x = rng.nextFloat();
+            T randOffset_y = rng.nextFloat();
+            T randOffset_z = rng.nextFloat();
+
+            T scaled_x = (T)x/(T)sqrtVal;
+            T scaled_y = (T)y/(T)sqrtVal;
+            T scaled_z = (T)z/(T)sqrtVal;
+
+            float actualPlacement_x = scaled_x + (T)1/(T)sqrtVal * randOffset_x;
+            float actualPlacement_y = scaled_y +  (T)1/(T)sqrtVal * randOffset_y;
+            float actualPlacement_z = scaled_z + (T)1/(T)sqrtVal * randOffset_z;
+
+            sample(0) = actualPlacement_x;
+            sample(1) = actualPlacement_y;
+            sample(2) = actualPlacement_z;
+
+            samples.push_back(sample);
+        }
+        return samples;
     }
 };

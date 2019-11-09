@@ -28,9 +28,16 @@ int main(int argc, char* argv[])
     res(1) = res(1) / grid.dx + 1;
     res(2) = res(2) / grid.dx + 1;
 
-    int numSamples = 1000;
+    int numSamples = 20;
     // Sample particles
     std::vector<TV> samples = Sampling<T, dim>::stratefiedSampling(numSamples);
+    
+    std::cout << numSamples << "\n";
+
+    for(int i=0; i < samples.size(); i++) {
+        std::cout << "Point " << i << ": " << samples[i](0) << ", " << samples[i](1) << ", " << samples[i](2) << "\n";
+    }
+    
 
     // Set up particle attributes
     std::vector<T> mp;
