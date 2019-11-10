@@ -2,6 +2,7 @@
 #include <unsupported/Eigen/IterativeSolvers>
 #include <sys/stat.h>
 #include <iostream>
+#include <map> 
 
 // template<class T, int dim>
 // class GridNode {
@@ -30,9 +31,11 @@ public:
     // cell width
     T dx = 0.02;
 
-    std::vector<T> mg;
-    std::vector<TV> vg;
-    std::vector<TV> force;
+    // std::vector<T> mg;
+    // std::vector<TV> vg;
+    std::map<TV, T> mg; // mapping grid coords to mass
+    std::map<TV, TV> vg; // mapping grid coords to velocity
+    std::vector<TV> force; // mapping grid coords to force
  
     // grid dimensions
     TV res;
