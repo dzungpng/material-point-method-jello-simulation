@@ -26,12 +26,24 @@ public:
     // MEMBERS
     TV minCorner;
     TV maxCorner;
+
+    // cell width
     T dx = 0.02;
 
+    std::vector<T> mg;
+    std::vector<TV> vg;
+    std::vector<TV> force;
+ 
+    // grid dimensions
+    TV res;
+    
     CartesianGrid() : minCorner(TV::Zero()), maxCorner(TV::Ones()) {}
     CartesianGrid(TV minCorner,TV maxCorner) : minCorner(minCorner), maxCorner(maxCorner) {}
 
     void clear() {
-        return;
+        mg.clear();
+        vg.clear();
+        force.clear();
     }
+
 };

@@ -11,9 +11,9 @@ class ParticleSimulationSystem{
 public:
     using TV = Eigen::Matrix<T,dim,1>;
 
-    std::vector<T> m;
-    std::vector<TV> x;
-    std::vector<TV> v;
+    std::vector<T> mp;
+    std::vector<TV> xp;
+    std::vector<TV> vp;
     
     ParticleSimulationSystem() {}
 
@@ -28,7 +28,7 @@ public:
         fs.open(filename);
         fs << "POINTS\n";
         int count = 0;
-        for (auto X : x) {
+        for (auto X : xp) {
             fs << ++count << ":";
             for (int i = 0; i < dim; i++)
                 fs << " " << X(i);
