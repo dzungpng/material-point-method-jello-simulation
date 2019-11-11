@@ -18,19 +18,7 @@ iostream
 map
 -
 
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/MassSpringSystem.h
-Eigen/Core
--
-Eigen/Dense
--
-vector
--
-string
--
-fstream
--
-
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/ParticleSimulationSystem.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/ParticleSystem.h
 Eigen/Core
 -
 Eigen/Dense
@@ -55,10 +43,12 @@ sys/stat.h
 -
 iostream
 -
-MassSpringSystem.h
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/MassSpringSystem.h
-ParticleSimulationSystem.h
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/ParticleSimulationSystem.h
+ParticleSystem.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/ParticleSystem.h
+Geometry/Grid.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Geometry/Grid.h
+Sampling.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling.h
 
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/main.cpp
 Eigen/Core
@@ -81,8 +71,6 @@ chrono
 -
 SimulationDriver.h
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
-Geometry/Grid.h
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Geometry/Grid.h
 Sampling.h
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling.h
 
