@@ -1,4 +1,4 @@
-# Install script for directory: /home/dzung/Continuum-kinematics/Deps/libigl/external/glad
+# Install script for directory: /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/glad
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

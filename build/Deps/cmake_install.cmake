@@ -1,4 +1,4 @@
-# Install script for directory: /home/dzung/Continuum-kinematics/Deps
+# Install script for directory: /home/dzung/Desktop/Continuum-kinematics/Deps
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/dzung/Continuum-kinematics/build/partio-build/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/partio-build/cmake_install.cmake")
 
 endif()
 

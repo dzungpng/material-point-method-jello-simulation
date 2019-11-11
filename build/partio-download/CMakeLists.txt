@@ -4,9 +4,9 @@ project(partio-download NONE)
 
 include(ExternalProject)
 ExternalProject_Add(partio-download
-                    GIT_REPOSITORY;https://github.com/wdas/partio.git;GIT_TAG;v1.1.0;UPDATE_DISCONNECTED;1;PATCH_COMMAND;/usr/bin/git;apply;/home/dzung/Continuum-kinematics/Deps/partio.patch
-                    SOURCE_DIR          "/home/dzung/Continuum-kinematics/build/partio-src"
-                    BINARY_DIR          "/home/dzung/Continuum-kinematics/build/partio-build"
+                    GIT_REPOSITORY;https://github.com/wdas/partio.git;GIT_TAG;v1.1.0;UPDATE_DISCONNECTED;1;PATCH_COMMAND;/usr/bin/git;apply;/home/dzung/Desktop/Continuum-kinematics/Deps/partio.patch
+                    SOURCE_DIR          "/home/dzung/Desktop/Continuum-kinematics/build/partio-src"
+                    BINARY_DIR          "/home/dzung/Desktop/Continuum-kinematics/build/partio-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

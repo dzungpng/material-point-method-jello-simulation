@@ -1,8 +1,8 @@
-# Install script for directory: /home/dzung/Continuum-kinematics/build/partio-src/src/lib
+# Install script for directory: /home/dzung/Desktop/Continuum-kinematics/build/partio-src/src/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dzung/Continuum-kinematics/Linux-5.0.0-x86_64")
+  set(CMAKE_INSTALL_PREFIX "/home/dzung/Desktop/Continuum-kinematics/Linux-5.0.0-x86_64")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,14 +38,14 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/dzung/Continuum-kinematics/build/partio-build/lib/libpartio.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/dzung/Desktop/Continuum-kinematics/build/partio-build/lib/libpartio.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/dzung/Continuum-kinematics/build/partio-src/src/lib/Partio.h"
-    "/home/dzung/Continuum-kinematics/build/partio-src/src/lib/PartioAttribute.h"
-    "/home/dzung/Continuum-kinematics/build/partio-src/src/lib/PartioIterator.h"
+    "/home/dzung/Desktop/Continuum-kinematics/build/partio-src/src/lib/Partio.h"
+    "/home/dzung/Desktop/Continuum-kinematics/build/partio-src/src/lib/PartioAttribute.h"
+    "/home/dzung/Desktop/Continuum-kinematics/build/partio-src/src/lib/PartioIterator.h"
     )
 endif()
 

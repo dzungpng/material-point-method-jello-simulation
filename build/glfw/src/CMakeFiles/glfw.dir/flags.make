@@ -4,9 +4,9 @@
 # compile C with /usr/bin/cc
 C_FLAGS = -O3 -DNDEBUG -fPIC   -Wall
 
-C_DEFINES = -DCISPBA_PLUGIN_DIR=\"/home/dzung/Continuum-kinematics/build/Plugins\" -D_GLFW_USE_CONFIG_H
+C_DEFINES = -DCISPBA_PLUGIN_DIR=\"/home/dzung/Desktop/Continuum-kinematics/build/Plugins\" -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I/home/dzung/Continuum-kinematics/Deps/libigl/external/glfw/include -I/home/dzung/Continuum-kinematics/Deps/libigl/external/glfw/src -I/home/dzung/Continuum-kinematics/build/glfw/src 
+C_INCLUDES = -I/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/glfw/include -I/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/glfw/src -I/home/dzung/Desktop/Continuum-kinematics/build/glfw/src 
 
 # Custom flags: glfw/src/CMakeFiles/glfw.dir/context.c.o_FLAGS = -Wdeclaration-after-statement
 

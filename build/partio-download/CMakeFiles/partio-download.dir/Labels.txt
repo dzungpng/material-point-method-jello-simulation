@@ -1,14 +1,14 @@
 # Target labels
  partio-download
 # Source files and their labels
-/home/dzung/Continuum-kinematics/build/partio-download/CMakeFiles/partio-download
-/home/dzung/Continuum-kinematics/build/partio-download/CMakeFiles/partio-download.rule
-/home/dzung/Continuum-kinematics/build/partio-download/CMakeFiles/partio-download-complete.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-install.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-mkdir.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-download.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-patch.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-configure.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-build.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-test.rule
-/home/dzung/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-skip-update.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/CMakeFiles/partio-download
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/CMakeFiles/partio-download.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/CMakeFiles/partio-download-complete.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-install.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-mkdir.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-download.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-patch.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-configure.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-build.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-test.rule
+/home/dzung/Desktop/Continuum-kinematics/build/partio-download/partio-download-prefix/src/partio-download-stamp/partio-download-skip-update.rule

@@ -118,13 +118,13 @@ assert.h
 imgui_user.h
 ../Deps/libigl/external/imgui/imgui/imgui_user.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imconfig.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imconfig.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp
 imgui.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
 imgui_internal.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_internal.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_internal.h
 ctype.h
 -
 stdlib.h
@@ -136,7 +136,7 @@ stddef.h
 stdint.h
 -
 stb_textedit.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_textedit.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_textedit.h
 Windows.h
 -
 windows.h
@@ -144,11 +144,11 @@ windows.h
 imm.h
 -
 imgui_user.inl
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_user.inl
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_user.inl
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
 imconfig.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imconfig.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imconfig.h
 float.h
 -
 stdarg.h
@@ -160,11 +160,11 @@ string.h
 assert.h
 -
 imgui_user.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_user.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_user.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp
 imgui.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
 ctype.h
 -
 math.h
@@ -178,11 +178,11 @@ stddef.h
 stdint.h
 -
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp
 imgui.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.h
 imgui_internal.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_internal.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_internal.h
 stdio.h
 -
 malloc.h
@@ -192,11 +192,11 @@ alloca.h
 stdlib.h
 -
 stb_rect_pack.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_rect_pack.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_rect_pack.h
 stb_truetype.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_internal.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_internal.h
 stdio.h
 -
 math.h
@@ -204,25 +204,25 @@ math.h
 limits.h
 -
 stb_textedit.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_textedit.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_textedit.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_rect_pack.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_rect_pack.h
 stdlib.h
 -
 assert.h
 -
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_textedit.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_textedit.h
 string.h
 -
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
 stb_truetype.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
 stdio.h
 -
 stb_truetype.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/stb_truetype.h
 math.h
 -
 math.h
@@ -238,11 +238,11 @@ string.h
 memory.h
 -
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp
 imgui.h
 -
 imgui_impl_glfw_gl3.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.h
 glad/glad.h
 -
 GLFW/glfw3.h
@@ -250,5 +250,5 @@ GLFW/glfw3.h
 GLFW/glfw3native.h
 -
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.h
 

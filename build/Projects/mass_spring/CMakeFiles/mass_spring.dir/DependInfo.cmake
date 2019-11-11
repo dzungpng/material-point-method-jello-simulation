@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dzung/Continuum-kinematics/Projects/mass_spring/main.cpp" "/home/dzung/Continuum-kinematics/build/Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o"
+  "/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/main.cpp" "/home/dzung/Desktop/Continuum-kinematics/build/Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "CISPBA_PLUGIN_DIR=\"/home/dzung/Continuum-kinematics/build/Plugins\""
+  "CISPBA_PLUGIN_DIR=\"/home/dzung/Desktop/Continuum-kinematics/build/Plugins\""
   )
 
 # The include file search paths:

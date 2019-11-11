@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_FLAGS = -O3 -DNDEBUG  
 
-C_DEFINES = -DCISPBA_PLUGIN_DIR=\"/home/dzung/Continuum-kinematics/build/Plugins\"
+C_DEFINES = -DCISPBA_PLUGIN_DIR=\"/home/dzung/Desktop/Continuum-kinematics/build/Plugins\"
 
-C_INCLUDES = -I/home/dzung/Continuum-kinematics/Deps/libigl/external/glad/include 
+C_INCLUDES = -I/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/glad/include 
 

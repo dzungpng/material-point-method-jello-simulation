@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dzung/Continuum-kinematics
+CMAKE_SOURCE_DIR = /home/dzung/Desktop/Continuum-kinematics
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dzung/Continuum-kinematics/build
+CMAKE_BINARY_DIR = /home/dzung/Desktop/Continuum-kinematics/build
 
 # Include any dependencies generated for this target.
 include imgui/CMakeFiles/imgui.dir/depend.make
@@ -59,16 +59,16 @@ include imgui/CMakeFiles/imgui.dir/flags.make
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.o: imgui/CMakeFiles/imgui.dir/flags.make
 imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.o: ../Deps/libigl/external/imgui/imgui/imgui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.o"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui/imgui.cpp.o -c /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.o"
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui/imgui.cpp.o -c /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgui.dir/imgui/imgui.cpp.i"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp > CMakeFiles/imgui.dir/imgui/imgui.cpp.i
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp > CMakeFiles/imgui.dir/imgui/imgui.cpp.i
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgui.dir/imgui/imgui.cpp.s"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp -o CMakeFiles/imgui.dir/imgui/imgui.cpp.s
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui.cpp -o CMakeFiles/imgui.dir/imgui/imgui.cpp.s
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.o.requires:
 
@@ -83,16 +83,16 @@ imgui/CMakeFiles/imgui.dir/imgui/imgui.cpp.o.provides.build: imgui/CMakeFiles/im
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o: imgui/CMakeFiles/imgui.dir/flags.make
 imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o: ../Deps/libigl/external/imgui/imgui/imgui_demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o -c /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o"
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o -c /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.i"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp > CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.i
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp > CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.i
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.s"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp -o CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.s
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_demo.cpp -o CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.s
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o.requires:
 
@@ -107,16 +107,16 @@ imgui/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.o.provides.build: imgui/CMakeFil
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o: imgui/CMakeFiles/imgui.dir/flags.make
 imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o: ../Deps/libigl/external/imgui/imgui/imgui_draw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o -c /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o"
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o -c /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.i"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp > CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.i
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp > CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.i
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.s"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp -o CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.s
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui/imgui_draw.cpp -o CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.s
 
 imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o.requires:
 
@@ -131,16 +131,16 @@ imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o.provides.build: imgui/CMakeFil
 
 imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o: imgui/CMakeFiles/imgui.dir/flags.make
 imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o: ../Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o -c /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o"
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o -c /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp
 
 imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.i"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp > CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.i
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp > CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.i
 
 imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.s"
-	cd /home/dzung/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp -o CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.s
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui/imgui_impl_glfw_gl3.cpp -o CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.s
 
 imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o.requires:
 
@@ -169,9 +169,9 @@ imgui/libimgui.a: imgui/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.o
 imgui/libimgui.a: imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_gl3.cpp.o
 imgui/libimgui.a: imgui/CMakeFiles/imgui.dir/build.make
 imgui/libimgui.a: imgui/CMakeFiles/imgui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dzung/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libimgui.a"
-	cd /home/dzung/Continuum-kinematics/build/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui.dir/cmake_clean_target.cmake
-	cd /home/dzung/Continuum-kinematics/build/imgui && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgui.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libimgui.a"
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui.dir/cmake_clean_target.cmake
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgui.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 imgui/CMakeFiles/imgui.dir/build: imgui/libimgui.a
@@ -186,10 +186,10 @@ imgui/CMakeFiles/imgui.dir/requires: imgui/CMakeFiles/imgui.dir/imgui_impl_glfw_
 .PHONY : imgui/CMakeFiles/imgui.dir/requires
 
 imgui/CMakeFiles/imgui.dir/clean:
-	cd /home/dzung/Continuum-kinematics/build/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui.dir/cmake_clean.cmake
+	cd /home/dzung/Desktop/Continuum-kinematics/build/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui.dir/cmake_clean.cmake
 .PHONY : imgui/CMakeFiles/imgui.dir/clean
 
 imgui/CMakeFiles/imgui.dir/depend:
-	cd /home/dzung/Continuum-kinematics/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzung/Continuum-kinematics /home/dzung/Continuum-kinematics/Deps/libigl/external/imgui /home/dzung/Continuum-kinematics/build /home/dzung/Continuum-kinematics/build/imgui /home/dzung/Continuum-kinematics/build/imgui/CMakeFiles/imgui.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dzung/Desktop/Continuum-kinematics/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzung/Desktop/Continuum-kinematics /home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/imgui /home/dzung/Desktop/Continuum-kinematics/build /home/dzung/Desktop/Continuum-kinematics/build/imgui /home/dzung/Desktop/Continuum-kinematics/build/imgui/CMakeFiles/imgui.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : imgui/CMakeFiles/imgui.dir/depend
 

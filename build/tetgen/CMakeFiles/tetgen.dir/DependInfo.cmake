@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/predicates.cxx" "/home/dzung/Continuum-kinematics/build/tetgen/CMakeFiles/tetgen.dir/predicates.cxx.o"
-  "/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.cxx" "/home/dzung/Continuum-kinematics/build/tetgen/CMakeFiles/tetgen.dir/tetgen.cxx.o"
+  "/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/predicates.cxx" "/home/dzung/Desktop/Continuum-kinematics/build/tetgen/CMakeFiles/tetgen.dir/predicates.cxx.o"
+  "/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.cxx" "/home/dzung/Desktop/Continuum-kinematics/build/tetgen/CMakeFiles/tetgen.dir/tetgen.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "CISPBA_PLUGIN_DIR=\"/home/dzung/Continuum-kinematics/build/Plugins\""
+  "CISPBA_PLUGIN_DIR=\"/home/dzung/Desktop/Continuum-kinematics/build/Plugins\""
   "TETLIBRARY"
   )
 

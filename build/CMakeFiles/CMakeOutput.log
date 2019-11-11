@@ -10,33 +10,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/dzung/Continuum-kinematics/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8a9c4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8a9c4.dir/build.make CMakeFiles/cmTC_8a9c4.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_8a9c4.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_8a9c4.dir/testCXXCompiler.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_8a9c4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a9c4.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_8a9c4.dir/testCXXCompiler.cxx.o  -o cmTC_8a9c4 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_4e173/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4e173.dir/build.make CMakeFiles/cmTC_4e173.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4e173.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_4e173.dir/testCXXCompiler.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_4e173
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e173.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_4e173.dir/testCXXCompiler.cxx.o  -o cmTC_4e173 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_46b65/fast"
-/usr/bin/make -f CMakeFiles/cmTC_46b65.dir/build.make CMakeFiles/cmTC_46b65.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_46b65
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46b65.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_46b65 
+Run Build Command:"/usr/bin/make" "cmTC_6f171/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6f171.dir/build.make CMakeFiles/cmTC_6f171.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_6f171
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f171.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6f171 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -48,24 +48,24 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_46b65' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfc6hXd.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_46b65 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_46b65' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6f171' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBnOP4P.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_6f171 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6f171' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_46b65/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_46b65.dir/build.make CMakeFiles/cmTC_46b65.dir/build]
-  ignore line: [make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_46b65]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46b65.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_46b65 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_6f171/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_6f171.dir/build.make CMakeFiles/cmTC_6f171.dir/build]
+  ignore line: [make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_6f171]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f171.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6f171 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -77,13 +77,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_46b65' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfc6hXd.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_46b65 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6f171' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBnOP4P.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_6f171 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccfc6hXd.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccBnOP4P.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -103,7 +103,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_46b65] ==> ignore
+    arg [cmTC_6f171] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -115,7 +115,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_46b65.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_6f171.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -141,17 +141,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_725d2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_725d2.dir/build.make CMakeFiles/cmTC_725d2.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_725d2.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_725d2.dir/feature_tests.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_725d2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_725d2.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_725d2.dir/feature_tests.cxx.o  -o cmTC_725d2 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_5d309/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5d309.dir/build.make CMakeFiles/cmTC_5d309.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5d309.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_5d309.dir/feature_tests.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_5d309
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d309.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_5d309.dir/feature_tests.cxx.o  -o cmTC_5d309 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -214,17 +214,17 @@ make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CM
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3e9a3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3e9a3.dir/build.make CMakeFiles/cmTC_3e9a3.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3e9a3.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_3e9a3.dir/feature_tests.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3e9a3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e9a3.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_3e9a3.dir/feature_tests.cxx.o  -o cmTC_3e9a3 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_30549/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30549.dir/build.make CMakeFiles/cmTC_30549.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_30549.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_30549.dir/feature_tests.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_30549
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30549.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_30549.dir/feature_tests.cxx.o  -o cmTC_30549 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -287,17 +287,17 @@ make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CM
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1525b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1525b.dir/build.make CMakeFiles/cmTC_1525b.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1525b.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_1525b.dir/feature_tests.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1525b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1525b.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_1525b.dir/feature_tests.cxx.o  -o cmTC_1525b 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_7aebc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7aebc.dir/build.make CMakeFiles/cmTC_7aebc.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7aebc.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_7aebc.dir/feature_tests.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_7aebc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7aebc.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_7aebc.dir/feature_tests.cxx.o  -o cmTC_7aebc 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -360,17 +360,17 @@ make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CM
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a170d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a170d.dir/build.make CMakeFiles/cmTC_a170d.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_a170d.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_a170d.dir/feature_tests.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_a170d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a170d.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_a170d.dir/feature_tests.cxx.o  -o cmTC_a170d 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_8a4c3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8a4c3.dir/build.make CMakeFiles/cmTC_8a4c3.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8a4c3.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_8a4c3.dir/feature_tests.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_8a4c3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a4c3.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_8a4c3.dir/feature_tests.cxx.o  -o cmTC_8a4c3 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -441,33 +441,33 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/dzung/Continuum-kinematics/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b5563/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b5563.dir/build.make CMakeFiles/cmTC_b5563.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b5563.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_b5563.dir/testCCompiler.c.o   -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_b5563
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5563.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b5563.dir/testCCompiler.c.o  -o cmTC_b5563 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b7bf0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b7bf0.dir/build.make CMakeFiles/cmTC_b7bf0.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b7bf0.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_b7bf0.dir/testCCompiler.c.o   -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_b7bf0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7bf0.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b7bf0.dir/testCCompiler.c.o  -o cmTC_b7bf0 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c4713/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c4713.dir/build.make CMakeFiles/cmTC_c4713.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_c4713
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4713.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o  -o cmTC_c4713 
+Run Build Command:"/usr/bin/make" "cmTC_0deed/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0deed.dir/build.make CMakeFiles/cmTC_0deed.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_0deed
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0deed.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o  -o cmTC_0deed 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -479,24 +479,24 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c4713' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbiuA3z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c4713 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c4713' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0deed' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccanyAsB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0deed /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0deed' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c4713/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c4713.dir/build.make CMakeFiles/cmTC_c4713.dir/build]
-  ignore line: [make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_c4713]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4713.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o  -o cmTC_c4713 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0deed/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0deed.dir/build.make CMakeFiles/cmTC_0deed.dir/build]
+  ignore line: [make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_0deed]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0deed.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o  -o cmTC_0deed ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -508,13 +508,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c4713' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbiuA3z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c4713 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0deed' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccanyAsB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0deed /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccbiuA3z.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccanyAsB.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -534,7 +534,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_c4713] ==> ignore
+    arg [cmTC_0deed] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -546,7 +546,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_c4713.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_0deed.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -576,17 +576,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_47741/fast"
-/usr/bin/make -f CMakeFiles/cmTC_47741.dir/build.make CMakeFiles/cmTC_47741.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_47741.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_47741.dir/feature_tests.c.o   -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_47741
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47741.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_47741.dir/feature_tests.c.o  -o cmTC_47741 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fac78/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fac78.dir/build.make CMakeFiles/cmTC_fac78.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fac78.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_fac78.dir/feature_tests.c.o   -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_fac78
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fac78.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_fac78.dir/feature_tests.c.o  -o cmTC_fac78 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -596,17 +596,17 @@ make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CM
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fd68e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fd68e.dir/build.make CMakeFiles/cmTC_fd68e.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fd68e.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_fd68e.dir/feature_tests.c.o   -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_fd68e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd68e.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_fd68e.dir/feature_tests.c.o  -o cmTC_fd68e 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_9f591/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9f591.dir/build.make CMakeFiles/cmTC_9f591.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f591.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_9f591.dir/feature_tests.c.o   -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9f591
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f591.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9f591.dir/feature_tests.c.o  -o cmTC_9f591 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -616,17 +616,17 @@ make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CM
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1e6af/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1e6af.dir/build.make CMakeFiles/cmTC_1e6af.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1e6af.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_1e6af.dir/feature_tests.c.o   -c /home/dzung/Continuum-kinematics/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_1e6af
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1e6af.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_1e6af.dir/feature_tests.c.o  -o cmTC_1e6af 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_65918/fast"
+/usr/bin/make -f CMakeFiles/cmTC_65918.dir/build.make CMakeFiles/cmTC_65918.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65918.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_65918.dir/feature_tests.c.o   -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_65918
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65918.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_65918.dir/feature_tests.c.o  -o cmTC_65918 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -634,166 +634,166 @@ make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CM
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the include file pthread.h exists passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_39c62/fast"
-/usr/bin/make -f CMakeFiles/cmTC_39c62.dir/build.make CMakeFiles/cmTC_39c62.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_39c62.dir/CheckIncludeFile.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno    -o CMakeFiles/cmTC_39c62.dir/CheckIncludeFile.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
-Linking CXX executable cmTC_39c62
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_39c62.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno     -rdynamic CMakeFiles/cmTC_39c62.dir/CheckIncludeFile.cxx.o  -o cmTC_39c62 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_d1172/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d1172.dir/build.make CMakeFiles/cmTC_d1172.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d1172.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno    -o CMakeFiles/cmTC_d1172.dir/CheckIncludeFile.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_d1172
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1172.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno     -rdynamic CMakeFiles/cmTC_d1172.dir/CheckIncludeFile.cxx.o  -o cmTC_d1172 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7854e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7854e.dir/build.make CMakeFiles/cmTC_7854e.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7854e.dir/CheckFunctionExists.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7854e.dir/CheckFunctionExists.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_7854e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7854e.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7854e.dir/CheckFunctionExists.cxx.o  -o cmTC_7854e -lpthread 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_dd379/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dd379.dir/build.make CMakeFiles/cmTC_dd379.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dd379.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_dd379.dir/CheckFunctionExists.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_dd379
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd379.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_dd379.dir/CheckFunctionExists.cxx.o  -o cmTC_dd379 -lpthread 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_32340/fast"
-/usr/bin/make -f CMakeFiles/cmTC_32340.dir/build.make CMakeFiles/cmTC_32340.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_32340.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_32340.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_32340
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_32340.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    -rdynamic CMakeFiles/cmTC_32340.dir/CheckFunctionExists.c.o  -o cmTC_32340 /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_9e114/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9e114.dir/build.make CMakeFiles/cmTC_9e114.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9e114.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_9e114.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9e114
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e114.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    -rdynamic CMakeFiles/cmTC_9e114.dir/CheckFunctionExists.c.o  -o cmTC_9e114 /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function gethostbyname exists passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a5c49/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a5c49.dir/build.make CMakeFiles/cmTC_a5c49.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a5c49.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_a5c49.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_a5c49
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5c49.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    -rdynamic CMakeFiles/cmTC_a5c49.dir/CheckFunctionExists.c.o  -o cmTC_a5c49 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_e87de/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e87de.dir/build.make CMakeFiles/cmTC_e87de.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e87de.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_e87de.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e87de
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e87de.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    -rdynamic CMakeFiles/cmTC_e87de.dir/CheckFunctionExists.c.o  -o cmTC_e87de 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function connect exists passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_423ce/fast"
-/usr/bin/make -f CMakeFiles/cmTC_423ce.dir/build.make CMakeFiles/cmTC_423ce.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_423ce.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_423ce.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_423ce
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_423ce.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    -rdynamic CMakeFiles/cmTC_423ce.dir/CheckFunctionExists.c.o  -o cmTC_423ce 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_65121/fast"
+/usr/bin/make -f CMakeFiles/cmTC_65121.dir/build.make CMakeFiles/cmTC_65121.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65121.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_65121.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_65121
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65121.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    -rdynamic CMakeFiles/cmTC_65121.dir/CheckFunctionExists.c.o  -o cmTC_65121 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function remove exists passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0f085/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0f085.dir/build.make CMakeFiles/cmTC_0f085.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0f085.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_0f085.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_0f085
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f085.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    -rdynamic CMakeFiles/cmTC_0f085.dir/CheckFunctionExists.c.o  -o cmTC_0f085 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_c210d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c210d.dir/build.make CMakeFiles/cmTC_c210d.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c210d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_c210d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c210d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c210d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    -rdynamic CMakeFiles/cmTC_c210d.dir/CheckFunctionExists.c.o  -o cmTC_c210d 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function shmat exists passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fd602/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fd602.dir/build.make CMakeFiles/cmTC_fd602.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fd602.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_fd602.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_fd602
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd602.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    -rdynamic CMakeFiles/cmTC_fd602.dir/CheckFunctionExists.c.o  -o cmTC_fd602 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_36503/fast"
+/usr/bin/make -f CMakeFiles/cmTC_36503.dir/build.make CMakeFiles/cmTC_36503.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_36503.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_36503.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_36503
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36503.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    -rdynamic CMakeFiles/cmTC_36503.dir/CheckFunctionExists.c.o  -o cmTC_36503 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ccd17/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ccd17.dir/build.make CMakeFiles/cmTC_ccd17.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ccd17.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_ccd17.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_ccd17
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ccd17.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    -rdynamic CMakeFiles/cmTC_ccd17.dir/CheckFunctionExists.c.o  -o cmTC_ccd17 -lICE 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_55e41/fast"
+/usr/bin/make -f CMakeFiles/cmTC_55e41.dir/build.make CMakeFiles/cmTC_55e41.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55e41.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_55e41.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_55e41
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55e41.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    -rdynamic CMakeFiles/cmTC_55e41.dir/CheckFunctionExists.c.o  -o cmTC_55e41 -lICE 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 
 Performing C++ SOURCE FILE Test COMPILER_HAS_HIDDEN_VISIBILITY succeeded with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fe636/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fe636.dir/build.make CMakeFiles/cmTC_fe636.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_fe636.dir/src.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_VISIBILITY   -fvisibility=hidden -o CMakeFiles/cmTC_fe636.dir/src.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_fe636
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe636.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_VISIBILITY    -rdynamic CMakeFiles/cmTC_fe636.dir/src.cxx.o  -o cmTC_fe636 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_42a07/fast"
+/usr/bin/make -f CMakeFiles/cmTC_42a07.dir/build.make CMakeFiles/cmTC_42a07.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_42a07.dir/src.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_VISIBILITY   -fvisibility=hidden -o CMakeFiles/cmTC_42a07.dir/src.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_42a07
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_42a07.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_VISIBILITY    -rdynamic CMakeFiles/cmTC_42a07.dir/src.cxx.o  -o cmTC_42a07 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 Source file was:
 int main() { return 0; }
 Performing C++ SOURCE FILE Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY succeeded with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_26c66/fast"
-/usr/bin/make -f CMakeFiles/cmTC_26c66.dir/build.make CMakeFiles/cmTC_26c66.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_26c66.dir/src.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY   -fvisibility-inlines-hidden -o CMakeFiles/cmTC_26c66.dir/src.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_26c66
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26c66.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY    -rdynamic CMakeFiles/cmTC_26c66.dir/src.cxx.o  -o cmTC_26c66 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b20c2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b20c2.dir/build.make CMakeFiles/cmTC_b20c2.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b20c2.dir/src.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY   -fvisibility-inlines-hidden -o CMakeFiles/cmTC_b20c2.dir/src.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b20c2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b20c2.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY    -rdynamic CMakeFiles/cmTC_b20c2.dir/src.cxx.o  -o cmTC_b20c2 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 Source file was:
 int main() { return 0; }
 Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR succeeded with the following output:
-Change Dir: /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp
+Change Dir: /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_dc59f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_dc59f.dir/build.make CMakeFiles/cmTC_dc59f.dir/build
-make[1]: Entering directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_dc59f.dir/src.cxx.o
-/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_DEPRECATED_ATTR   -o CMakeFiles/cmTC_dc59f.dir/src.cxx.o -c /home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx
-/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
-/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx:2:34: warning: ‘int somefunc()’ is deprecated [-Wdeprecated-declarations]
+Run Build Command:"/usr/bin/make" "cmTC_da83c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_da83c.dir/build.make CMakeFiles/cmTC_da83c.dir/build
+make[1]: Entering directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_da83c.dir/src.cxx.o
+/usr/bin/c++    -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_DEPRECATED_ATTR   -o CMakeFiles/cmTC_da83c.dir/src.cxx.o -c /home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx
+/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx:2:34: warning: ‘int somefunc()’ is deprecated [-Wdeprecated-declarations]
      int main() { return somefunc();}
                                   ^
-/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx:1:37: note: declared here
+/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp/src.cxx:1:37: note: declared here
  __attribute__((__deprecated__)) int somefunc() { return 0; }
                                      ^~~~~~~~
-Linking CXX executable cmTC_dc59f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc59f.dir/link.txt --verbose=1
-/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_DEPRECATED_ATTR    -rdynamic CMakeFiles/cmTC_dc59f.dir/src.cxx.o  -o cmTC_dc59f 
-make[1]: Leaving directory '/home/dzung/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
+Linking CXX executable cmTC_da83c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da83c.dir/link.txt --verbose=1
+/usr/bin/c++   -Wno-reorder -Wno-sign-compare -Wno-format-nonliteral -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -Wredundant-decls -march=native -fno-math-errno -DCOMPILER_HAS_DEPRECATED_ATTR    -rdynamic CMakeFiles/cmTC_da83c.dir/src.cxx.o  -o cmTC_da83c 
+make[1]: Leaving directory '/home/dzung/Desktop/Continuum-kinematics/build/CMakeFiles/CMakeTmp'
 
 Source file was:
 __attribute__((__deprecated__)) int somefunc() { return 0; }

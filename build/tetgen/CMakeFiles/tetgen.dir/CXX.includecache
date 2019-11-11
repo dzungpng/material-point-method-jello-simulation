@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/predicates.cxx
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/predicates.cxx
 stdio.h
 -
 stdlib.h
@@ -18,15 +18,15 @@ float.h
 fpu_control.h
 -
 tetgen.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.h
 CGAL/Exact_predicates_inexact_constructions_kernel.h
 -
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.cxx
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.cxx
 tetgen.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/tetgen/tetgen.h
 stdio.h
 -
 stdlib.h

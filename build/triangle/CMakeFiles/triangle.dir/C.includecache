@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/triangle/triangle.c
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/triangle/triangle.c
 stdio.h
 -
 stdlib.h
@@ -22,7 +22,7 @@ float.h
 fpu_control.h
 -
 triangle.h
-/home/dzung/Continuum-kinematics/Deps/libigl/external/triangle/triangle.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/triangle/triangle.h
 
-/home/dzung/Continuum-kinematics/Deps/libigl/external/triangle/triangle.h
+/home/dzung/Desktop/Continuum-kinematics/Deps/libigl/external/triangle/triangle.h
 

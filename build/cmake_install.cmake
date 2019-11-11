@@ -1,4 +1,4 @@
-# Install script for directory: /home/dzung/Continuum-kinematics
+# Install script for directory: /home/dzung/Desktop/Continuum-kinematics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,15 +39,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/dzung/Continuum-kinematics/Deps/osqp/build/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/glad/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/glfw/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/imgui/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/stb_image/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/tetgen/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/triangle/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/Deps/cmake_install.cmake")
-  include("/home/dzung/Continuum-kinematics/build/Projects/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/Deps/osqp/build/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/glad/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/glfw/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/imgui/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/stb_image/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/tetgen/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/triangle/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/Deps/cmake_install.cmake")
+  include("/home/dzung/Desktop/Continuum-kinematics/build/Projects/cmake_install.cmake")
 
 endif()
 
@@ -59,5 +59,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dzung/Continuum-kinematics/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dzung/Desktop/Continuum-kinematics/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
