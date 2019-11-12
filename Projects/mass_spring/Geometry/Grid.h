@@ -14,7 +14,7 @@ public:
     TV maxCorner;
 
     // cell width
-    T cellWidth;
+    T cellWidth; // cell width
 
     std::vector<T> mg;
     std::vector<TV> vg;
@@ -22,8 +22,8 @@ public:
     std::vector<TV> force; // mapping grid coords to force
     std::vector<TV> active_nodes;
 
-    TV res;
-    T nCells;
+    TV res; // resolution of the grid
+    T nCells; // number of cells in the grid
     
     CartesianGrid() : minCorner(TV::Zero()), maxCorner(TV::Ones()) {}
     CartesianGrid(TV minCorner,TV maxCorner) : minCorner(minCorner), maxCorner(maxCorner) {}

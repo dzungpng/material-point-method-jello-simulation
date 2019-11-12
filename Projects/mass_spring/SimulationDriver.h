@@ -51,6 +51,7 @@ public:
         }
     }
 
+
     TV computeParticleMomentum(const std::vector<T> mp, const std::vector<TV> vp) {
         TV result = TV::Zero();
         for(int pIdx = 0; pIdx < mp.size(); pIdx++) {
@@ -71,36 +72,38 @@ public:
             X_index_space(0) = X(0)/grid.cellWidth;
             X_index_space(1) = X(1)/grid.cellWidth;
             X_index_space(2) = X(2)/grid.cellWidth;
+
+            std::cout << X_index_space(0) << ", " << X_index_space(1) << ", " << X_index_space(1) << "\n";
             
-            // X
-            TV w1; 
-            T base_node1;
-            Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
-            // Y
-            TV w2;
-            T base_node2;
-            Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
-            // Z
-            TV w3;
-            T base_node3;
-            Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
+            // // X
+            // TV w1; 
+            // T base_node1;
+            // Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
+            // // Y
+            // TV w2;
+            // T base_node2;
+            // Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
+            // // Z
+            // TV w3;
+            // T base_node3;
+            // Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
 
-            for(int i1=0; i1 < dim; i1++) {
-                float w_i1 = w1(i1);
-                int node_i1 = base_node1 + (i1 - 1);
+            // for(int i1=0; i1 < dim; i1++) {
+            //     float w_i1 = w1(i1);
+            //     int node_i1 = base_node1 + (i1 - 1);
 
-                for(int i2=0; i2 < dim; i2++) {
-                    T w_i1i2 = w_i1 * w2(i2);
-                    int node_i2 = base_node2 + (i2 - 1);
+            //     for(int i2=0; i2 < dim; i2++) {
+            //         T w_i1i2 = w_i1 * w2(i2);
+            //         int node_i2 = base_node2 + (i2 - 1);
 
-                    for(int i3=0; i3 < dim; i3++) {
-                        T w_i1i2i3 = w_i1i2 * w3(i3);
-                        int node_i3 = base_node3 + (i3 - 1);
+            //         for(int i3=0; i3 < dim; i3++) {
+            //             T w_i1i2i3 = w_i1i2 * w3(i3);
+            //             int node_i3 = base_node3 + (i3 - 1);
 
-                        std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
-                    }
-                }
-            }
+            //             std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
+            //         }
+            //     }
+            // }
         }
     }
 

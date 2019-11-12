@@ -15,10 +15,10 @@ public:
     std::vector<T> m;
     std::vector<TV> x;
     std::vector<TV> v;
-    T youngs_modulus;
-    T damping_coeff;
-    std::vector<bool> node_is_fixed;
-    std::vector<T> rest_length;
+    // T youngs_modulus;
+    // T damping_coeff;
+    // std::vector<bool> node_is_fixed;
+    // std::vector<T> rest_length;
 
     MassSpringSystem()
     {}

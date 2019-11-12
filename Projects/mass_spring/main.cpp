@@ -21,28 +21,21 @@ int main(int argc, char* argv[])
     // Set up particle system----------------------------------------------
     SimulationDriver<T,dim> driver;
 
-    // T mg[(int)grid.res(0)][(int)grid.res(1)][(int)grid.res(2)];
-    // TV vg[(int)grid.res(0)][(int)grid.res(1)][(int)grid.res(2)];
-    // TV force[(int)grid.res(0)][(int)grid.res(1)][(int)grid.res(2)];
- 
-    // int numGridCells = grid.res(0)*grid.res(1)*grid.res(2);
-    // std::cout << "Number of grid cells: " << numGridCells << "\n";
-
     // Sample particles----------------------------------------------
     int N = 28;
     int Np = N*N*N;
     // Distance between per particle
-    T dx = (T)1/(N-1);
+    T dx = (T)1/(T)(N);
 
     // Grid parameters----------------------------------------------
     CartesianGrid<T, dim> grid;
-    TV res;
-    res(0) = N/2;
-    res(1) = N/2;
-    res(2) = N/2;
+    TV res; // grid dimensions 
+    res(0) = 64; // X
+    res(1) = 64; // Y 
+    res(2) = 64; // Z
     grid.res = res;
-    grid.nCells = res(0)*res(1)*res(2);
-    grid.cellWidth = (T)1/N;
+    grid.cellWidth = res(0)/8;
+    grid.nCells = res(0)/grid.cellWidth*res(1)/grid.cellWidth*res(2)/grid.cellWidth;
 
     std::vector<T> mp;
     std::vector<TV> vp;
