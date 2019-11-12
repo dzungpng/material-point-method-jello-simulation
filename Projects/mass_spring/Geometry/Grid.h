@@ -20,7 +20,7 @@ public:
     std::vector<TV> vg;
     std::vector<TV> xg;
     std::vector<TV> force; // mapping grid coords to force
-    std::vector<TV> active_nodes;
+    std::vector<T> active_nodes;
 
     TV res; // resolution of the grid
     T nCells; // number of cells in the grid

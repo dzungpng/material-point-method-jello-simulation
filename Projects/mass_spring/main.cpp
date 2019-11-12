@@ -22,20 +22,22 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Sample particles----------------------------------------------
-    int N = 28;
+    int N = 16;
     int Np = N*N*N;
     // Distance between per particle
-    T dx = (T)1/(T)(N);
+    T dx = 0.02;
+    //T dx = 1;
 
     // Grid parameters----------------------------------------------
     CartesianGrid<T, dim> grid;
     TV res; // grid dimensions 
-    res(0) = 64; // X
-    res(1) = 64; // Y 
-    res(2) = 64; // Z
+    res(0) = N/4; // X
+    res(1) = N/4; // Y 
+    res(2) = N/4; // Z
     grid.res = res;
-    grid.cellWidth = res(0)/8;
-    grid.nCells = res(0)/grid.cellWidth*res(1)/grid.cellWidth*res(2)/grid.cellWidth;
+    grid.cellWidth = (T)N/(N/4);
+    std::cout << grid.cellWidth << "\n";
+    grid.nCells = res(0)*res(1)*res(2);
 
     std::vector<T> mp;
     std::vector<TV> vp;
@@ -76,84 +78,6 @@ int main(int argc, char* argv[])
     driver.ms.x = xp;
     driver.ms.v = vp;
     driver.run(2);
-
-    // for(int frame=1; frame<max_frame; frame++) {
-
-    //     int N_substeps = (int)(((T)1/24)/dt);
-    //     for (int step = 1; step <= N_substeps; step++) {
-    //         //std::cout << "Step " << step << std::endl;
-            
-    //         // Clear and reset grid
-    //         memset(mg, 0, (sizeof(mg)));
-    //         memset(vg, 0, (sizeof(vg)));
-    //         memset(force, 0, (sizeof(force)));
-            
-    //         // Particle 2 Grid
-    //         // computeParticleMomentum
-    //         TV result;
-    //         for(int pIdx = 0; pIdx < Np; pIdx++) {
-    //             for(int d = 0; d < dim; d++) {
-    //                 result(d) = result(d) + mp[pIdx] * vp[pIdx](d);
-    //             }
-    //         }
-    //         // std::cout << "Part momentum before p2g: " << result(0) << ", " << result(1) << ", " << result(2) << "\n";
-
-    //         // transferP2G
-    //         // At this point mg and cg should be resized and initialized
-    //         for(int pIdx = 0; pIdx < Np; pIdx++) {
-    //             TV x_p = samples[pIdx];
-
-    //             // Converting x_p to index space (aka dx between each grid cell = 1)
-    //             // ------------------------------------------------
-    //             TV x_p_index_space;
-    //             x_p_index_space(0) = x_p(0)/grid.dx;
-    //             x_p_index_space(1) = x_p(1)/grid.dx;
-    //             x_p_index_space(2) = x_p(2)/grid.dx;
-
-    //             // ComputeWeights1D for each x, y, and z
-    //             // -------------------------------------------------
-    //             // X
-    //             TV w1; 
-    //             T base_node1;
-    //             Sampling<T, dim>::computeWeights1D(x_p_index_space(0), base_node1, w1);
-    //             // Y
-    //             TV w2;
-    //             T base_node2;
-    //             Sampling<T, dim>::computeWeights1D(x_p_index_space(1), base_node2, w2);
-    //             // Z
-    //             TV w3;
-    //             T base_node3;
-    //             Sampling<T, dim>::computeWeights1D(x_p_index_space(0), base_node3, w3);
-
-    //             // std::cout << "w1: " << w1(0) << ", " << w1(1) << ", " << w1(2) << "\n";
-    //             // std::cout << "w2: " << w2(0) << ", " << w2(1) << ", " << w2(2) << "\n";
-    //             // std::cout << "w3: " << w3(0) << ", " << w3(1) << ", " << w3(2) << "\n";
-    //             // std::cout << "\n";
-    //             int node_num = 0;
-    //             for(int i1=0; i1 < dim; i1++) {
-    //                 float w_i1 = w1(i1);
-    //                 int node_i1 = base_node1 + (i1 - 1);
-
-    //                 for(int i2=0; i2 < dim; i2++) {
-    //                     T w_i1i2 = w_i1 * w2(i2);
-    //                     int node_i2 = base_node2 + (i2 - 1);
-
-    //                     for(int i3=0; i3 < dim; i3++) {
-    //                         T w_i1i2i3 = w_i1i2 * w3(i3);
-    //                         int node_i3 = base_node3 + (i3 - 1);
-
-    //                         // splat mass
-    //                         std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
-    //                         // if(node_i1 )
-    //                         // mg[node_i1][node_i2][node_i3] = mg[node_i1][node_i2][node_i3] + mp[pIdx] * w_i1i2i3; 
-                            
-    //                         //
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 
     return 0;
     
