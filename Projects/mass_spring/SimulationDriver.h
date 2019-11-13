@@ -86,7 +86,7 @@ public:
 
                         // // Splat momentum
                         for(int d = 0; d < dim; d++) {
-                            grid.vg[g_idx](d) += (w_i1i2i3 * ms.m[p] * ms.v[p](d));
+                            grid.vgn[g_idx](d) += (w_i1i2i3 * ms.m[p] * ms.v[p](d));
                         }
                     }
                 }
@@ -96,24 +96,97 @@ public:
         for(int i = 0; i < grid.mg.size(); i++) {
             if(grid.mg[i] > (T)0) {
                 grid.active_nodes.push_back(i);
-                grid.vg[i](0) /= grid.mg[i];
-                grid.vg[i](1) /= grid.mg[i];
-                grid.vg[i](2) /= grid.mg[i];
+                grid.vgn[i](0) /= grid.mg[i];
+                grid.vgn[i](1) /= grid.mg[i];
+                grid.vgn[i](2) /= grid.mg[i];
             } else {
-                grid.vg[i] = TV::Zero();
+                grid.vgn[i] = TV::Zero();
             }
         }
     }
 
-    TV computeGridMomentum() {
+    TV computeGridMomentum(int useVg) {
         TV result = TV::Zero();
-        for(int i = 0; i < grid.mg.size(); i++) {
-            for(int d = 0; d < dim; d++) {
-                result(d) += grid.mg[i] * grid.vg[i](d);
+        if(useVg == 1) {
+            for(int i = 0; i < grid.mg.size(); i++) {
+                for(int d = 0; d < dim; d++) {
+                    result(d) += grid.mg[i] * grid.vg[i](d);
+                }
+            }
+        }
+        else 
+        {
+            for(int i = 0; i < grid.mg.size(); i++) {
+                for(int d = 0; d < dim; d++) {
+                    result(d) += grid.mg[i] * grid.vgn[i](d);
+                }
             }
         }
         return result;
     }
+
+    void addGravity() {
+        for(int i = 0; i < grid.active_nodes.size(); i++) {
+            for(int d = 0; d < dim; d++) {
+                grid.force[i](d) += (grid.mg[i] * gravity(d));
+            }
+        }
+    }
+
+    void addElasticity() {
+        // *** TODO ***
+    }
+
+    void updateGridVelocity() {
+        for(int i = 0; i < grid.active_nodes.size(); i++) {
+            for(int d=0; d < dim; d++) {
+                grid.vg[i](d) = grid.vgn[i](d) + dt*grid.force[i](d)/grid.mg[i];
+            }
+        }
+    }
+
+    /**
+     * Set domain boundary velocities
+     */ 
+    void setBoundaryVelocities(const int thickness) {
+        int N = grid.vg.size();
+        int N_reverse = (N-1) - thickness;
+
+        // X Direction
+        for(int i = 0; i < thickness; i++) {
+            for(int y = 0; y < N; y++) {
+                for(int z = 0; z < N; z++) {
+                    int idx = i + y * (N-1) + z * (N-1) * (N-1);
+                    grid.vg[idx] = (T)0;
+                }
+            }
+        }
+
+        for(int i = N_reverse; i < N; i--) {
+            for(int y = 0; y < N; y++) {
+                for(int z = 0; z < N; z++) {
+                    int idx = i + y * (N-1) + z * (N-1) * (N-1);
+                    grid.vg[idx] = (T)0;
+                }
+            }
+        }
+
+        // *** TO DO ***
+        // Finish the rest of the directions
+
+    }
+
+    /**
+     * Evolve deformation gradient
+     */ 
+    void evolveF() {
+        // *** TODO ***
+    }
+
+    void transferG2P() {
+        
+    }
+
 
     void transferParticleToGrid()
     {
@@ -125,8 +198,28 @@ public:
         // std::cout << Lp(0) << ", " << Lp(1) << ", " << Lp(2) << "\n";
         transferP2G();
 
-        TV Lg = computeGridMomentum();
+        TV Lg0 = computeGridMomentum(0);
+        // std::cout << "Grid momentum after p2g: " << Lg0(0) << ", " << Lg0(1) << ", " << Lg0(2) << "\n";
 
+        // Compute force
+        addGravity();
+
+        // *** UNCOMMENT WHEN DONE ****
+        // addElasticity();
+
+        // Update grid velocity
+        updateGridVelocity();
+
+        // Boundary conditions
+        // *** UNCOMMENT WHEN DONE ****
+        // setBoundaryVelocities(3);
+
+        // Transfer Grid to Particle (including particle)
+        TV Lg1 = computeGridMomentum(1);
+        // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
+        // *** UNCOMMENT WHEN DONE ****
+        evolveF();
+        transferG2P();
     }
 
     void run(const int max_frame)

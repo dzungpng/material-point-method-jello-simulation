@@ -10,15 +10,10 @@ class MassSpringSystem{
 public:
     using TV = Eigen::Matrix<T,dim,1>;
     
-    // std::vector<Eigen::Matrix<int,2,1> > segments;
-
     std::vector<T> m;
     std::vector<TV> x;
     std::vector<TV> v;
-    // T youngs_modulus;
-    // T damping_coeff;
-    // std::vector<bool> node_is_fixed;
-    // std::vector<T> rest_length;
+    std::vector<TV> f;
 
     MassSpringSystem()
     {}
@@ -39,8 +34,6 @@ public:
         }
         fs << "POLYS\n";
         count = 0;
-        // for (const Eigen::Matrix<int, 2, 1>& seg : segments)
-            // fs << ++count << ": " << seg(0) + 1 << " " << seg(1) + 1 << "\n"; // poly segment mesh is 1-indexed
         fs << "END\n";
         fs.close();
     }

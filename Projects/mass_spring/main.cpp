@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 16;
+    int N = 32;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/N;
@@ -43,9 +43,11 @@ int main(int argc, char* argv[])
     std::vector<T> mp;
     std::vector<TV> vp;
     std::vector<TV> xp;
+    std::vector<TV> Fp;
     mp.resize(Np);
     vp.resize(Np);
     xp.resize(Np);
+    Fp.resize(Np);
 
     // Set up particle attributes
     T E = 1e4;
@@ -69,6 +71,7 @@ int main(int argc, char* argv[])
                 xp[index](1) = (y + rng.nextFloat())*dx;
                 xp[index](2) = (z + rng.nextFloat())*dx;
                 vp[index] = TV::Zero();
+                Fp[index] = TV::Zero();
             }
         }
     }
@@ -77,6 +80,7 @@ int main(int argc, char* argv[])
     driver.ms.m = mp;
     driver.ms.x = xp;
     driver.ms.v = vp;
+    driver.ms.f = Fp;
     driver.run(2);
 
     return 0;

@@ -18,6 +18,7 @@ public:
 
     std::vector<T> mg;
     std::vector<TV> vg;
+    std::vector<TV> vgn;
     std::vector<TV> xg;
     std::vector<TV> force; // mapping grid coords to force
     std::vector<T> active_nodes;
@@ -31,11 +32,13 @@ public:
     void clear() {
         mg.clear();
         vg.clear();
+        vgn.clear();
         xg.clear();
         force.clear();
         active_nodes.clear();
         mg.resize(nCells, (T)0);
         vg.resize(nCells, TV::Zero());
+        vgn.resize(nCells, TV::Zero());
         xg.resize(nCells, TV::Zero());
         force.resize(nCells, TV::Zero());
     }
