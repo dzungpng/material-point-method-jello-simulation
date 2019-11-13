@@ -22,7 +22,7 @@ public:
     std::vector<TV> force; // mapping grid coords to force
     std::vector<T> active_nodes;
 
-    TV res; // resolution of the grid
+    Eigen::Matrix<int,dim,1> res; // resolution of the grid
     T nCells; // number of cells in the grid
     
     CartesianGrid() : minCorner(TV::Zero()), maxCorner(TV::Ones()) {}
@@ -34,10 +34,10 @@ public:
         xg.clear();
         force.clear();
         active_nodes.clear();
-        mg.resize(nCells);
-        vg.resize(nCells);
-        xg.resize(nCells);
-        force.resize(nCells);
-        active_nodes.resize(nCells);
+        mg.resize(nCells, (T)0);
+        vg.resize(nCells, TV::Zero());
+        xg.resize(nCells, TV::Zero());
+        force.resize(nCells, TV::Zero());
     }
 };
+

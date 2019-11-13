@@ -44,7 +44,6 @@ public:
             for (int step = 1; step <= N_substeps; step++) {
                 // std::cout << "Step " << step << std::endl;
                 transferParticleToGrid();
-                return;
             }
             mkdir("output/", 0777);
             std::string filename = "output/" + std::to_string(frame) + ".poly";
@@ -90,42 +89,40 @@ public:
 
             for(int i1=0; i1 <= dim; i1++) {
                 float w_i1 = w1(i1);
-                int node_i1 = base_node1 + i1;
+                int node_i1 = base_node1 + i1 - 1;
 
                 for(int i2=0; i2 < dim; i2++) {
                     T w_i1i2 = w_i1 * w2(i2);
-                    int node_i2 = base_node2 + i2;
+                    int node_i2 = base_node2 + i2 - 1;
 
                     for(int i3=0; i3 < dim; i3++) {
                         T w_i1i2i3 = w_i1i2 * w3(i3);
-                        int node_i3 = base_node3 + i3;
+                        int node_i3 = base_node3 + i3 - 1;
                         
                         int g_idx = node_i1 + (grid.res(0)-1) * node_i2 + (grid.res(1)-1) * (grid.res(2)-1) * node_i3;
-                        
-                        // splat mass 
-                        std::cout << g_idx << "\n";
-                         
+
+                        //splat mass                            
                         grid.mg[g_idx] += ms.m[p] * w_i1i2i3;
 
                         // Splat momentum
-                        for(int d = 0; d < dim; d++) {
-                            grid.vg[g_idx](d) += (w_i1i2i3 * ms.m[p]) * ms.v[p](d);
-                        }
+                        // for(int d = 0; d < dim; d++) {
+                        //     grid.vg[g_idx](d) += (w_i1i2i3 * ms.m[p]) * ms.v[p](d);
+                        // }
                     }
                 }
             }
         }
 
-        for(int i = 0; i < grid.mg.size(); i++) {
-            if(grid.mg[i] > EPSILON) {
-                grid.active_nodes[i] = 1;
-                grid.vg[i](0) /= grid.mg[i];
-                grid.vg[i](1) /= grid.mg[i];
-                grid.vg[i](2) /= grid.mg[i];
-            } else {
-                grid.vg[i] = TV::Zero();
-            }
-        }
+        // for(int i = 0; i < grid.mg.size(); i++) {
+        //     if(grid.mg[i] > EPSILON) {
+        //         grid.active_nodes.push_back(i);
+        //         grid.vg[i](0) /= grid.mg[i];
+        //         grid.vg[i](1) /= grid.mg[i];
+        //         grid.vg[i](2) /= grid.mg[i];
+        //     } else {
+        //         grid.vg[i] = TV::Zero();
+        //     }
+        // }
     }
 
     void transferParticleToGrid()

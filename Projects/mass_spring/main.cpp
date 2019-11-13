@@ -21,24 +21,25 @@ int main(int argc, char* argv[])
     // Set up particle system----------------------------------------------
     SimulationDriver<T,dim> driver;
 
-    // Sample particles----------------------------------------------
-    int N = 16;
+    // Set up particles----------------------------------------------
+    int N = 8;
     int Np = N*N*N;
     // Distance between per particle
-    T dx = 0.02;
-    //T dx = 1;
+    T dx = (T)1/N;
 
     // Grid parameters----------------------------------------------
     CartesianGrid<T, dim> grid;
-    TV res; // grid dimensions 
-    res(0) = N/4; // X
-    res(1) = N/4; // Y 
-    res(2) = N/4; // Z
+    Eigen::Matrix<int, dim,1> res;
+
+    // 5 x 5 x 5 grid 
+    grid.cellWidth = (T)1/4;
+    res(0) = 1/grid.cellWidth + 1;
+    res(1) = 1/grid.cellWidth + 1;
+    res(2) = 1/grid.cellWidth + 1;
     grid.res = res;
-    grid.cellWidth = (T)N/(N/4);
-    std::cout << grid.cellWidth << "\n";
     grid.nCells = res(0)*res(1)*res(2);
 
+    // Sample particles----------------------------------------------
     std::vector<T> mp;
     std::vector<TV> vp;
     std::vector<TV> xp;
@@ -47,7 +48,7 @@ int main(int argc, char* argv[])
     xp.resize(Np);
 
     pcg32 rng;
-    T uniform_mass = 1/(T)Np;
+    T uniform_mass = (T)1/Np;
 
     for(int x = 0; x < N; x++) {
         for(int y = 0; y < N; y++) {
@@ -65,13 +66,14 @@ int main(int argc, char* argv[])
         }
     }
 
+
     // Set up particle attributes
     T E = 1e4;
     T nu = .3;
-    T mu = E/(2 * (1 + nu));
-    T lambda = E * nu / ((1 + nu)*(1-2*nu));
-    T rho = 1000.f;
-    T Vp0 = (dx*dx*dx)/6;
+    T mu = E/((T)2 * ((T)1 + nu));
+    T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
+    T rho = (T)1000;
+    // T Vp0 = (dx*dx*dx)/6;
 
     driver.grid = grid;
     driver.ms.m = mp;
