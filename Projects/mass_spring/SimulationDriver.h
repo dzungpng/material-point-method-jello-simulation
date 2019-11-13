@@ -183,8 +183,59 @@ public:
         // *** TODO ***
     }
 
-    void transferG2P() {
-        
+    void transferG2P(const T flip) {
+        int Np = ms.x.size();
+
+        for(int p = 0; p < Np; p++) {
+            TV X = ms.x[p];
+            TV X_index_space = X;
+            X_index_space(0) /= grid.cellWidth;
+            X_index_space(1) /= grid.cellWidth;
+            X_index_space(2) /= grid.cellWidth;
+
+            // X
+            TV w1 = TV::Zero(); 
+            T base_node1 = (T)0;;
+            Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
+            // Y
+            TV w2 = TV::Zero();
+            T base_node2 = (T)0;
+            Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
+            // Z
+            TV w3 = TV::Zero();
+            T base_node3 = (T)0;
+            Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
+
+            TV v_pic = TV::Zero();
+            TV v_flip = ms.v[p];
+
+            for(int x = 0; x < dim; x++) {
+                T wx = w1(x);
+                T node_x = base_node1 + (x - 1);
+
+                for (int y = 0; y < dim; y++) {
+                    T wy = wx * w2(y);
+                    T node_y = base_node2 + (y - 1);
+
+                    for (int z = 0; z < dim; z++) {
+                        T wz = wy * w3(z);
+                        T node_z = base_node3 + (z - 1);
+                        
+                        int g_idx = node_x + (grid.res(0)-1) * node_y + (grid.res(1)-1) * (grid.res(2)-1) * node_z;
+
+                        for (int d = 0; d < dim; d++) {
+                            v_pic(d) += (wz * grid.vg[g_idx](d));
+                            v_flip(d) += (wz * (grid.vg[g_idx](d) - grid.vgn[g_idx](d)));
+                        }
+                    }
+                }
+            }
+
+            for(int d = 0; d < dim; d++) {
+                ms.v[p](d) = ((T)1 - flip) * v_pic(d) + flip * v_flip(d);
+                ms.x[p](d) += (dt*v_pic(d));
+            }
+        }
     }
 
 
@@ -194,11 +245,11 @@ public:
         grid.clear();
 
         // Particle 2 Grid
-        TV Lp = computeParticleMomentum();
+        //TV Lp = computeParticleMomentum();
         // std::cout << Lp(0) << ", " << Lp(1) << ", " << Lp(2) << "\n";
         transferP2G();
 
-        TV Lg0 = computeGridMomentum(0);
+        //TV Lg0 = computeGridMomentum(0);
         // std::cout << "Grid momentum after p2g: " << Lg0(0) << ", " << Lg0(1) << ", " << Lg0(2) << "\n";
 
         // Compute force
@@ -215,11 +266,12 @@ public:
         // setBoundaryVelocities(3);
 
         // Transfer Grid to Particle (including particle)
-        TV Lg1 = computeGridMomentum(1);
+        //TV Lg1 = computeGridMomentum(1);
         // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
         // *** UNCOMMENT WHEN DONE ****
-        evolveF();
-        transferG2P();
+        // evolveF();
+
+        transferG2P((T)0.95);
     }
 
     void run(const int max_frame)

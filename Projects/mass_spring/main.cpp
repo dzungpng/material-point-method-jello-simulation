@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 32;
+    int N = 16;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/N;
@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
     T rho = (T)1000;
-    T Vp0 = (T)(grid.cellWidth*grid.cellWidth*grid.cellWidth)/8;
+    T Vp0 = (T)(grid.cellWidth*grid.cellWidth*grid.cellWidth);
     pcg32 rng;
     T uniform_mass = Vp0*rho;
 
@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
     driver.ms.x = xp;
     driver.ms.v = vp;
     driver.ms.f = Fp;
-    driver.run(2);
+    driver.run(20);
 
     return 0;
     
