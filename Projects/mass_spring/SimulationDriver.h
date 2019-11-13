@@ -22,7 +22,6 @@ public:
     TV gravity;
     T ground;
     T collision_stiffness;
-    T EPSILON = 1e-8;
 
     SimulationDriver()
     : dt((T)0.00001) // 0.0015 for implicit
@@ -32,35 +31,16 @@ public:
         collision_stiffness = 5e3;
 
         //sphere = Sphere(collision_stiffness, TV::Ones()*0.4, 0.25);
-        ground = 0.1;
+        //ground = 0.1;
     }
 
-    void run(const int max_frame)
-    {
-        for(int frame=1; frame<max_frame; frame++) {
-            std::cout << "Frame " << frame << std::endl;
-
-            int N_substeps = (int)(((T)1/24)/dt);
-            for (int step = 1; step <= N_substeps; step++) {
-                // std::cout << "Step " << step << std::endl;
-                transferParticleToGrid();
-            }
-            mkdir("output/", 0777);
-            std::string filename = "output/" + std::to_string(frame) + ".poly";
-            ms.dumpPoly(filename);
-            std::cout << std::endl;
-        }
-    }
-
-
-    TV computeParticleMomentum(const std::vector<T> mp, const std::vector<TV> vp) {
+    TV computeParticleMomentum() {
         TV result = TV::Zero();
-        for(int pIdx = 0; pIdx < mp.size(); pIdx++) {
+        for(int pIdx = 0; pIdx < ms.m.size(); pIdx++) {
             for(int d = 0; d < dim; d++) {
-                result(d) += mp[pIdx] * vp[pIdx](d);
+                result(d) += ms.m[pIdx] * ms.v[pIdx](d);
             }
         }
-        // std::cout << result(0) << ", " << result(1) << ", " << result(2) << "\n";
         return result;
     }
 
@@ -75,16 +55,16 @@ public:
             X_index_space(2) = X(2)/grid.cellWidth;
             
             // X
-            TV w1; 
-            T base_node1;
+            TV w1 = TV::Zero(); 
+            T base_node1 = (T)0;;
             Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
             // Y
-            TV w2;
-            T base_node2;
+            TV w2 = TV::Zero();
+            T base_node2 = (T)0;
             Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
             // Z
-            TV w3;
-            T base_node3;
+            TV w3 = TV::Zero();
+            T base_node3 = (T)0;
             Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
 
             for(int i1=0; i1 <= dim; i1++) {
@@ -102,33 +82,67 @@ public:
                         int g_idx = node_i1 + (grid.res(0)-1) * node_i2 + (grid.res(1)-1) * (grid.res(2)-1) * node_i3;
 
                         //splat mass                            
-                        grid.mg[g_idx] += ms.m[p] * w_i1i2i3;
+                        grid.mg[g_idx] += (ms.m[p] * w_i1i2i3);
 
-                        // Splat momentum
-                        // for(int d = 0; d < dim; d++) {
-                        //     grid.vg[g_idx](d) += (w_i1i2i3 * ms.m[p]) * ms.v[p](d);
-                        // }
+                        // // Splat momentum
+                        for(int d = 0; d < dim; d++) {
+                            grid.vg[g_idx](d) += (w_i1i2i3 * ms.m[p] * ms.v[p](d));
+                        }
                     }
                 }
             }
         }
 
-        // for(int i = 0; i < grid.mg.size(); i++) {
-        //     if(grid.mg[i] > EPSILON) {
-        //         grid.active_nodes.push_back(i);
-        //         grid.vg[i](0) /= grid.mg[i];
-        //         grid.vg[i](1) /= grid.mg[i];
-        //         grid.vg[i](2) /= grid.mg[i];
-        //     } else {
-        //         grid.vg[i] = TV::Zero();
-        //     }
-        // }
+        for(int i = 0; i < grid.mg.size(); i++) {
+            if(grid.mg[i] > (T)0) {
+                grid.active_nodes.push_back(i);
+                grid.vg[i](0) /= grid.mg[i];
+                grid.vg[i](1) /= grid.mg[i];
+                grid.vg[i](2) /= grid.mg[i];
+            } else {
+                grid.vg[i] = TV::Zero();
+            }
+        }
+    }
+
+    TV computeGridMomentum() {
+        TV result = TV::Zero();
+        for(int i = 0; i < grid.mg.size(); i++) {
+            for(int d = 0; d < dim; d++) {
+                result(d) += grid.mg[i] * grid.vg[i](d);
+            }
+        }
+        return result;
     }
 
     void transferParticleToGrid()
     {
+        // Initialize grid data to zero
         grid.clear();
-        TV Lg = computeParticleMomentum(ms.m, ms.v);
+
+        // Particle 2 Grid
+        TV Lp = computeParticleMomentum();
+        // std::cout << Lp(0) << ", " << Lp(1) << ", " << Lp(2) << "\n";
         transferP2G();
+
+        TV Lg = computeGridMomentum();
+
+    }
+
+    void run(const int max_frame)
+    {
+        for(int frame=1; frame<max_frame; frame++) {
+            std::cout << "Frame " << frame << std::endl;
+
+            int N_substeps = (int)(((T)1/24)/dt);
+            for (int step = 1; step <= N_substeps; step++) {
+                // std::cout << "Step " << step << std::endl;
+                transferParticleToGrid();
+            }
+            mkdir("output/", 0777);
+            std::string filename = "output/" + std::to_string(frame) + ".poly";
+            ms.dumpPoly(filename);
+            std::cout << std::endl;
+        }
     }
 };

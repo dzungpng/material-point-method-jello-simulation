@@ -13,7 +13,7 @@ public:
     */
     static void computeWeights1D(const T x, T &base_node, TV &wi) {
         base_node = floor(x-(T)0.5) + (T)1;
-        wi.Zero();
+        
         T d0 = x - base_node + (T)1;
         T z = (T)1.5 - d0;
         T z2 = z * z;
