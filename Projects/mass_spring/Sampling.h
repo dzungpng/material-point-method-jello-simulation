@@ -11,7 +11,7 @@ public:
     * x is assumed to be scaled in the index space (i.e., it is in a dx=1 grid)
     * w is 1x3 (row vector)
     */
-    static void computeWeights1D(const T x, int &base_node, TV &wi) {
+    static void computeWeights1D(const T x, T &base_node, TV &wi) {
         base_node = floor(x-0.5) + 1;
         
         T d0 = x - base_node + 1;

@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
     driver.ms.x = xp;
     driver.ms.v = vp;
     driver.ms.f = Fp;
-    driver.run(200);
+    driver.run(2);
 
     return 0;
     

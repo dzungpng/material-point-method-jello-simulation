@@ -24,7 +24,7 @@ public:
     T collision_stiffness;
 
     SimulationDriver()
-    : dt((T)0.00001) // 0.0015 for implicit
+    : dt((T)1e-3) // 0.0015 for implicit
     {
         gravity.setZero();
         gravity(1) = -9.8;
@@ -50,21 +50,21 @@ public:
         for(int p = 0; p < Np; p++) {
             TV X = ms.x[p];
             TV X_index_space;
-            X_index_space(0) = floor(X(0)/grid.cellWidth);
-            X_index_space(1) = floor(X(1)/grid.cellWidth);
-            X_index_space(2) = floor(X(2)/grid.cellWidth);
+            X_index_space(0) = X(0)/grid.cellWidth;
+            X_index_space(1) = X(1)/grid.cellWidth;
+            X_index_space(2) = X(2)/grid.cellWidth;
             
             // X
             TV w1 = TV::Zero(); 
-            int base_node1 = 0;
+            T base_node1 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
             // Y
             TV w2 = TV::Zero();
-            int base_node2 = 0;
+            T base_node2 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
             // Z
             TV w3 = TV::Zero();
-            int base_node3 = 0;
+            T base_node3 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
 
             for(int i1=0; i1 < dim; i1++) {
@@ -81,7 +81,9 @@ public:
                         
                         int g_idx = node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3;
 
-                        // std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
+                        if (g_idx > 125) {
+                            std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
+                        }
                         //splat mass                            
                         grid.mg[g_idx] += (ms.m[p] * w_i1i2i3);
 
@@ -95,7 +97,7 @@ public:
         }
 
         for(int i = 0; i < grid.mg.size(); i++) {
-            if(grid.mg[i] != (T)0) {
+            if(grid.mg[i] != (T)1e-8) {
                 grid.active_nodes.push_back(i);
                 grid.vgn[i](0) /= grid.mg[i];
                 grid.vgn[i](1) /= grid.mg[i];
@@ -228,21 +230,21 @@ public:
         for(int p = 0; p < Np; p++) {
             TV X = ms.x[p];
             TV X_index_space = X;
-            X_index_space(0) = floor(X_index_space(0)/grid.cellWidth);
-            X_index_space(1) = floor(X_index_space(1)/grid.cellWidth);
-            X_index_space(2) = floor(X_index_space(2)/grid.cellWidth);
+            X_index_space(0) = X_index_space(0)/grid.cellWidth;
+            X_index_space(1) = X_index_space(1)/grid.cellWidth;
+            X_index_space(2) = X_index_space(2)/grid.cellWidth;
 
             // X
             TV w1 = TV::Zero(); 
-            int base_node1 = 0;;
+            T base_node1 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
             // Y
             TV w2 = TV::Zero();
-            int base_node2 = 0;
+            T base_node2 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
             // Z
             TV w3 = TV::Zero();
-            int base_node3 = 0;
+            T base_node3 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
 
             TV v_pic = TV::Zero();
@@ -250,15 +252,15 @@ public:
 
             for(int x = 0; x < dim; x++) {
                 T wx = w1(x);
-                T node_x = base_node1 + (x - 1);
+                int node_x = base_node1 + (x - 1);
 
                 for (int y = 0; y < dim; y++) {
                     T wy = wx * w2(y);
-                    T node_y = base_node2 + (y - 1);
+                    int node_y = base_node2 + (y - 1);
 
                     for (int z = 0; z < dim; z++) {
                         T wz = wy * w3(z);
-                        T node_z = base_node3 + (z - 1);
+                        int node_z = base_node3 + (z - 1);
                         
                         int g_idx = node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z;
 
@@ -272,7 +274,7 @@ public:
 
             for(int d = 0; d < dim; d++) {
                 ms.v[p](d) = ((T)1 - flip) * v_pic(d) + flip * v_flip(d);
-                ms.x[p](d) += (dt * v_pic(d))*(T)8;
+                ms.x[p](d) += (dt * v_pic(d));
             }
         }
     }
