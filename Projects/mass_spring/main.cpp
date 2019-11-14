@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 32;
+    int N = 8;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/N;
@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     Eigen::Matrix<int, dim,1> res;
 
     // 5 x 5 x 5 grid 
-    grid.cellWidth = (T)0.2;
+    grid.cellWidth = (T)1/4;
     res(0) = 1/grid.cellWidth + 1;
     res(1) = 1/grid.cellWidth + 1;
     res(2) = 1/grid.cellWidth + 1;
@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
     T rho = (T)1000;
-    T Vp0 = (T)1;
+    T Vp0 = (T)grid.cellWidth*grid.cellWidth*grid.cellWidth/8;
     pcg32 rng;
     T uniform_mass = Vp0*rho;
     // T uniform_mass = (T)1;
@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
     driver.ms.x = xp;
     driver.ms.v = vp;
     driver.ms.f = Fp;
-    driver.run(400);
+    driver.run(200);
 
     return 0;
     

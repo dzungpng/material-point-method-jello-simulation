@@ -50,24 +50,24 @@ public:
         for(int p = 0; p < Np; p++) {
             TV X = ms.x[p];
             TV X_index_space;
-            X_index_space(0) = X(0)/grid.cellWidth;
-            X_index_space(1) = X(1)/grid.cellWidth;
-            X_index_space(2) = X(2)/grid.cellWidth;
+            X_index_space(0) = floor(X(0)/grid.cellWidth);
+            X_index_space(1) = floor(X(1)/grid.cellWidth);
+            X_index_space(2) = floor(X(2)/grid.cellWidth);
             
             // X
             TV w1 = TV::Zero(); 
-            T base_node1 = (T)0;
+            int base_node1 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
             // Y
             TV w2 = TV::Zero();
-            T base_node2 = (T)0;
+            int base_node2 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
             // Z
             TV w3 = TV::Zero();
-            T base_node3 = (T)0;
+            int base_node3 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
 
-            for(int i1=0; i1 <= dim; i1++) {
+            for(int i1=0; i1 < dim; i1++) {
                 float w_i1 = w1(i1);
                 int node_i1 = base_node1 + i1 - 1;
 
@@ -79,8 +79,9 @@ public:
                         T w_i1i2i3 = w_i1i2 * w3(i3);
                         int node_i3 = base_node3 + i3 - 1;
                         
-                        int g_idx = node_i1 + (grid.res(0)-1) * node_i2 + (grid.res(1)-1) * (grid.res(2)-1) * node_i3;
+                        int g_idx = node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3;
 
+                        // std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
                         //splat mass                            
                         grid.mg[g_idx] += (ms.m[p] * w_i1i2i3);
 
@@ -94,7 +95,7 @@ public:
         }
 
         for(int i = 0; i < grid.mg.size(); i++) {
-            if(grid.mg[i] > (T)0) {
+            if(grid.mg[i] != (T)0) {
                 grid.active_nodes.push_back(i);
                 grid.vgn[i](0) /= grid.mg[i];
                 grid.vgn[i](1) /= grid.mg[i];
@@ -127,8 +128,9 @@ public:
 
     void addGravity() {
         for(int i = 0; i < grid.active_nodes.size(); i++) {
+            int idx = grid.active_nodes[i];
             for(int d = 0; d < dim; d++) {
-                grid.force[i](d) += (grid.mg[i] * gravity(d));
+                grid.force[idx](d) += (grid.mg[idx] * gravity(d));
             }
         }
     }
@@ -139,9 +141,9 @@ public:
 
     void updateGridVelocity() {
         for(int i = 0; i < grid.active_nodes.size(); i++) {
+            int idx = grid.active_nodes[i];
             for(int d=0; d < dim; d++) {
-                int idx = grid.active_nodes[i];
-                grid.vg[i](d) = grid.vgn[i](d) + dt*grid.force[i](d)/grid.mg[i];
+                grid.vg[idx](d) = grid.vgn[idx](d) + dt*grid.force[idx](d)/grid.mg[idx];
             }
         }
     }
@@ -226,21 +228,21 @@ public:
         for(int p = 0; p < Np; p++) {
             TV X = ms.x[p];
             TV X_index_space = X;
-            X_index_space(0) /= grid.cellWidth;
-            X_index_space(1) /= grid.cellWidth;
-            X_index_space(2) /= grid.cellWidth;
+            X_index_space(0) = floor(X_index_space(0)/grid.cellWidth);
+            X_index_space(1) = floor(X_index_space(1)/grid.cellWidth);
+            X_index_space(2) = floor(X_index_space(2)/grid.cellWidth);
 
             // X
             TV w1 = TV::Zero(); 
-            T base_node1 = (T)0;;
+            int base_node1 = 0;;
             Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
             // Y
             TV w2 = TV::Zero();
-            T base_node2 = (T)0;
+            int base_node2 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
             // Z
             TV w3 = TV::Zero();
-            T base_node3 = (T)0;
+            int base_node3 = 0;
             Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
 
             TV v_pic = TV::Zero();
@@ -258,7 +260,7 @@ public:
                         T wz = wy * w3(z);
                         T node_z = base_node3 + (z - 1);
                         
-                        int g_idx = node_x + (grid.res(0)-1) * node_y + (grid.res(1)-1) * (grid.res(2)-1) * node_z;
+                        int g_idx = node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z;
 
                         for (int d = 0; d < dim; d++) {
                             v_pic(d) += (wz * grid.vg[g_idx](d));
@@ -299,8 +301,7 @@ public:
         updateGridVelocity();
 
         // Boundary conditions
-        // *** UNCOMMENT WHEN DONE ****
-        setBoundaryVelocities(1);
+        // setBoundaryVelocities(1);
 
         // Transfer Grid to Particle (including particle)
         //TV Lg1 = computeGridMomentum(1);
