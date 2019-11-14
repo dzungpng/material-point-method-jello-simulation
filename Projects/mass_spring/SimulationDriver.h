@@ -56,7 +56,7 @@ public:
             
             // X
             TV w1 = TV::Zero(); 
-            T base_node1 = (T)0;;
+            T base_node1 = (T)0;
             Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
             // Y
             TV w2 = TV::Zero();
@@ -271,7 +271,7 @@ public:
         // *** UNCOMMENT WHEN DONE ****
         // evolveF();
 
-        transferG2P((T)0.95);
+        transferG2P((T)0.999); // bigger faster
     }
 
     void run(const int max_frame)
