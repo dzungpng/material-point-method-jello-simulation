@@ -140,6 +140,7 @@ public:
     void updateGridVelocity() {
         for(int i = 0; i < grid.active_nodes.size(); i++) {
             for(int d=0; d < dim; d++) {
+                int idx = grid.active_nodes[i];
                 grid.vg[i](d) = grid.vgn[i](d) + dt*grid.force[i](d)/grid.mg[i];
             }
         }
@@ -149,30 +150,66 @@ public:
      * Set domain boundary velocities
      */ 
     void setBoundaryVelocities(const int thickness) {
-        int N = grid.vg.size();
-        int N_reverse = (N-1) - thickness;
+        int N = grid.res(0); // would need to change if decide not to do box
+        int N_reverse = N - thickness;
 
         // X Direction
-        for(int i = 0; i < thickness; i++) {
+        for(int x = 0; x < thickness; x++) {
             for(int y = 0; y < N; y++) {
                 for(int z = 0; z < N; z++) {
-                    int idx = i + y * (N-1) + z * (N-1) * (N-1);
-                    grid.vg[idx] = (T)0;
+                    int idx = x + y * N + z * N * N;
+                    grid.vg[idx] = TV::Zero();
                 }
             }
         }
 
-        for(int i = N_reverse; i < N; i--) {
+        for(int x = N_reverse; x < N; x++) {
             for(int y = 0; y < N; y++) {
                 for(int z = 0; z < N; z++) {
-                    int idx = i + y * (N-1) + z * (N-1) * (N-1);
-                    grid.vg[idx] = (T)0;
+                    int idx = x + y * N + z * N * N;
+                    grid.vg[idx] = TV::Zero();
                 }
             }
         }
 
-        // *** TO DO ***
-        // Finish the rest of the directions
+        // Y Direction
+        for(int x = 0; x < N; x++) {
+            for(int y = 0; y < thickness; y++) {
+                for(int z = 0; z < N; z++) {
+                    int idx = x + y * N + z * N * N;
+                    grid.vg[idx] = TV::Zero();
+                }
+            }
+        }
+
+        for(int x = 0; x < N; x++) {
+            for(int y = N_reverse; y < N; y++) {
+                for(int z = 0; z < N; z++) {
+                    int idx = x + y * N + z * N * N;
+                    grid.vg[idx] = TV::Zero();
+                }
+            }
+        }
+
+
+        // Z Direction
+        for(int x = 0; x < N; x++) {
+            for(int y = 0; y < N; y++) {
+                for(int z = 0; z < thickness; z++) {
+                    int idx = x + y * N + z * N * N;
+                    grid.vg[idx] = TV::Zero();
+                }
+            }
+        }
+
+        for(int x = 0; x < N; x++) {
+            for(int y = 0; y < N; y++) {
+                for(int z = N_reverse; z < N; z++) {
+                    int idx = x + y * N + z * N * N;
+                    grid.vg[idx] = TV::Zero();
+                }
+            }
+        }
 
     }
 
@@ -233,7 +270,7 @@ public:
 
             for(int d = 0; d < dim; d++) {
                 ms.v[p](d) = ((T)1 - flip) * v_pic(d) + flip * v_flip(d);
-                ms.x[p](d) += (dt*v_pic(d));
+                ms.x[p](d) += (dt * v_pic(d))*(T)8;
             }
         }
     }
@@ -263,7 +300,7 @@ public:
 
         // Boundary conditions
         // *** UNCOMMENT WHEN DONE ****
-        // setBoundaryVelocities(3);
+        setBoundaryVelocities(1);
 
         // Transfer Grid to Particle (including particle)
         //TV Lg1 = computeGridMomentum(1);
@@ -271,7 +308,7 @@ public:
         // *** UNCOMMENT WHEN DONE ****
         // evolveF();
 
-        transferG2P((T)0.999); // bigger faster
+        transferG2P((T)0.99); // bigger faster
     }
 
     void run(const int max_frame)

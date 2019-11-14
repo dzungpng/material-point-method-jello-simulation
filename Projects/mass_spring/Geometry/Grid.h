@@ -36,6 +36,7 @@ public:
         xg.clear();
         force.clear();
         active_nodes.clear();
+
         mg.resize(nCells, (T)0);
         vg.resize(nCells, TV::Zero());
         vgn.resize(nCells, TV::Zero());
