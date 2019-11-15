@@ -300,7 +300,7 @@ public:
         updateGridVelocity();
 
         // Boundary conditions
-        // setBoundaryVelocities(1);
+        setBoundaryVelocities(1);
 
         // Transfer Grid to Particle (including particle)
         //TV Lg1 = computeGridMomentum(1);
