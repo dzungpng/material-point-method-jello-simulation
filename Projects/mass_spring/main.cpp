@@ -25,28 +25,29 @@ int main(int argc, char* argv[])
     int N = 8;
     int Np = N*N*N;
     // Distance between per particle
-    T dx = (T)1/N;
+    T dx = (T)1/(T)N;
 
     // Grid parameters----------------------------------------------
     CartesianGrid<T, dim> grid;
     Eigen::Matrix<int, dim,1> res;
 
     // 5 x 5 x 5 grid 
-    grid.cellWidth = (T)1/4;
-    res(0) = 1/grid.cellWidth + 1;
-    res(1) = 1/grid.cellWidth + 1;
-    res(2) = 1/grid.cellWidth + 1;
+    grid.cellWidth = (T)1/(T)4;
+    res(0) = (T)1/grid.cellWidth + 1;
+    res(1) = (T)1/grid.cellWidth + 1;
+    res(2) = (T)1/grid.cellWidth + 1;
     grid.res = res;
     grid.nCells = res(0)*res(1)*res(2);
+
 
     // Sample particles----------------------------------------------
     std::vector<T> mp;
     std::vector<TV> vp;
-    std::vector<TV> xp;
+    std::vector<TV> xp_og;
     std::vector<TV> Fp;
     mp.resize(Np);
     vp.resize(Np);
-    xp.resize(Np);
+    xp_og.resize(Np);
     Fp.resize(Np);
 
     // Set up particle attributes
@@ -68,21 +69,37 @@ int main(int argc, char* argv[])
                 int k = z * N * N;
                 int index = i + j + k;
                 mp[index] = uniform_mass;
-                xp[index](0) = (x + rng.nextFloat())*dx;
-                xp[index](1) = (y + rng.nextFloat())*dx;
-                xp[index](2) = (z + rng.nextFloat())*dx;
+                xp_og[index](0) = (x + rng.nextFloat())*dx;
+                xp_og[index](1) = (y + rng.nextFloat())*dx;
+                xp_og[index](2) = (z + rng.nextFloat())*dx;
                 vp[index] = TV::Zero();
                 Fp[index] = TV::Zero();
             }
         }
     }
 
+    // Resampling to fit inside a box
+    // std::vector<TV> xp_new;
+    // TV minCorner(TV::Ones()*0.2);
+    // TV maxCorner(TV::Ones()*0.8);
+    // Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
+    // Fp.resize(xp_new.size());
+    // mp.resize(xp_new.size());
+    // vp.resize(xp_new.size());
+
+    // for(int i = 0; i < xp_new.size(); i++) {
+    //     mp[i] = uniform_mass;
+    //     vp[i] = TV::Zero();
+    //     Fp[i] = TV::Zero();
+    // }
+
     driver.grid = grid;
     driver.ms.m = mp;
-    driver.ms.x = xp;
+    driver.ms.x = xp_og;
     driver.ms.v = vp;
     driver.ms.f = Fp;
-    driver.run(2);
+    
+    driver.run(400);
 
     return 0;
     

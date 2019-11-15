@@ -6,6 +6,20 @@ class Sampling {
 public:
     using TV = Eigen::Matrix<T,dim,1>;
 
+    /*
+    ** Select only particles within the max and min corners from the input ogSamples. 
+    */
+    static void selectInBox(const std::vector<TV> ogSamples, std::vector<TV> &newSamples,
+                            const TV minCorner, const TV maxCorner) {
+        for(int i = 0; i < ogSamples.size(); i++) {
+            if(!(ogSamples[i](0) < minCorner(0) || ogSamples[i](0) > maxCorner(0) ||
+                ogSamples[i](1) < minCorner(1) || ogSamples[i](1) > maxCorner(1) ||
+                ogSamples[i](2) < minCorner(2) || ogSamples[i](2) > maxCorner(2))) {
+                    newSamples.push_back(ogSamples[i]);
+            }
+        }
+    }
+
     /* 
     * compute 1D quadratic B spline weights 
     * x is assumed to be scaled in the index space (i.e., it is in a dx=1 grid)

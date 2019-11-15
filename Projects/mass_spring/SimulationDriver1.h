@@ -49,10 +49,17 @@ public:
         int Np = ms.x.size();
         for(int p = 0; p < Np; p++) {
             TV X = ms.x[p];
-            TV X_index_space = TV::Zero();
+            TV X_index_space;
+
             X_index_space(0) = X(0)/grid.cellWidth;
             X_index_space(1) = X(1)/grid.cellWidth;
             X_index_space(2) = X(2)/grid.cellWidth;
+
+            // if(X_index_space(0) > grid.res(0) || X_index_space(1) > grid.res(1) || X_index_space(2) > grid.res(2)) {
+            //     std::cout << X(0) << ", " << X(1) << ", " << X(2) << "\n";
+            //     std::cout << X_index_space(0) << ", " << X_index_space(1) << ", " << X_index_space(2) << "\n";
+            //     std::cout << grid.cellWidth << "\n";
+            // }
             
             // X
             TV w1 = TV::Zero(); 
@@ -69,17 +76,21 @@ public:
 
             for(int i1=0; i1 < dim; i1++) {
                 float w_i1 = w1(i1);
-                int node_i1 = base_node1 + i1;
+                int node_i1 = base_node1 + i1 - 1;
 
                 for(int i2=0; i2 < dim; i2++) {
                     T w_i1i2 = w_i1 * w2(i2);
-                    int node_i2 = base_node2 + i2;
+                    int node_i2 = base_node2 + i2 - 1;
 
                     for(int i3=0; i3 < dim; i3++) {
                         T w_i1i2i3 = w_i1i2 * w3(i3);
-                        int node_i3 = base_node3 + i3;
+                        int node_i3 = base_node3 + i3 - 1;
                         
-                        int g_idx = std::min(grid.nCells-1, node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3);
+                        int g_idx = node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3;
+
+                        // if (g_idx > 125) {
+                        //     std::cout << node_i1 << ", " << node_i2 << ", " << node_i3 << "\n";
+                        // }
 
                         //splat mass                            
                         grid.mg[g_idx] += (ms.m[p] * w_i1i2i3);
@@ -226,7 +237,7 @@ public:
 
         for(int p = 0; p < Np; p++) {
             TV X = ms.x[p];
-            TV X_index_space = TV::Zero();
+            TV X_index_space;
             X_index_space(0) = X(0)/grid.cellWidth;
             X_index_space(1) = X(1)/grid.cellWidth;
             X_index_space(2) = X(2)/grid.cellWidth;
@@ -249,21 +260,23 @@ public:
 
             for(int x = 0; x < dim; x++) {
                 T wx = w1(x);
-                int node_x = base_node1 + x;
+                int node_x = base_node1 + x - 1;
 
                 for (int y = 0; y < dim; y++) {
                     T wy = wx * w2(y);
-                    int node_y = base_node2 + y;
+                    int node_y = base_node2 + y - 1;
 
                     for (int z = 0; z < dim; z++) {
                         T wz = wy * w3(z);
-                        int node_z = base_node3 + z;
+                        int node_z = base_node3 + z - 1;
                         
-                        int g_idx = std::min(grid.nCells-1, node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z);
+                        int g_idx = node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z;
+                        
+
 
                         for (int d = 0; d < dim; d++) {
-                            v_pic(d) += (wz * grid.vg[g_idx](d));
-                            v_flip(d) += (wz * (grid.vg[g_idx](d) - grid.vgn[g_idx](d)));
+                            v_pic(d) = v_pic(d) + wz * grid.vg[g_idx](d);
+                            v_flip(d) = v_flip(d) + (wz * (grid.vg[g_idx](d) - grid.vgn[g_idx](d)));
                         }
                     }
                 }
@@ -302,13 +315,13 @@ public:
         // Boundary conditions
         // setBoundaryVelocities(1);
 
-        // Transfer Grid to Particle (including particle)
-        //TV Lg1 = computeGridMomentum(1);
-        // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
-        // *** UNCOMMENT WHEN DONE ****
-        // evolveF();
+        // // Transfer Grid to Particle (including particle)
+        // //TV Lg1 = computeGridMomentum(1);
+        // // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
+        // // *** UNCOMMENT WHEN DONE ****
+        // // evolveF();
 
-        transferG2P((T)0.95); // bigger faster
+        transferG2P((T)0.99); // bigger faster
     }
 
     void run(const int max_frame)

@@ -24,7 +24,7 @@ public:
     std::vector<T> active_nodes;
 
     Eigen::Matrix<int,dim,1> res; // resolution of the grid
-    T nCells; // number of cells in the grid
+    int nCells; // number of cells in the grid
     
     CartesianGrid() : minCorner(TV::Zero()), maxCorner(TV::Ones()) {}
     CartesianGrid(TV minCorner,TV maxCorner) : minCorner(minCorner), maxCorner(maxCorner) {}
