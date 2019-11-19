@@ -38,7 +38,7 @@ public:
         TV result = TV::Zero();
         for(int pIdx = 0; pIdx < ms.m.size(); pIdx++) {
             for(int d = 0; d < dim; d++) {
-                result(d) += ms.m[pIdx] * ms.v[pIdx](d);
+                result(d) += (ms.m[pIdx] * ms.v[pIdx](d));
             }
         }
         return result;
@@ -110,7 +110,7 @@ public:
         if(useVg == 1) {
             for(int i = 0; i < grid.mg.size(); i++) {
                 for(int d = 0; d < dim; d++) {
-                    result(d) += grid.mg[i] * grid.vg[i](d);
+                    result(d) += (grid.mg[i] * grid.vg[i](d));
                 }
             }
         }
@@ -118,7 +118,7 @@ public:
         {
             for(int i = 0; i < grid.mg.size(); i++) {
                 for(int d = 0; d < dim; d++) {
-                    result(d) += grid.mg[i] * grid.vgn[i](d);
+                    result(d) += (grid.mg[i] * grid.vgn[i](d));
                 }
             }
         }
@@ -287,7 +287,7 @@ public:
         // std::cout << Lp(0) << ", " << Lp(1) << ", " << Lp(2) << "\n";
         transferP2G();
 
-        //TV Lg0 = computeGridMomentum(0);
+        // TV Lg0 = computeGridMomentum(0);
         // std::cout << "Grid momentum after p2g: " << Lg0(0) << ", " << Lg0(1) << ", " << Lg0(2) << "\n";
 
         // Compute force
@@ -303,7 +303,7 @@ public:
         setBoundaryVelocities(1);
 
         // Transfer Grid to Particle (including particle)
-        //TV Lg1 = computeGridMomentum(1);
+        // TV Lg1 = computeGridMomentum(1);
         // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
         // *** UNCOMMENT WHEN DONE ****
         // evolveF();

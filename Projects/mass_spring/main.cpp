@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 64;
+    int N = 16;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
     driver.ms.v = vp;
     driver.ms.f = Fp;
     
-    driver.run(400);
+    driver.run(2);
 
     return 0;
     
