@@ -14,6 +14,7 @@ public:
     using TV = Eigen::Matrix<T,dim,1>;
     using SpMat = Eigen::SparseMatrix<T>;
     using Vec = Eigen::Matrix<T,Eigen::Dynamic,1>;
+    using Mat = Eigen::Matrix<T, dim, dim>;
 
     MassSpringSystem<T,dim> ms;
     CartesianGrid<T, dim> grid;
@@ -79,7 +80,7 @@ public:
                         T w_i1i2i3 = w_i1i2 * w3(i3);
                         int node_i3 = base_node3 + i3;
                         
-                        int g_idx = std::min(grid.nCells-1, node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3);
+                        int g_idx = node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3;
 
                         //splat mass                            
                         grid.mg[g_idx] += (ms.m[p] * w_i1i2i3);
@@ -132,10 +133,6 @@ public:
                 grid.force[idx](d) += (grid.mg[idx] * gravity(d));
             }
         }
-    }
-
-    void addElasticity() {
-        // *** TODO ***
     }
 
     void updateGridVelocity() {
@@ -214,12 +211,6 @@ public:
 
     }
 
-    /**
-     * Evolve deformation gradient
-     */ 
-    void evolveF() {
-        // *** TODO ***
-    }
 
     void transferG2P(const T flip) {
         int Np = ms.x.size();
@@ -259,7 +250,7 @@ public:
                         T wz = wy * w3(z);
                         int node_z = base_node3 + z;
                         
-                        int g_idx = std::min(grid.nCells-1, node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z);
+                        int g_idx = node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z;
 
                         for (int d = 0; d < dim; d++) {
                             v_pic(d) += (wz * grid.vg[g_idx](d));
@@ -276,6 +267,89 @@ public:
         }
     }
 
+    /*
+    ** Adding elasticity with fixed corrotated method.
+    */
+    void polarSVD(const Mat F, Mat &U, Mat &V, Mat &Sigma) {
+        Eigen::JacobiSVD<Mat> svd(F, Eigen::ComputeThinU | Eigen::ComputeThinV);
+        U = svd.matrixU();
+        V = svd.matrixV();
+        Sigma = svd.singularValues().asDiagonal();
+
+        if(U.determinant() < (T)0) {
+            U(0,2) = U(0,2) * (T)-1;
+            U(1,2) = U(1,2) * (T)-1;
+            U(2,2) = U(2,2) * (T)-1;
+            Sigma(2,2) = Sigma(2,2) * (T)-1;
+        }
+        if(V.determinant() < (T)0) {
+            V(0,2) = V(0,2) * (T)-1;
+            V(1,2) = V(1,2) * (T)-1;
+            V(2,2) = V(2,2) * (T)-1;
+            Sigma(2,2) = Sigma(2,2) * (T)-1;
+        }
+    }
+
+    Mat fixedCorotated(const Mat F) {
+        Mat U(dim, dim);
+        Mat V(dim, dim);
+        Mat Sigma(dim, dim);
+        polarSVD(F, U, V, Sigma);
+        Mat R = U * V.transpose();
+
+        T J = F.determinant();
+        Mat A = Mat::Zero(dim, dim);
+        Mat F_inTrans = F.inverse().transpose();
+        A = J * F_inTrans;
+
+        Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - 1) * A;
+        return P;
+    }
+
+    void addElasticity() {
+        int Np = ms.Fp.size();
+
+        for(int p = 0; p < Np; p++) {
+            Mat thisFp = ms.Fp[p];
+            Mat thisP = fixedCorotated(thisFp);
+            Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.tranpose();
+            
+            TV X = ms.x[p];
+            TV X_index_space = TV::Zero();
+            X_index_space(0) = X(0)/grid.cellWidth;
+            X_index_space(1) = X(1)/grid.cellWidth;
+            X_index_space(2) = X(2)/grid.cellWidth;
+
+            // X
+            TV w1 = TV::Zero(); 
+            T base_node1 = 0;
+            Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
+            // Y
+            TV w2 = TV::Zero();
+            T base_node2 = 0;
+            Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
+            // Z
+            TV w3 = TV::Zero();
+            T base_node3 = 0;
+            Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
+
+            TV v_pic = TV::Zero();
+            TV v_flip = ms.v[p];
+
+            for(int x = 0; x < dim; x++) {
+                T wi = w1(x);
+
+
+                for(int y = 0; y < dim; y++) {
+
+
+                    for(int z = 0; z < dim; z++) {
+
+                    }
+                }
+            }
+        }
+    }
 
     void transferParticleToGrid()
     {
