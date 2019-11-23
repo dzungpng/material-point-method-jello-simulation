@@ -321,30 +321,50 @@ public:
             X_index_space(2) = X(2)/grid.cellWidth;
 
             // X
-            TV w1 = TV::Zero(); 
+            TV w1; 
             T base_node1 = 0;
-            Sampling<T, dim>::computeWeights1D(X_index_space(0), base_node1, w1);
+            TV dw1; 
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(0), w1, dw1, base_node1);
             // Y
-            TV w2 = TV::Zero();
+            TV w2;
             T base_node2 = 0;
-            Sampling<T, dim>::computeWeights1D(X_index_space(1), base_node2, w2);
+            TV dw2;
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(1), w2, dw2, base_node2);
             // Z
-            TV w3 = TV::Zero();
+            TV w3;
             T base_node3 = 0;
-            Sampling<T, dim>::computeWeights1D(X_index_space(2), base_node3, w3);
+            TV dw3;
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(2), w3, dw3, base_node3);
 
-            TV v_pic = TV::Zero();
-            TV v_flip = ms.v[p];
 
-            for(int x = 0; x < dim; x++) {
+            for(int i = 0; i < dim; i++) {
                 T wi = w1(x);
+                T dwi_dxi = dw1(x)/(T)grid.cellWidth;
+                int node_i = base_node1 + i;
 
+                for(int j = 0; j < dim; j++) {
+                    T wj = w2(y);
+                    T wij = wi * wj;
+                    T dwij_dxi = dwi_dxi * wj;
+                    T dwij_dxj = wi/(T)grid.cellWidth * dw2(j);
+                    int node_j = base_node2 + j;
 
-                for(int y = 0; y < dim; y++) {
+                    for(int k = 0; k < dim; k++) {
+                        T wk = w3(k);
+                        T wijk = wi * wj * wk;
 
+                        T dwijk_dxi = dwij_dxi * wk;
+                        T dwijk_dxj = dwij_dxj * wk;
+                        T dwijk_dxk = wij/(T)grid.cellWidth * dw3(k);
 
-                    for(int z = 0; z < dim; z++) {
+                        int node_k = base_node3 + k;
 
+                        TV grad_w;
+                        grad_w(0) = dwijk_dxi;
+                        grad_w(1) = dwijk_dxj;
+                        grad_w(2) = dwijk_dxk;
+
+                        
                     }
                 }
             }
