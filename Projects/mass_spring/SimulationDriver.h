@@ -82,6 +82,10 @@ public:
                         
                         int g_idx = node_i1 + grid.res(0) * node_i2 + grid.res(1) * grid.res(2) * node_i3;
 
+
+                        if(g_idx >= grid.nCells) {
+                            std::cout << "ERROR in transferP2G." << "\n";
+                        }
                         //splat mass                            
                         grid.mg[g_idx] += (ms.m[p] * w_i1i2i3);
 
@@ -208,9 +212,7 @@ public:
                 }
             }
         }
-
     }
-
 
     void transferG2P(const T flip) {
         int Np = ms.x.size();
@@ -252,6 +254,9 @@ public:
                         
                         int g_idx = node_x + grid.res(0) * node_y + grid.res(1) * grid.res(2) * node_z;
 
+                        if(g_idx >= grid.nCells) {
+                            std::cout << "ERROR in transferG2P." << "\n";
+                        }
                         for (int d = 0; d < dim; d++) {
                             v_pic(d) += (wz * grid.vg[g_idx](d));
                             v_flip(d) += (wz * (grid.vg[g_idx](d) - grid.vgn[g_idx](d)));
@@ -298,13 +303,11 @@ public:
         polarSVD(F, U, V, Sigma);
         Mat R = U * V.transpose();
 
-
-
         T J = F.determinant();
-        Mat A = Mat::Zero(dim, dim);
         // Mat F_inTrans = F.inverse().transpose();
         // A = J * F_inTrans;
-        A = F.adjoint();
+        Mat F_inverse = F.adjoint();
+        Mat A = F_inverse.transpose();
 
         Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
         
@@ -316,8 +319,10 @@ public:
 
         for(int p = 0; p < Np; p++) {
             Mat thisFp = ms.Fp[p];
+
             Mat thisP = fixedCorotated(thisFp);
             Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.transpose();
+                    
 
             TV X = ms.x[p];
             TV X_index_space = TV::Zero();
@@ -350,17 +355,18 @@ public:
                 for(int j = 0; j < dim; j++) {
                     T wj = w2(j);
                     T wij = wi * wj;
+
                     T dwij_dxi = dwi_dxi * wj;
-                    T dwij_dxj = wi/grid.cellWidth * dw2(j);
+                    T dwij_dxj = dw2(j)/grid.cellWidth * wi;
+
                     int node_j = base_node2 + j;
 
                     for(int k = 0; k < dim; k++) {
                         T wk = w3(k);
-                        T wijk = wi * wj * wk;
 
                         T dwijk_dxi = dwij_dxi * wk;
                         T dwijk_dxj = dwij_dxj * wk;
-                        T dwijk_dxk = wj/(T)grid.cellWidth * dw3(k);
+                        T dwijk_dxk = dw3(k)/grid.cellWidth * wij;
 
                         int node_k = base_node3 + k;
 
@@ -373,16 +379,20 @@ public:
 
                         int g_idx = node_i + grid.res(0) * node_j + grid.res(1) * grid.res(2) * node_k;
                         
+                        if(g_idx >= grid.nCells) {
+                            std::cout << "ERROR in addElasticity." << "\n";
+                        }
                         // std::cout << Vp0PFt(0,0) << " | " << Vp0PFt(0,1) << " | " << Vp0PFt(0,2) << "\n";
                         // std::cout << Vp0PFt(1,0) << " | " << Vp0PFt(1,1) << " | " << Vp0PFt(1,2) << "\n";
                         // std::cout << Vp0PFt(2,0) << " | " << Vp0PFt(2,1) << " | " << Vp0PFt(2,2) << "\n";
                         // std::cout << "\n";
                         
-                        // std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
+                        //std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
                         
                         for(int d = 0; d < dim; d++){
                             grid.force[g_idx](d) += foo(d);
                         }
+                        
                     }
                 }
             }
@@ -438,11 +448,10 @@ public:
 
                     for(int k = 0; k < dim; k++) {
                         T wk = w3(k);
-                        T wijk = wi * wj * wk;
-
+                        
                         T dwijk_dxi = dwij_dxi * wk;
                         T dwijk_dxj = dwij_dxj * wk;
-                        T dwijk_dxk = wj/(T)grid.cellWidth * dw3(k);
+                        T dwijk_dxk = dw3(k)/grid.cellWidth * wij;
 
                         int node_k = base_node3 + k;
 
@@ -453,8 +462,11 @@ public:
 
                         int g_idx = node_i + grid.res(0) * node_j + grid.res(1) * grid.res(2) * node_k;
 
-                        TV v_ijk = grid.vg[g_idx];
+                        if(g_idx >= grid.nCells) {
+                            std::cout << "ERROR in evolveF." << "\n";
+                        }
 
+                        TV v_ijk = grid.vg[g_idx];
                         grad_vp = grad_vp + v_ijk * grad_w.transpose();
 
                     }
@@ -467,12 +479,6 @@ public:
                     ms.Fp[p](i, j) = newFp(i, j);
                 }
             }
-
-            std::cout << newFp(0,0) << " | " << newFp(0,1) << " | " << newFp(0,2) << "\n";
-            std::cout << newFp(1,0) << " | " << newFp(1,1) << " | " << newFp(1,2) << "\n";
-            std::cout << newFp(2,0) << " | " << newFp(2,1) << " | " << newFp(2,2) << "\n";
-            std::cout << "\n";
-            
         }
     }
 

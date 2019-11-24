@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 16;
+    int N = 84;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 
     // Set up particle attributes
     T E = 1e4;
-    T nu = 0.3;
+    T nu = (T)0.3; // previously 0.3
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
     T rho = (T)1000;
@@ -90,10 +90,8 @@ int main(int argc, char* argv[])
     for(int i = 0; i < xp_new.size(); i++) {
         mp[i] = uniform_mass;
         vp[i] = TV::Zero();
-        Fp[i] = Mat::Zero();
+        Fp[i] = Mat::Identity();
     }
-
-
 
     driver.grid = grid;
     driver.ms.m = mp;
@@ -102,7 +100,7 @@ int main(int argc, char* argv[])
     driver.ms.Fp = Fp;
     driver.ms.Vp0 = Vp0;
 
-    driver.run(11);
+    driver.run(120);
 
     return 0;
     
