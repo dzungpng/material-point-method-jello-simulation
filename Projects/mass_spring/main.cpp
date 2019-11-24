@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 32;
+    int N = 16;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -46,21 +46,22 @@ int main(int argc, char* argv[])
     std::vector<TV> vp;
     std::vector<TV> xp_og;
     std::vector<Mat> Fp;
-    xp_og.resize(Np);
+    std::vector<T> Vp0;
 
     // Set up particle attributes
     T E = 1e4;
-    T nu = .3;
+    T nu = 0.3;
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
     T rho = (T)1000;
-    std::vector<T> Vp0;
     pcg32 rng;
     T vp0 = grid.cellWidth*grid.cellWidth*grid.cellWidth/(T)8;
     T uniform_mass = vp0*rho;
     driver.ms.lambda = lambda;
     driver.ms.mu = mu;
 
+    // Sampling particle positions before limiting to a boundary
+    xp_og.resize(Np);
     for(int x = 0; x < N; x++) {
         for(int y = 0; y < N; y++) {
             for(int z = 0; z < N; z++) {
@@ -92,6 +93,8 @@ int main(int argc, char* argv[])
         Fp[i] = Mat::Zero();
     }
 
+
+
     driver.grid = grid;
     driver.ms.m = mp;
     driver.ms.x = xp_new;
@@ -99,7 +102,7 @@ int main(int argc, char* argv[])
     driver.ms.Fp = Fp;
     driver.ms.Vp0 = Vp0;
 
-    driver.run(200);
+    driver.run(11);
 
     return 0;
     

@@ -9,7 +9,7 @@ template<class T, int dim>
 class MassSpringSystem{
 public:
     using TV = Eigen::Matrix<T,dim,1>;
-   using Mat = Eigen::Matrix<T, dim, dim>;
+    using Mat = Eigen::Matrix<T, dim, dim>;
 
     std::vector<T> m;
     std::vector<TV> x;

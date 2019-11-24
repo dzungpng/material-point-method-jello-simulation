@@ -271,6 +271,7 @@ public:
     ** Adding elasticity with fixed corrotated method.
     */
     void polarSVD(const Mat F, Mat &U, Mat &V, Mat &Sigma) {
+        // regular svd
         Eigen::JacobiSVD<Mat> svd(F, Eigen::ComputeThinU | Eigen::ComputeThinV);
         U = svd.matrixU();
         V = svd.matrixV();
@@ -297,12 +298,16 @@ public:
         polarSVD(F, U, V, Sigma);
         Mat R = U * V.transpose();
 
+
+
         T J = F.determinant();
         Mat A = Mat::Zero(dim, dim);
-        Mat F_inTrans = F.inverse().transpose();
-        A = J * F_inTrans;
+        // Mat F_inTrans = F.inverse().transpose();
+        // A = J * F_inTrans;
+        A = F.adjoint();
 
-        Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - 1) * A;
+        Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
+        
         return P;
     }
 
@@ -312,8 +317,8 @@ public:
         for(int p = 0; p < Np; p++) {
             Mat thisFp = ms.Fp[p];
             Mat thisP = fixedCorotated(thisFp);
-            Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.tranpose();
-            
+            Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.transpose();
+
             TV X = ms.x[p];
             TV X_index_space = TV::Zero();
             X_index_space(0) = X(0)/grid.cellWidth;
@@ -338,15 +343,15 @@ public:
 
 
             for(int i = 0; i < dim; i++) {
-                T wi = w1(x);
-                T dwi_dxi = dw1(x)/(T)grid.cellWidth;
+                T wi = w1(i);
+                T dwi_dxi = dw1(i)/grid.cellWidth;
                 int node_i = base_node1 + i;
 
                 for(int j = 0; j < dim; j++) {
-                    T wj = w2(y);
+                    T wj = w2(j);
                     T wij = wi * wj;
                     T dwij_dxi = dwi_dxi * wj;
-                    T dwij_dxj = wi/(T)grid.cellWidth * dw2(j);
+                    T dwij_dxj = wi/grid.cellWidth * dw2(j);
                     int node_j = base_node2 + j;
 
                     for(int k = 0; k < dim; k++) {
@@ -355,7 +360,7 @@ public:
 
                         T dwijk_dxi = dwij_dxi * wk;
                         T dwijk_dxj = dwij_dxj * wk;
-                        T dwijk_dxk = wij/(T)grid.cellWidth * dw3(k);
+                        T dwijk_dxk = wj/(T)grid.cellWidth * dw3(k);
 
                         int node_k = base_node3 + k;
 
@@ -364,7 +369,20 @@ public:
                         grad_w(1) = dwijk_dxj;
                         grad_w(2) = dwijk_dxk;
 
+                        TV foo = -Vp0PFt * grad_w;
+
+                        int g_idx = node_i + grid.res(0) * node_j + grid.res(1) * grid.res(2) * node_k;
                         
+                        // std::cout << Vp0PFt(0,0) << " | " << Vp0PFt(0,1) << " | " << Vp0PFt(0,2) << "\n";
+                        // std::cout << Vp0PFt(1,0) << " | " << Vp0PFt(1,1) << " | " << Vp0PFt(1,2) << "\n";
+                        // std::cout << Vp0PFt(2,0) << " | " << Vp0PFt(2,1) << " | " << Vp0PFt(2,2) << "\n";
+                        // std::cout << "\n";
+                        
+                        std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
+                        
+                        for(int d = 0; d < dim; d++){
+                            grid.force[g_idx](d) += foo(d);
+                        }
                     }
                 }
             }
@@ -388,7 +406,7 @@ public:
         addGravity();
 
         // *** UNCOMMENT WHEN DONE ****
-        // addElasticity();
+        addElasticity();
 
         // Update grid velocity
         updateGridVelocity();
