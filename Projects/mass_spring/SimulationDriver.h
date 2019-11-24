@@ -378,7 +378,7 @@ public:
                         // std::cout << Vp0PFt(2,0) << " | " << Vp0PFt(2,1) << " | " << Vp0PFt(2,2) << "\n";
                         // std::cout << "\n";
                         
-                        std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
+                        // std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
                         
                         for(int d = 0; d < dim; d++){
                             grid.force[g_idx](d) += foo(d);
@@ -386,6 +386,93 @@ public:
                     }
                 }
             }
+        }
+    }
+
+    /*
+    * Evolve the deformation gradient.
+    */
+    void evolveF() {
+        int Np = ms.Fp.size();
+        
+        for(int p = 0; p < Np; p++) {
+            Mat thisFp = ms.Fp[p];
+
+            TV X = ms.x[p];
+            TV X_index_space = TV::Zero();
+            X_index_space(0) = X(0)/grid.cellWidth;
+            X_index_space(1) = X(1)/grid.cellWidth;
+            X_index_space(2) = X(2)/grid.cellWidth;
+
+            // X
+            TV w1; 
+            T base_node1 = 0;
+            TV dw1; 
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(0), w1, dw1, base_node1);
+            // Y
+            TV w2;
+            T base_node2 = 0;
+            TV dw2;
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(1), w2, dw2, base_node2);
+            // Z
+            TV w3;
+            T base_node3 = 0;
+            TV dw3;
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(2), w3, dw3, base_node3);
+
+            // Compute grad_vp
+            Mat grad_vp = Mat::Zero();
+
+
+            for(int i = 0; i < dim; i++) {
+                T wi = w1(i);
+                T dwi_dxi = dw1(i)/grid.cellWidth;
+                int node_i = base_node1 + i;
+
+                for(int j = 0; j < dim; j++) {
+                    T wj = w2(j);
+                    T wij = wi * wj;
+                    T dwij_dxi = dwi_dxi * wj;
+                    T dwij_dxj = wi/grid.cellWidth * dw2(j);
+                    int node_j = base_node2 + j;
+
+                    for(int k = 0; k < dim; k++) {
+                        T wk = w3(k);
+                        T wijk = wi * wj * wk;
+
+                        T dwijk_dxi = dwij_dxi * wk;
+                        T dwijk_dxj = dwij_dxj * wk;
+                        T dwijk_dxk = wj/(T)grid.cellWidth * dw3(k);
+
+                        int node_k = base_node3 + k;
+
+                        TV grad_w;
+                        grad_w(0) = dwijk_dxi;
+                        grad_w(1) = dwijk_dxj;
+                        grad_w(2) = dwijk_dxk;
+
+                        int g_idx = node_i + grid.res(0) * node_j + grid.res(1) * grid.res(2) * node_k;
+
+                        TV v_ijk = grid.vg[g_idx];
+
+                        grad_vp = grad_vp + v_ijk * grad_w.transpose();
+
+                    }
+                }
+            }
+            Mat newFp = (Mat::Identity() + dt*grad_vp) * thisFp;
+           
+            for(int i = 0; i < dim; i++) {
+                for(int j = 0; j < dim; j++) {
+                    ms.Fp[p](i, j) = newFp(i, j);
+                }
+            }
+
+            std::cout << newFp(0,0) << " | " << newFp(0,1) << " | " << newFp(0,2) << "\n";
+            std::cout << newFp(1,0) << " | " << newFp(1,1) << " | " << newFp(1,2) << "\n";
+            std::cout << newFp(2,0) << " | " << newFp(2,1) << " | " << newFp(2,2) << "\n";
+            std::cout << "\n";
+            
         }
     }
 
@@ -418,7 +505,7 @@ public:
         // TV Lg1 = computeGridMomentum(1);
         // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
         // *** UNCOMMENT WHEN DONE ****
-        // evolveF();
+        evolveF();
 
         transferG2P((T)0.95); // bigger faster
     }
