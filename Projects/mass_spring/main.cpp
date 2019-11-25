@@ -78,8 +78,8 @@ int main(int argc, char* argv[])
 
     // Resampling to fit inside a box
     std::vector<TV> xp_new;
-    TV minCorner(TV::Ones()*0.2);
-    TV maxCorner(TV::Ones()*0.8);
+    TV minCorner(TV::Ones()*0.3);
+    TV maxCorner(TV::Ones()*0.7);
     Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
     Fp.resize(xp_new.size());
     mp.resize(xp_new.size());
