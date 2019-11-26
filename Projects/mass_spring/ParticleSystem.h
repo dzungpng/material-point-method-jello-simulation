@@ -14,14 +14,18 @@ public:
     std::vector<T> m;
     std::vector<TV> x;
     std::vector<TV> v;
+
     std::vector<Mat> Fp;
+    std::vector<Mat> Fe;
+    std::vector<Mat> F;
+
     std::vector<T> Vp0;
 
     T lambda;
     T mu;
-
-    MassSpringSystem()
-    {}
+    T zeta;
+    
+    MassSpringSystem() {}
 
     void dumpPoly(std::string filename)
     {

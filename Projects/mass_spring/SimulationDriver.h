@@ -8,6 +8,8 @@
 #include "Geometry/Grid.h"
 #include "Sampling.h"
 
+const double EulerConstant = std::exp(1.0);
+
 template<class T, int dim>
 class SimulationDriver{
 public:
@@ -25,7 +27,7 @@ public:
     T collision_stiffness;
 
     SimulationDriver()
-    : dt((T)1e-3) // 0.0015 for implicit
+    : dt((T)1e-4) // 1e-3 for implicit
     {
         gravity.setZero();
         gravity(1) = -9.8;
@@ -294,9 +296,10 @@ public:
             V(2,2) = V(2,2) * (T)-1;
             Sigma(2,2) = Sigma(2,2) * (T)-1;
         }
+
     }
 
-    Mat fixedCorotated(const Mat F) {
+    Mat fixedCorotated(const Mat F, const bool snow) {
         Mat U(dim, dim);
         Mat V(dim, dim);
         Mat Sigma(dim, dim);
@@ -308,22 +311,30 @@ public:
         // A = J * F_inTrans;
         Mat F_inverse = F.adjoint();
         Mat A = F_inverse.transpose();
-
-        Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
         
-        return P;
+        if(!snow) {
+            Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
+            return P;
+        }
+        else {
+            T power = ms.zeta * ((T)1 - J);
+            T e = pow(EulerConstant, power);
+            T mu_F0 = ms.mu * e;
+            T lambda_F0 = ms.lambda * e;
+            Mat P = (T)2 * mu_F0 * (F - R) + lambda_F0 * (J - (T)1) * A;
+            return P;
+        }
     }
 
     void addElasticity() {
-        int Np = ms.Fp.size();
+        int Np = ms.F.size();
 
         for(int p = 0; p < Np; p++) {
-            Mat thisFp = ms.Fp[p];
+            Mat thisFp = ms.F[p];
 
-            Mat thisP = fixedCorotated(thisFp);
+            Mat thisP = fixedCorotated(thisFp, true);
             Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.transpose();
                     
-
             TV X = ms.x[p];
             TV X_index_space = TV::Zero();
             X_index_space(0) = X(0)/grid.cellWidth;
@@ -382,18 +393,129 @@ public:
                         if(g_idx >= grid.nCells) {
                             std::cout << "ERROR in addElasticity." << "\n";
                         }
-                        // std::cout << Vp0PFt(0,0) << " | " << Vp0PFt(0,1) << " | " << Vp0PFt(0,2) << "\n";
-                        // std::cout << Vp0PFt(1,0) << " | " << Vp0PFt(1,1) << " | " << Vp0PFt(1,2) << "\n";
-                        // std::cout << Vp0PFt(2,0) << " | " << Vp0PFt(2,1) << " | " << Vp0PFt(2,2) << "\n";
-                        // std::cout << "\n";
-                        
-                        //std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
-                        
+
                         for(int d = 0; d < dim; d++){
                             grid.force[g_idx](d) += foo(d);
                         }
                         
                     }
+                }
+            }
+        }
+    }
+    
+
+    void evolveF_snow() {
+        int Np = ms.F.size();
+        
+        for(int p = 0; p < Np; p++) {
+            Mat Fep_n = ms.Fe[p];
+
+            TV X = ms.x[p];
+            TV X_index_space = TV::Zero();
+            X_index_space(0) = X(0)/grid.cellWidth;
+            X_index_space(1) = X(1)/grid.cellWidth;
+            X_index_space(2) = X(2)/grid.cellWidth;
+
+            // X
+            TV w1; 
+            T base_node1 = 0;
+            TV dw1; 
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(0), w1, dw1, base_node1);
+            // Y
+            TV w2;
+            T base_node2 = 0;
+            TV dw2;
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(1), w2, dw2, base_node2);
+            // Z
+            TV w3;
+            T base_node3 = 0;
+            TV dw3;
+            Sampling<T, dim>::computeWeightsWithGradients1D(X_index_space(2), w3, dw3, base_node3);
+
+            // Compute grad_vp
+            Mat grad_vp = Mat::Zero();
+
+
+            for(int i = 0; i < dim; i++) {
+                T wi = w1(i);
+                T dwi_dxi = dw1(i)/grid.cellWidth;
+                int node_i = base_node1 + i;
+
+                for(int j = 0; j < dim; j++) {
+                    T wj = w2(j);
+                    T wij = wi * wj;
+                    T dwij_dxi = dwi_dxi * wj;
+                    T dwij_dxj = wi/grid.cellWidth * dw2(j);
+                    int node_j = base_node2 + j;
+
+                    for(int k = 0; k < dim; k++) {
+                        T wk = w3(k);
+                        
+                        T dwijk_dxi = dwij_dxi * wk;
+                        T dwijk_dxj = dwij_dxj * wk;
+                        T dwijk_dxk = dw3(k)/grid.cellWidth * wij;
+
+                        int node_k = base_node3 + k;
+
+                        TV grad_w;
+                        grad_w(0) = dwijk_dxi;
+                        grad_w(1) = dwijk_dxj;
+                        grad_w(2) = dwijk_dxk;
+
+                        int g_idx = node_i + grid.res(0) * node_j + grid.res(1) * grid.res(2) * node_k;
+
+                        if(g_idx >= grid.nCells) {
+                            std::cout << "ERROR in evolveF_snow." << "\n";
+                        }
+
+                        TV v_ijk = grid.vg[g_idx];
+                        grad_vp = grad_vp + v_ijk * grad_w.transpose();
+
+                    }
+                }
+            }
+            Mat Fep_n1 = (Mat::Identity() + dt*grad_vp) * Fep_n;
+            Mat Fpp_n1 = ms.Fp[p];
+
+            // 11
+            Mat Fp_n1 = Fep_n1 * Fpp_n1;
+
+            // Compute SVD of Fep_n1
+            Mat U(dim, dim);
+            Mat V(dim, dim);
+            Mat Sigma(dim, dim);
+            
+            polarSVD(Fep_n1, U, V, Sigma);
+            
+            // Clamping singular values for snow
+            for(int i = 0; i < dim; i++) {
+                Sigma(i, i) = std::clamp(Sigma(i, i), (T)0.99, (T)1.01);
+            }
+
+            // 12
+            Mat Fep_new = U * Sigma * V.transpose(); 
+            Mat Fpp_new = V * Sigma.inverse() * U.transpose() * Fp_n1;
+
+            Mat Fp_new = Fep_new * Fpp_new;
+
+            // Updating Fp, Fe, and F
+            // F
+            for(int i = 0; i < dim; i++) {
+                for(int j = 0; j < dim; j++) {
+                    ms.F[p](i, j) = Fp_new(i, j);
+                }
+            }
+            // Fe
+            for(int i = 0; i < dim; i++) {
+                for(int j = 0; j < dim; j++) {
+                    ms.Fe[p](i, j) = Fep_new(i, j);
+                }
+            }
+            // Fp
+            for(int i = 0; i < dim; i++) {
+                for(int j = 0; j < dim; j++) {
+                    ms.Fp[p](i, j) = Fpp_new(i, j);
                 }
             }
         }
@@ -511,7 +633,7 @@ public:
         // TV Lg1 = computeGridMomentum(1);
         // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
         // *** UNCOMMENT WHEN DONE ****
-        evolveF();
+        evolveF_snow();
 
         transferG2P((T)0.95); // bigger faster
     }
@@ -531,5 +653,13 @@ public:
             ms.dumpPoly(filename);
             std::cout << std::endl;
         }
+    }
+
+    // printing out Mat3 to debug
+    void debug(const Mat m) {
+        std::cout << m(0,0) << " | " << m(0,1) << " | " << m(0,2) << "\n";
+        std::cout << m(1,0) << " | " << m(1,1) << " | " << m(1,2) << "\n";
+        std::cout << m(2,0) << " | " << m(2,1) << " | " << m(2,2) << "\n";
+        std::cout << "\n";
     }
 };

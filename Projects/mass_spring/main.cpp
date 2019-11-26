@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 84;
+    int N = 40;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -45,7 +45,11 @@ int main(int argc, char* argv[])
     std::vector<T> mp;
     std::vector<TV> vp;
     std::vector<TV> xp_og;
+    //Forces
     std::vector<Mat> Fp;
+    std::vector<Mat> Fe;
+    std::vector<Mat> F;
+
     std::vector<T> Vp0;
 
     // Set up particle attributes
@@ -53,12 +57,15 @@ int main(int argc, char* argv[])
     T nu = (T)0.3; // previously 0.3
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
-    T rho = (T)1000;
+    T rho = (T)2000; // do 500 for jello
+    T zeta = (T)2;
+
     pcg32 rng;
     T vp0 = grid.cellWidth*grid.cellWidth*grid.cellWidth/(T)8;
     T uniform_mass = vp0*rho;
     driver.ms.lambda = lambda;
     driver.ms.mu = mu;
+    driver.ms.zeta = zeta;
 
     // Sampling particle positions before limiting to a boundary
     xp_og.resize(Np);
@@ -81,7 +88,11 @@ int main(int argc, char* argv[])
     TV minCorner(TV::Ones()*0.3);
     TV maxCorner(TV::Ones()*0.7);
     Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
+
     Fp.resize(xp_new.size());
+    Fe.resize(xp_new.size());
+    F.resize(xp_new.size());
+
     mp.resize(xp_new.size());
     vp.resize(xp_new.size());
     // Material space volume of each particle inside a 3d grid
@@ -91,6 +102,8 @@ int main(int argc, char* argv[])
         mp[i] = uniform_mass;
         vp[i] = TV::Zero();
         Fp[i] = Mat::Identity();
+        Fe[i] = Mat::Identity();
+        F[i] = Mat::Identity();
     }
 
     driver.grid = grid;
@@ -98,9 +111,11 @@ int main(int argc, char* argv[])
     driver.ms.x = xp_new;
     driver.ms.v = vp;
     driver.ms.Fp = Fp;
+    driver.ms.Fe = Fe;
+    driver.ms.F = F;
     driver.ms.Vp0 = Vp0;
 
-    driver.run(120);
+    driver.run(100);
 
     return 0;
     
