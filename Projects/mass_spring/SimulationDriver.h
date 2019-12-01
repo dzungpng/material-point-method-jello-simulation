@@ -299,44 +299,54 @@ public:
 
     }
 
-    Mat fixedCorotated(const Mat F, const bool snow) {
+    Mat fixedCorotated(const Mat Fe, const Mat Fp, const bool snow) {
         Mat U(dim, dim);
         Mat V(dim, dim);
         Mat Sigma(dim, dim);
-        polarSVD(F, U, V, Sigma);
+        polarSVD(Fe, U, V, Sigma);
         Mat R = U * V.transpose();
 
-        // Mat F_changed = U * Sigma * V.transpose();
+        if(snow) {
+            // Clamping singular values for snow
+            for(int i = 0; i < dim; i++) {
+                Sigma(i, i) = std::clamp(Sigma(i, i), (T)1 - ms.theta_c, (T)1 + ms.theta_t);
+            }
+        }
 
-        T J = F.determinant();
+        Mat F_changed = U * Sigma * V.transpose();
+
+        T J_e = F_changed.determinant();
+        T J_p = Fp.determinant();
         // Mat F_inTrans = F.inverse().transpose();
         // A = J * F_inTrans;
-        Mat F_inverse = F.adjoint();
-        Mat A = F.transpose();
+        Mat F_inverse = F_changed.adjoint();
+        Mat A = F_changed.transpose();
         
         if(!snow) {
-            Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
+            Mat P = (T)2 * ms.mu * (F_changed - R) + ms.lambda * (J_e - (T)1) * A;
             return P;
         }
         else {
-            T power = ms.zeta * ((T)1 - J);
+            T power = ms.epsilon * ((T)1 - J_p);
             T e = pow(EulerConstant, power);
             T mu_F0 = ms.mu * e;
             T lambda_F0 = ms.lambda * e;
-            Mat P = (T)2 * mu_F0 * (F - R) + lambda_F0 * (J - (T)1) * A;
+            Mat P = (T)2 * mu_F0 * (F_changed - R) + lambda_F0 * (J_e - (T)1) * A;
             return P;
         }
     }
 
     void addElasticity() {
-        int Np = ms.F.size();
+        int Np = ms.Fp.size();
 
         for(int p = 0; p < Np; p++) {
-            Mat thisFp = ms.F[p];
+            Mat Fe = ms.Fe[p];
+            Mat Fp = ms.Fp[p];
 
-            Mat thisP = fixedCorotated(thisFp, false);
-            Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.transpose();
+            Mat thisP = fixedCorotated(Fe, Fp, false);
+            Mat Vp0PFt = ms.Vp0[p] * thisP * Fe.transpose();
                     
+
             TV X = ms.x[p];
             TV X_index_space = TV::Zero();
             X_index_space(0) = X(0)/grid.cellWidth;
@@ -395,7 +405,7 @@ public:
                         if(g_idx >= grid.nCells) {
                             std::cout << "ERROR in addElasticity." << "\n";
                         }
-
+                        
                         for(int d = 0; d < dim; d++){
                             grid.force[g_idx](d) += foo(d);
                         }
@@ -406,7 +416,6 @@ public:
         }
     }
     
-
     void evolveF_snow() {
         int Np = ms.F.size();
         
@@ -492,7 +501,7 @@ public:
             
             // Clamping singular values for snow
             for(int i = 0; i < dim; i++) {
-                Sigma(i, i) = std::clamp(Sigma(i, i), (T)0.99, (T)1.01);
+                Sigma(i, i) = std::clamp(Sigma(i, i), (T)1 - ms.theta_c, (T)1 + ms.theta_t);
             }
 
             // 12
@@ -636,7 +645,7 @@ public:
         // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
         // *** UNCOMMENT WHEN DONE ****
         //evolveF_snow();
-        evolveF();
+        evolveF_snow();
 
         transferG2P((T)0.95); // bigger faster
     }

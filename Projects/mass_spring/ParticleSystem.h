@@ -23,8 +23,10 @@ public:
 
     T lambda;
     T mu;
-    T zeta;
-    
+    T theta_t;
+    T theta_c;
+    T epsilon;
+
     MPM() {}
 
     void dumpPoly(std::string filename)

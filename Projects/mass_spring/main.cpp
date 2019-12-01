@@ -53,19 +53,26 @@ int main(int argc, char* argv[])
     std::vector<T> Vp0;
 
     // Set up particle attributes
-    T E = 1e4;
-    T nu = (T)0.3; // previously 0.3
+    T E = (T)1.4e5; // initial young modulus
+    T nu = (T) 0.2; // Poisson ratio
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
-    T rho = (T)500; // do 500 for jello
-    T zeta = (T)2;
+    T rho = (T)4 * pow(10, 2); // initial density
 
     pcg32 rng;
     T vp0 = grid.cellWidth*grid.cellWidth*grid.cellWidth/(T)8;
     T uniform_mass = vp0*rho;
     driver.ms.lambda = lambda;
     driver.ms.mu = mu;
-    driver.ms.zeta = zeta;
+
+    // Snow particle attributes
+    T theta_c = (T) 1.9 * pow(10, -2); // critical compression
+    T theta_t = (T) 7.5 * pow(10, -3); // critical stretch
+    T epsilon = (T)10; // hardening coeff
+    
+    driver.ms.theta_c = theta_c;
+    driver.ms.theta_t = theta_t;
+    driver.ms.epsilon = epsilon;
 
     // Sampling particle positions before limiting to a boundary
     xp_og.resize(Np);
@@ -115,7 +122,7 @@ int main(int argc, char* argv[])
     driver.ms.F = F;
     driver.ms.Vp0 = Vp0;
 
-    driver.run(60);
+    driver.run(40);
 
     return 0;
     
