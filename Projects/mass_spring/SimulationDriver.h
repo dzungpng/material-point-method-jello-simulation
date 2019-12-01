@@ -303,13 +303,15 @@ public:
         polarSVD(F, U, V, Sigma);
         Mat R = U * V.transpose();
 
-        T J = F.determinant();
+        Mat F_changed = U * Sigma * V.transpose();
+
+        T J = F_changed.determinant();
         // Mat F_inTrans = F.inverse().transpose();
         // A = J * F_inTrans;
-        Mat F_inverse = F.adjoint();
+        Mat F_inverse = F_changed.adjoint();
         Mat A = F_inverse.transpose();
 
-        Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
+        Mat P = (T)2 * ms.mu * (F_changed - R) + ms.lambda * (J - (T)1) * A;
         
         return P;
     }

@@ -68,4 +68,31 @@ public:
         dw(2) = zz;
     }
 
+        /*
+    * Samples randomly within a sphere using spherical coordinates. 
+    * param pos: Position vector to populate
+    * param numSamples: number of samples to generate
+    * param dx: the length of each grid node
+    */
+    static void sampleSphere(std::vector<TV> &pos, const int numSamples, const T dx) {
+        pcg32 rand;
+
+        for(int i = 0; i < numSamples; i++) {
+            T u = rand.nextFloat();
+            T v = rand.nextFloat();
+            T theta = u * 2.0 * M_PI;
+            T phi = acos((T)2 * v - (T)1);
+            T r = cbrt(rand.nextFloat());
+            T sinTheta = sin(theta);
+            T cosTheta = cos(theta);
+            T sinPhi = sin(phi);
+            T cosPhi = cos(phi);
+            T x = r * sinPhi * cosTheta * 0.2 + (T)0.5;
+            T y = r * sinPhi * sinTheta * 0.2 + (T)0.5;
+            T z = r * cosPhi * 0.2 + (T)0.5;
+            TV p(x, y, z);
+            pos.push_back(p);
+        }
+    }
+
 };

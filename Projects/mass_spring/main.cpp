@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 50;
+    int N = 30;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -78,9 +78,15 @@ int main(int argc, char* argv[])
 
     // Resampling to fit inside a box
     std::vector<TV> xp_new;
-    TV minCorner(TV::Ones()*0.3);
-    TV maxCorner(TV::Ones()*0.7);
-    Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
+    // TV minCorner(TV::Ones()*0.3);
+    // TV maxCorner(TV::Ones()*0.7);
+    // Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
+    Sampling<T, dim>::sampleSphere(xp_new, Np, dx);
+
+    // for(int i = 0; i < xp_new.size(); i++) {
+    //     std::cout << xp_new[i](0) << ", " << xp_new[i](1) << ", " << xp_new[i](2) << "\n";
+    // }
+
     Fp.resize(xp_new.size());
     mp.resize(xp_new.size());
     vp.resize(xp_new.size());
