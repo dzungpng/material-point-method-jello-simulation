@@ -6,7 +6,7 @@
 #include <fstream>
 
 template<class T, int dim>
-class MassSpringSystem{
+class MPM{
 public:
     using TV = Eigen::Matrix<T,dim,1>;
     using Mat = Eigen::Matrix<T, dim, dim>;
@@ -25,7 +25,7 @@ public:
     T mu;
     T zeta;
     
-    MassSpringSystem() {}
+    MPM() {}
 
     void dumpPoly(std::string filename)
     {

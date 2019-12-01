@@ -18,7 +18,7 @@ public:
     using Vec = Eigen::Matrix<T,Eigen::Dynamic,1>;
     using Mat = Eigen::Matrix<T, dim, dim>;
 
-    MassSpringSystem<T,dim> ms;
+    MPM<T,dim> ms;
     CartesianGrid<T, dim> grid;
 
     T dt;
@@ -306,11 +306,13 @@ public:
         polarSVD(F, U, V, Sigma);
         Mat R = U * V.transpose();
 
+        // Mat F_changed = U * Sigma * V.transpose();
+
         T J = F.determinant();
         // Mat F_inTrans = F.inverse().transpose();
         // A = J * F_inTrans;
         Mat F_inverse = F.adjoint();
-        Mat A = F_inverse.transpose();
+        Mat A = F.transpose();
         
         if(!snow) {
             Mat P = (T)2 * ms.mu * (F - R) + ms.lambda * (J - (T)1) * A;
@@ -332,7 +334,7 @@ public:
         for(int p = 0; p < Np; p++) {
             Mat thisFp = ms.F[p];
 
-            Mat thisP = fixedCorotated(thisFp, true);
+            Mat thisP = fixedCorotated(thisFp, false);
             Mat Vp0PFt = ms.Vp0[p] * thisP * thisFp.transpose();
                     
             TV X = ms.x[p];
@@ -633,7 +635,8 @@ public:
         // TV Lg1 = computeGridMomentum(1);
         // std::cout << "Grid momentum before g2p: " << Lg1(0) << ", " << Lg1(1) << ", " << Lg1(2) << "\n";
         // *** UNCOMMENT WHEN DONE ****
-        evolveF_snow();
+        //evolveF_snow();
+        evolveF();
 
         transferG2P((T)0.95); // bigger faster
     }

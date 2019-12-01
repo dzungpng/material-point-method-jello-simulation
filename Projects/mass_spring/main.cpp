@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 40;
+    int N = 50;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
     T nu = (T)0.3; // previously 0.3
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
-    T rho = (T)2000; // do 500 for jello
+    T rho = (T)500; // do 500 for jello
     T zeta = (T)2;
 
     pcg32 rng;
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
     driver.ms.F = F;
     driver.ms.Vp0 = Vp0;
 
-    driver.run(100);
+    driver.run(60);
 
     return 0;
     
