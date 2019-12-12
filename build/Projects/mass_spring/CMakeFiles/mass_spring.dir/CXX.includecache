@@ -34,6 +34,16 @@ fstream
 pcg32.h
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/pcg32.h
 
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/pcg32.h
+inttypes.h
+-
+cmath
+-
+cassert
+-
+algorithm
+-
+
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
 Eigen/Sparse
 -

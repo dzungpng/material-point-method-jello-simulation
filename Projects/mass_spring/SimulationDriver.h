@@ -522,7 +522,9 @@ public:
     {
         for(int frame=1; frame<max_frame; frame++) {
             std::cout << "Frame " << frame << std::endl;
-
+            if(frame % 10 == 0) {
+                ms.addGeometry();
+            }
             int N_substeps = (int)(((T)1/24)/dt);
             for (int step = 1; step <= N_substeps; step++) {
                 // std::cout << "Step " << step << std::endl;
