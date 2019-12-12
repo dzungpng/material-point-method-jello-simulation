@@ -9,7 +9,7 @@
 #include <chrono>
 
 #include "SimulationDriver.h"
-#include "Sampling.h"
+#include "Sampling/Sampling.h"
 
 
 int main(int argc, char* argv[])

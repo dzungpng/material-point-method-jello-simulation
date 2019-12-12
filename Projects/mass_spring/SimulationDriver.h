@@ -6,7 +6,7 @@
 #include <iostream>
 #include "ParticleSystem.h"
 #include "Geometry/Grid.h"
-#include "Sampling.h"
+#include "Sampling/Sampling.h"
 
 template<class T, int dim>
 class SimulationDriver{

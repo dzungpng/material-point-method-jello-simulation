@@ -30,9 +30,9 @@ string
 fstream
 -
 
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/Sampling.h
 pcg32.h
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/pcg32.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/pcg32.h
 
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
 Eigen/Sparse
@@ -47,8 +47,8 @@ ParticleSystem.h
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/ParticleSystem.h
 Geometry/Grid.h
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Geometry/Grid.h
-Sampling.h
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling.h
+Sampling/Sampling.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/Sampling.h
 
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/main.cpp
 Eigen/Core
@@ -71,18 +71,8 @@ chrono
 -
 SimulationDriver.h
 /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/SimulationDriver.h
-Sampling.h
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling.h
-
-/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/pcg32.h
-inttypes.h
--
-cmath
--
-cassert
--
-algorithm
--
+Sampling/Sampling.h
+/home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/Sampling.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core
