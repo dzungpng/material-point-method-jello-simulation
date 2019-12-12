@@ -194,7 +194,6 @@ public:
             }
         }
 
-
         // Z Direction
         for(int x = 0; x < N; x++) {
             for(int y = 0; y < N; y++) {
@@ -307,7 +306,6 @@ public:
         Mat F_changed = U * Sigma * V.transpose();
 
         T J = F_changed.determinant();
-        std::cout << "J: " << J << "\n";
         // Mat F_inTrans = F.inverse().transpose();
         // A = J * F_inTrans;
         Mat F_inverse = F_changed.adjoint();

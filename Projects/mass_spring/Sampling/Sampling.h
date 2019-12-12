@@ -74,7 +74,7 @@ public:
     * param numSamples: number of samples to generate
     * param dx: the length of each grid node
     */
-    static void sampleSphere(std::vector<TV> &pos, const int numSamples, const T dx) {
+    static void sampleSphere(std::vector<TV> &pos, const int numSamples, const T dx, T displacementY) {
         pcg32 rand;
 
         for(int i = 0; i < numSamples; i++) {
@@ -87,9 +87,9 @@ public:
             T cosTheta = cos(theta);
             T sinPhi = sin(phi);
             T cosPhi = cos(phi);
-            T x = r * sinPhi * cosTheta * 0.2 + (T)0.5;
-            T y = r * sinPhi * sinTheta * 0.2 + (T)0.5;
-            T z = r * cosPhi * 0.2 + (T)0.5;
+            T x = r * sinPhi * cosTheta * dx + (T)0.5;
+            T y = r * sinPhi * sinTheta * dx + (T)0.5 + displacementY;
+            T z = r * cosPhi * dx + (T)0.5;
             TV p(x, y, z);
             pos.push_back(p);
         }

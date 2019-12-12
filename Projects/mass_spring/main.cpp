@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
     // TV minCorner(TV::Ones()*0.3);
     // TV maxCorner(TV::Ones()*0.7);
     // Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
-    Sampling<T, dim>::sampleSphere(xp_new, Np, dx);
+    Sampling<T, dim>::sampleSphere(xp_new, Np, 0.1, 0.3);
 
     // for(int i = 0; i < xp_new.size(); i++) {
     //     std::cout << xp_new[i](0) << ", " << xp_new[i](1) << ", " << xp_new[i](2) << "\n";
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
     driver.ms.Fp = Fp;
     driver.ms.Vp0 = Vp0;
 
-    driver.run(40);
+    driver.run(120);
 
     return 0;
     
