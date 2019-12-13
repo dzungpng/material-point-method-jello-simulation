@@ -10,7 +10,7 @@
 
 #include "SimulationDriver.h"
 #include "Sampling/Sampling.h"
-
+#include "Geometry/SampledMesh.h"
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 30;
+    int N = 100;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;
@@ -49,11 +49,11 @@ int main(int argc, char* argv[])
     std::vector<T> Vp0;
 
     // Set up particle attributes
-    T E = 1e4;
+    T E = 5e4; // 1e5 good for sphere
     T nu = (T)0.3; // previously 0.3
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
-    T rho = (T)500;
+    T rho = (T)1000;
     pcg32 rng;
     T vp0 = grid.cellWidth*grid.cellWidth*grid.cellWidth/(T)8;
     T uniform_mass = vp0*rho;
@@ -78,15 +78,11 @@ int main(int argc, char* argv[])
 
     // Resampling to fit inside a box
     std::vector<TV> xp_new;
-    // TV minCorner(TV::Ones()*0.3);
-    // TV maxCorner(TV::Ones()*0.7);
-    // Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
-    Sampling<T, dim>::sampleSphere(xp_new, Np, 0.1, 0.3);
-
-    // for(int i = 0; i < xp_new.size(); i++) {
-    //     std::cout << xp_new[i](0) << ", " << xp_new[i](1) << ", " << xp_new[i](2) << "\n";
-    // }
-
+    TV minCorner(TV(0.45, 0.7, 0.45));
+    TV maxCorner(TV(0.6, 0.95, 0.6));
+    Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
+    // Sampling<T, dim>::sampleSphere(xp_new, Np, 0.1, 0.3);
+    
     Fp.resize(xp_new.size());
     mp.resize(xp_new.size());
     vp.resize(xp_new.size());
@@ -105,6 +101,11 @@ int main(int argc, char* argv[])
     driver.ms.v = vp;
     driver.ms.Fp = Fp;
     driver.ms.Vp0 = Vp0;
+
+    // Adding geometry to sampled geometry so we can continually add to the scene later
+    SampledMesh<T, dim> sampledMesh(mp, xp_new, vp, Fp, Vp0);
+
+    driver.sampledMesh = &sampledMesh;
 
     driver.run(120);
 

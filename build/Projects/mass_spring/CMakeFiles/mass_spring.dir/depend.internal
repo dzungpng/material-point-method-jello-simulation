@@ -3,6 +3,7 @@
 
 Projects/mass_spring/CMakeFiles/mass_spring.dir/main.cpp.o
  /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Geometry/Grid.h
+ /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Geometry/SampledMesh.h
  /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/ParticleSystem.h
  /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/Sampling.h
  /home/dzung/Desktop/Continuum-kinematics/Projects/mass_spring/Sampling/pcg32.h

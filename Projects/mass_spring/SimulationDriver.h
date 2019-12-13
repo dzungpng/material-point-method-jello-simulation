@@ -7,6 +7,7 @@
 #include "ParticleSystem.h"
 #include "Geometry/Grid.h"
 #include "Sampling/Sampling.h"
+#include "Geometry/SampledMesh.h"
 
 template<class T, int dim>
 class SimulationDriver{
@@ -16,13 +17,14 @@ public:
     using Vec = Eigen::Matrix<T,Eigen::Dynamic,1>;
     using Mat = Eigen::Matrix<T, dim, dim>;
 
-    MassSpringSystem<T,dim> ms;
+    MPM<T,dim> ms;
     CartesianGrid<T, dim> grid;
 
     T dt;
     TV gravity;
     T ground;
     T collision_stiffness;
+    SampledMesh<T, dim> *sampledMesh = nullptr; 
 
     SimulationDriver()
     : dt((T)1e-3) // 0.0015 for implicit
@@ -34,6 +36,8 @@ public:
         //sphere = Sphere(collision_stiffness, TV::Ones()*0.4, 0.25);
         //ground = 0.1;
     }
+
+    ~SimulationDriver() {}
 
     TV computeParticleMomentum() {
         TV result = TV::Zero();
@@ -522,16 +526,16 @@ public:
     {
         for(int frame=1; frame<max_frame; frame++) {
             std::cout << "Frame " << frame << std::endl;
-            if(frame % 10 == 0) {
-                ms.addGeometry();
+            if(frame % 20 == 0 && frame < 180) {
+                ms.addGeometry(sampledMesh);
             }
             int N_substeps = (int)(((T)1/24)/dt);
             for (int step = 1; step <= N_substeps; step++) {
                 // std::cout << "Step " << step << std::endl;
                 transferParticleToGrid();
             }
-            mkdir("output/", 0777);
-            std::string filename = "output/" + std::to_string(frame) + ".poly";
+            mkdir("output-27k-particles-cube/", 0777);
+            std::string filename = "output-27k-particles-cube/" + std::to_string(frame) + ".poly";
             ms.dumpPoly(filename);
             std::cout << std::endl;
         }
