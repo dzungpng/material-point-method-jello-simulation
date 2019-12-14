@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     SimulationDriver<T,dim> driver;
 
     // Set up particles----------------------------------------------
-    int N = 100;
+    int N = 150;
     int Np = N*N*N;
     // Distance between per particle
     T dx = (T)1/(T)N;

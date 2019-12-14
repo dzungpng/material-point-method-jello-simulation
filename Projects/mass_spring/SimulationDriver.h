@@ -267,10 +267,10 @@ public:
             }
             // Adding a constant pulling force
             for(int d = 0; d < dim; d++) {
-                ms.v[p](d) = ((T)1 - flip) * v_pic(d) + flip * v_flip(d);
+                //ms.v[p](d) = ((T)1 - flip) * v_pic(d) + flip * v_flip(d);
                 ms.x[p](d) += (dt * v_pic(d));
             }
-            ms.v[p] += TV(0, -0.01, 0);
+            ms.v[p] += TV(0, -0.0001, 0);
         }
     }
 
