@@ -22,8 +22,6 @@ public:
 
     T dt;
     TV gravity;
-    T ground;
-    T collision_stiffness;
     SampledMesh<T, dim> *sampledMesh = nullptr; 
 
     SimulationDriver()
@@ -31,7 +29,6 @@ public:
     {
         gravity.setZero();
         gravity(1) = -9.8;
-        collision_stiffness = 5e3;
 
         //sphere = Sphere(collision_stiffness, TV::Ones()*0.4, 0.25);
         //ground = 0.1;
@@ -161,23 +158,23 @@ public:
         int N_reverse = N - thickness;
 
         // X Direction
-        for(int x = 0; x < thickness; x++) {
-            for(int y = 0; y < N; y++) {
-                for(int z = 0; z < N; z++) {
-                    int idx = x + y * N + z * N * N;
-                    grid.vg[idx] = TV::Zero();
-                }
-            }
-        }
+        // for(int x = 0; x < thickness; x++) {
+        //     for(int y = 0; y < N; y++) {
+        //         for(int z = 0; z < N; z++) {
+        //             int idx = x + y * N + z * N * N;
+        //             grid.vg[idx] = TV::Zero();
+        //         }
+        //     }
+        // }
 
-        for(int x = N_reverse; x < N; x++) {
-            for(int y = 0; y < N; y++) {
-                for(int z = 0; z < N; z++) {
-                    int idx = x + y * N + z * N * N;
-                    grid.vg[idx] = TV::Zero();
-                }
-            }
-        }
+        // for(int x = N_reverse; x < N; x++) {
+        //     for(int y = 0; y < N; y++) {
+        //         for(int z = 0; z < N; z++) {
+        //             int idx = x + y * N + z * N * N;
+        //             grid.vg[idx] = TV::Zero();
+        //         }
+        //     }
+        // }
 
         // Y Direction
         for(int x = 0; x < N; x++) {
@@ -199,23 +196,23 @@ public:
         }
 
         // Z Direction
-        for(int x = 0; x < N; x++) {
-            for(int y = 0; y < N; y++) {
-                for(int z = 0; z < thickness; z++) {
-                    int idx = x + y * N + z * N * N;
-                    grid.vg[idx] = TV::Zero();
-                }
-            }
-        }
+        // for(int x = 0; x < N; x++) {
+        //     for(int y = 0; y < N; y++) {
+        //         for(int z = 0; z < thickness; z++) {
+        //             int idx = x + y * N + z * N * N;
+        //             grid.vg[idx] = TV::Zero();
+        //         }
+        //     }
+        // }
 
-        for(int x = 0; x < N; x++) {
-            for(int y = 0; y < N; y++) {
-                for(int z = N_reverse; z < N; z++) {
-                    int idx = x + y * N + z * N * N;
-                    grid.vg[idx] = TV::Zero();
-                }
-            }
-        }
+        // for(int x = 0; x < N; x++) {
+        //     for(int y = 0; y < N; y++) {
+        //         for(int z = N_reverse; z < N; z++) {
+        //             int idx = x + y * N + z * N * N;
+        //             grid.vg[idx] = TV::Zero();
+        //         }
+        //     }
+        // }
     }
 
     void transferG2P(const T flip) {
@@ -268,11 +265,12 @@ public:
                     }
                 }
             }
-
+            // Adding a constant pulling force
             for(int d = 0; d < dim; d++) {
                 ms.v[p](d) = ((T)1 - flip) * v_pic(d) + flip * v_flip(d);
                 ms.x[p](d) += (dt * v_pic(d));
             }
+            ms.v[p] += TV(0, -0.01, 0);
         }
     }
 
@@ -310,8 +308,6 @@ public:
         Mat F_changed = U * Sigma * V.transpose();
 
         T J = F_changed.determinant();
-        // Mat F_inTrans = F.inverse().transpose();
-        // A = J * F_inTrans;
         Mat F_inverse = F_changed.adjoint();
         Mat A = F_inverse.transpose();
 
@@ -388,12 +384,6 @@ public:
                         if(g_idx >= grid.nCells) {
                             std::cout << "ERROR in addElasticity." << "\n";
                         }
-                        // std::cout << Vp0PFt(0,0) << " | " << Vp0PFt(0,1) << " | " << Vp0PFt(0,2) << "\n";
-                        // std::cout << Vp0PFt(1,0) << " | " << Vp0PFt(1,1) << " | " << Vp0PFt(1,2) << "\n";
-                        // std::cout << Vp0PFt(2,0) << " | " << Vp0PFt(2,1) << " | " << Vp0PFt(2,2) << "\n";
-                        // std::cout << "\n";
-                        
-                        //std::cout << "foo: " << foo(0) << ", " << foo(1) << ", " << foo(2) << "\n";
                         
                         for(int d = 0; d < dim; d++){
                             grid.force[g_idx](d) += foo(d);
@@ -511,7 +501,7 @@ public:
         updateGridVelocity();
 
         // Boundary conditions
-        setBoundaryVelocities(1);
+        setBoundaryVelocities(4);
 
         // Transfer Grid to Particle (including particle)
         // TV Lg1 = computeGridMomentum(1);
@@ -526,16 +516,16 @@ public:
     {
         for(int frame=1; frame<max_frame; frame++) {
             std::cout << "Frame " << frame << std::endl;
-            if(frame % 20 == 0 && frame < 180) {
-                ms.addGeometry(sampledMesh);
-            }
+            // if(frame % 20 == 0 && frame > 0) {
+            //     ms.addGeometry(sampledMesh);
+            // }
             int N_substeps = (int)(((T)1/24)/dt);
             for (int step = 1; step <= N_substeps; step++) {
                 // std::cout << "Step " << step << std::endl;
                 transferParticleToGrid();
             }
-            mkdir("output-27k-particles-cube/", 0777);
-            std::string filename = "output-27k-particles-cube/" + std::to_string(frame) + ".poly";
+            mkdir("output/tearing-cube-3/", 0777);
+            std::string filename = "output/tearing-cube-3/" + std::to_string(frame) + ".poly";
             ms.dumpPoly(filename);
             std::cout << std::endl;
         }

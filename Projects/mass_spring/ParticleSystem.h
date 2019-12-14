@@ -27,7 +27,10 @@ public:
     T epsilon;
 
     MPM() {}
-
+    /**
+     * dumping poly files. 
+     * @param  {std::string} filename : 
+     */
     void dumpPoly(std::string filename)
     {
         std::ofstream fs;
@@ -49,6 +52,10 @@ public:
     }
 
     void addGeometry(const SampledMesh<T, dim> *mesh) 
+    /**
+     * This function is called inside of run every x seconds to generate new geometry (if wanted)
+     * @param mesh: 
+     */
     {
         m.insert(m.end(), mesh->m.begin(), mesh->m.end());
         x.insert(x.end(), mesh->x.begin(), mesh->x.end());

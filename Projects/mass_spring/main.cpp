@@ -11,6 +11,7 @@
 #include "SimulationDriver.h"
 #include "Sampling/Sampling.h"
 #include "Geometry/SampledMesh.h"
+#include "Geometry/PolyParser.h"
 
 int main(int argc, char* argv[])
 {
@@ -49,7 +50,7 @@ int main(int argc, char* argv[])
     std::vector<T> Vp0;
 
     // Set up particle attributes
-    T E = 5e4; // 1e5 good for sphere
+    T E = 1e4; // 1e5 good for sphere
     T nu = (T)0.3; // previously 0.3
     T mu = E/((T)2 * ((T)1 + nu));
     T lambda = E * nu / (((T)1 + nu)*((T)1 - (T)2 * nu));
@@ -78,11 +79,19 @@ int main(int argc, char* argv[])
 
     // Resampling to fit inside a box
     std::vector<TV> xp_new;
-    TV minCorner(TV(0.45, 0.7, 0.45));
-    TV maxCorner(TV(0.6, 0.95, 0.6));
+
+    // BOX
+    TV minCorner(TV(0.4, 0.7, 0.4));
+    TV maxCorner(TV(0.6, 1, 0.6));
     Sampling<T, dim>::selectInBox(xp_og, xp_new, minCorner, maxCorner);
+
+    // SPHERE
     // Sampling<T, dim>::sampleSphere(xp_new, Np, 0.1, 0.3);
-    
+
+    // OBJ
+    // PolyParser<T, dim> parser = PolyParser<T, dim>("mesh/torus-small.poly");
+    // xp_new = parser.x;
+
     Fp.resize(xp_new.size());
     mp.resize(xp_new.size());
     vp.resize(xp_new.size());
@@ -90,8 +99,8 @@ int main(int argc, char* argv[])
     Vp0.resize(xp_new.size(), vp0);
 
     for(int i = 0; i < xp_new.size(); i++) {
-        mp[i] = uniform_mass;
         vp[i] = TV::Zero();
+        mp[i] = uniform_mass;
         Fp[i] = Mat::Identity();
     }
 
@@ -104,10 +113,9 @@ int main(int argc, char* argv[])
 
     // Adding geometry to sampled geometry so we can continually add to the scene later
     SampledMesh<T, dim> sampledMesh(mp, xp_new, vp, Fp, Vp0);
-
     driver.sampledMesh = &sampledMesh;
 
-    driver.run(120);
+    driver.run(100);
 
     return 0;
     
