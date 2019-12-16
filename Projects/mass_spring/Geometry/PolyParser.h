@@ -6,7 +6,10 @@
 #include <cstring>
 using namespace std;
 
-// Class to parse a poly file and extract position information from it
+/**
+ * Class to parse a poly file and extract location information
+ * @param  {c []} undefined : 
+ */
 template<class T, int dim>
 class PolyParser {
 public:
