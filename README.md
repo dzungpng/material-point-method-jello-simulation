@@ -1,5 +1,7 @@
 # CIS563-Fall2019-Assignment
 
+![tearingJello](./Projects/mass_spring/Renders/test_render_jello_tearing.png)
+
 ## Download
 ```
 git clone https://github.com/cffjiang/cis563-2019-assignment
