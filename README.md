@@ -2,10 +2,6 @@
 
 ![tearingJello](./Projects/mass_spring/Renders/test_render_jello_tearing.png)
 
-## Download
-```
-git clone https://github.com/cffjiang/cis563-2019-assignment
-```
 
 ## Install Packages (Ubuntu)
 ```
@@ -17,7 +13,7 @@ sudo apt install libz-dev clang-format-6.0 xorg-dev libglu1-mesa-dev
 
 ## Build
 ```
-cd cis563-2019-assignment
+cd Material-point-method-jello-simulation
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=release && make -j 12
 ```
